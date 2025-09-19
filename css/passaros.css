@@ -1,0 +1,333 @@
+
+  .birds-carousel {
+    position: relative;
+    max-width: 700px;
+    margin: 40px auto;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .bird-btn {
+    flex: 0 0 100px;
+    background: #fff;
+    padding: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .bird-btn img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  .bird-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 4px 8px;
+    z-index: 2;
+  }
+  .arrow.left  { left: 0;  }
+  .arrow.right { right: 0; }
+
+/* Card de informações do pássaro */
+.info-passaro {
+  max-width: 600px;
+  margin: 30px auto;
+  margin-top: 120px;
+  padding: 25px;
+  background: #fff;
+  border: 2px solid #FFDE59;
+border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px);
+}
+
+.info-passaro.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Títulos e parágrafos do card */
+.info-passaro h2 {
+  color: #d94b59;
+  font-family: "chaloops";
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: -1px -1px 0 #FFFEBF, 1px -1px 0 #FFFEBF, -1px 1px 0 #FFFEBF, 1px 1px 0 #FFFEBF;
+}
+
+.info-passaro h3 {
+  font-size: 1.2rem;
+  font-family: "chaloops";
+  font-style: normal;
+font-weight: 100;
+color: #284275;
+letter-spacing: 0.5px;
+}
+
+.info-passaro p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 10px;
+ 
+}
+
+.info-passaro strong {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-weight: 900;
+ 
+}
+
+/* Letras das músicas */
+.info-passaro .lyrics {
+  margin-top: 20px;
+  background: #fffde6;
+  padding: 15px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #df7a16;
+}
+
+
+/* Container geral da parte de letras */
+.lyrics-container {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Cabeçalho clicável (Lírica + Seta) */
+.lyrics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "chaloops";
+  letter-spacing: 1px;
+  color: #D94B59;
+}
+
+
+.lyrics {
+  margin-top: 20px;
+  background: #fff4e6;
+  padding: 15px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #7a5a3a;
+}
+
+#lyricsPassaro {
+  display: none;
+  margin-top: 10px;
+}
+
+
+
+.foto-passaro {
+  width: 100%;
+  height: 200px; /* Altura fixa */
+  object-fit: cover;
+  object-position: top; /* <-- Isso foca no topo da imagem */
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Ajustar info-content para ficar só as informações de habitat etc */
+.info-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.info-textos {
+  text-align: left;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.vetor-passaro {
+  width: 120px; /* ou ajusta pra 100-150px dependendo do seu vetor */
+  height: auto;
+  margin-top: 100px;
+  border-radius: 12px;
+}
+
+/* NOVO: container da arte vetorial */
+.vetor-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+
+
+/* Botões internos */
+.info-passaro .btn {
+  margin-top: 15px;
+  margin-right: 10px;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+.info-passaro .btn-primary {
+  background: #59c1ff;
+  border-color: #59c1ff;
+}
+
+.info-passaro .btn-primary:hover {
+  background: #7fd8ff;
+}
+
+.info-passaro .btn-danger {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.info-passaro .btn-danger:hover {
+  background: #ff8787;
+}
+
+.info-passaro .btn-success {
+  background: #5cd27b;
+  border-color: #5cd27b;
+}
+
+.info-passaro .btn-success:hover {
+  background: #7be89a;
+}
+
+
+
+/* Estilo do Título */
+.titulo-passaros {
+  font-family: 'Chaloops', cursive;
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: bounce 2s infinite;
+  text-shadow: 2px 2px 0 #ffe780, 4px 4px 0 #ffde59;
+}
+
+/* Animação divertida */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+#circleMenu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  transition: all 0.3s ease;
+}
+
+
+.circle-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ffde59;
+  color: #d94b59;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.circle-btn.open {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.circle-item {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 50%;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease, top 0.4s ease, left 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.circle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.menu-container {
+  margin-top: 100px;
+}
+
+.foto-passaro {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Valor padrão, sobrescrito pelo JS */
+  object-position: center center; /* Valor padrão, sobrescrito pelo JS */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background: #f0f0f0; /* Cor de fundo se a imagem não cobrir */
+}
+
+.vetor-passaro {
+  width: 120px;
+  height: 120px;
+  object-fit: contain; /* Padrão (pode ser sobrescrito pelo JS) */
+  object-position: center center; /* Padrão */
+  transition: all 0.3s ease; /* Para efeitos hover */
+}
+
+/* Exemplo de hover (opcional) */
+.vetor-passaro:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+

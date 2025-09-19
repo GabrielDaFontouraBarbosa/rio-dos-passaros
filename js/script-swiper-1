@@ -1,0 +1,91 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Configuração Premium do Swiper
+    const swiper = new Swiper('.swiper-container', {
+        // Sistema inteligente de slides
+        slidesPerView: 'auto', // Ajusta automaticamente
+        centeredSlides: true,
+        spaceBetween: 30,
+        
+        // Calcula o slide central automaticamente
+        initialSlide: Math.floor(document.querySelectorAll('.swiper-slide').length / 2),
+        
+        // Efeito Visual Premium
+        effect: 'creative',
+        creativeEffect: {
+            prev: {
+                shadow: true,
+                translate: ['-120%', 0, -500],
+            },
+            next: {
+                shadow: true,
+                translate: ['120%', 0, -500],
+            }
+        },
+        
+        // Controles Avançados
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction', // Mostra "1/6" em vez de bolinhas
+        },
+        
+        // Otimizações de Performance
+        preloadImages: false,
+        lazy: {
+            loadPrevNext: true,
+            loadPrevNextAmount: 2,
+        },
+        
+        // Sistema Responsivo Inteligente
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                creativeEffect: {
+                    prev: {
+                        translate: ['-80%', 0, -200],
+                    },
+                    next: {
+                        translate: ['80%', 0, -200],
+                    }
+                }
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            }
+        }
+    });
+
+    // Sistema de Carregamento Premium para Iframes
+    const iframes = document.querySelectorAll('iframe');
+    
+    iframes.forEach((iframe, index) => {
+        // Pré-carrega os 3 iframes centrais
+        if(index >= swiper.activeIndex - 1 && index <= swiper.activeIndex + 1) {
+            iframe.setAttribute('loading', 'eager');
+        }
+        
+        // Efeito de loading profissional
+        const loader = document.createElement('div');
+        loader.className = 'iframe-loader';
+        iframe.parentNode.insertBefore(loader, iframe);
+        
+        iframe.addEventListener('load', () => {
+            iframe.style.opacity = 1;
+            loader.style.opacity = 0;
+            setTimeout(() => loader.remove(), 500);
+        });
+    });
+
+    // Sistema de Atualização em Tempo Real
+    const resizeObserver = new ResizeObserver(() => swiper.update());
+    resizeObserver.observe(document.querySelector('.swiper-container'));
+});

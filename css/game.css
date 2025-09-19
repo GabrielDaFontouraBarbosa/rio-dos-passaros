@@ -1,0 +1,266 @@
+/* ================================
+   Flappy Tie-Sangue — CSS atualizado
+   Base: seu arquivo original (expandido)
+   Comentários em PT-BR
+   ================================ */
+
+/* ========== Fontes ==========
+   Observação: você disse que as fontes estão dentro da pasta "css".
+   Ajuste o caminho se for diferente (ex.: './fonts/...' ou '/assets/fonts/...').
+*/
+@font-face {
+  font-family: 'Chaloops';
+  src: url('./css/Chaloops.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./css/Quicksand-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./css/Quicksand-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========== Variáveis / Theme ========== */
+:root {
+  --coral: #e53935;
+  --leaf: #2fb46a;
+  --muted: #6b7280;
+  --glass: rgba(255,255,255,0.88);
+  --card-shadow: 0 12px 44px rgba(14,30,37,0.12);
+  --radius-lg: 18px;
+  --radius-md: 10px;
+  --focus: 3px solid rgba(229,57,53,0.18);
+  
+
+  /* Aumentei o tamanho máximo padrão do canvas para desktop */
+  --max-width-canvas: 520px; /* altere para 600px/640px se quiser tela ainda maior */
+}
+
+/* ========== Reset / Base ========== */
+* { box-sizing: border-box; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+html, body { height: 100%; margin: 0; background: none; color: #0a2530; font-family: 'Quicksand', Arial, sans-serif; }
+
+/* Evita "scroll bounces" ao tocar - ajuda mobile */
+body { overscroll-behavior-y: none; }
+
+/* ============================= */
+/* Sessão Jogos - container geral */
+/* ============================= */
+#jogos {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  background: none;
+}
+
+/* título — força Chaloops com !important para destaque visual */
+#jogos h2 {
+  font-family: 'Chaloops', 'Quicksand', cursive !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  color: var(--coral);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #fff, 6px 6px 0 rgba(43,171,226,0.12);
+  animation: floatTitle 2400ms ease-in-out infinite alternate;
+  padding: 0.25rem 1rem;
+}
+@keyframes floatTitle {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px) rotate(-1deg); }
+}
+
+/* card do canvas - mais largo e visual limpo */
+.flappy-canvas-container {
+  background: var(--glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: calc(min(var(--max-width-canvas), 86vw) * 1.4);
+  width: min(1100px, 96%);
+  max-width: 720px; /* a largura do card, não a do canvas */
+  border: 1px solid rgba(14,30,37,0.04);
+  backdrop-filter: blur(6px);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* topbar com placar e controles */
+.flappy-topbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* placar — destacar com Chaloops */
+.score-display {
+  font-family: 'Chaloops', 'Quicksand', system-ui !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem;
+  color: #073642;
+  background: rgba(255,255,255,0.95);
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(6,48,54,0.06);
+  display: inline-block;
+}
+
+/* controles */
+.flappy-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* ========== Canvas ==========
+   Ajustes principais:
+   - largura maior por padrão (--max-width-canvas)
+   - altura proporcional um pouco maior (1.6) para mais espaço vertical
+   - touch-action: none para evitar gestos do browser que atrapalham
+   - limites máximos para não extrapolar a viewport em mobile
+*/
+#flappyTieCanvas {
+  display: block;
+  width: min(var(--max-width-canvas), 96vw);
+  height: calc(min(var(--max-width-canvas), 96vw) * 1.6); /* mais alto que 1.5 para jogar mais confortável */
+  max-height: calc(100vh - 220px); /* garante que o canvas não ocupe toda a tela em mobile */
+  background: transparent;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(6,48,54,0.12), inset 0 -6px 18px rgba(255,255,255,0.12);
+  border: 6px solid rgba(255,255,255,0.6);
+  touch-action: none;
+  -ms-touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  image-rendering: optimizeSpeed;
+  margin: 0 auto;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* UI do jogo (botões, scoreboard futuro) */
+.flappy-btns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* botão principal — Chaloops forte e interações */
+#startFlappyBtn {
+  font-family: 'Chaloops', 'Quicksand', system-ui !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.6rem;
+  background: linear-gradient(180deg, var(--coral), #e33d56);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(227,61,86,0.16);
+  transition: transform .14s ease, box-shadow .14s ease;
+  outline: none;
+}
+#startFlappyBtn:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(43,171,226,0.12); }
+#startFlappyBtn:active { transform: translateY(0) scale(.995); }
+#startFlappyBtn:focus { box-shadow: var(--focus); border-radius:12px; }
+
+/* botão secundário */
+.btn-secondary {
+  font-family: 'Quicksand', Arial, sans-serif;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--leaf);
+  border: 2px solid rgba(56,181,212,0.12);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* instruções */
+.flappy-instructions {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  box-shadow: 0 6px 14px rgba(47,180,106,0.04);
+  width: 100%;
+}
+
+/* overlay de pausa / game over — Chaloops visível */
+.canvas-overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 1.2rem;
+  background: rgba(3, 58, 68, 0.85);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 700;
+  display: none;
+  z-index: 999;
+  text-align: center;
+  font-family: 'Chaloops', system-ui !important;
+  font-size: clamp(1rem, 2.6vw, 1.4rem);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* utilitários */
+.center { display: flex; align-items: center; justify-content: center; }
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+
+/* =============================
+   Responsividade — tablets / mobile
+   ============================= */
+@media (max-width: 920px) {
+  .flappy-canvas-container { max-width: 640px; padding: 1rem; }
+  :root { --max-width-canvas: 480px; } /* reduz um pouco para telas menores */
+}
+
+@media (max-width: 720px) {
+  .flappy-canvas-container { padding: 0.85rem; border-radius: 12px; max-width: 440px; }
+  #flappyTieCanvas {
+    width: min(420px, 96vw);
+    height: calc(min(420px, 96vw) * 1.6);
+    max-height: calc(100vh - 160px);
+  }
+  #startFlappyBtn { padding: 0.6rem 1.2rem; font-size: 1rem; border-radius: 10px; }
+  .score-display { font-size: 1rem; padding: 0.45rem 0.7rem; }
+  .canvas-overlay-text { font-size: 1.05rem; padding: 0.9rem 1.1rem; }
+}
+
+/* redução de animações para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+

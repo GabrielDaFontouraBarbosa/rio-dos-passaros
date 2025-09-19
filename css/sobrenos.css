@@ -1,0 +1,312 @@
+/* === CONTAINER PRINCIPAL === */
+
+.sobre-intro p {
+  font-size: 18px;
+}
+.sobre-container {
+  width: 70%;
+  max-width: 900px;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  gap: 20px;
+}
+
+/* === CAIXA VERDE === */
+.container-verde {
+  background-color: #ffffff;
+  background-size: 4px 4px;
+  background-image: repeating-linear-gradient(45deg, #f9fced 0, #e3e6d6 0.4px, #ffffff 0, #ffffff 50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border: 2px solid #E1E3AE;
+  width: 100%;
+  padding: 50px;
+  margin: 20px auto;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+/* === TEXTO === */
+.conteudo-esquerdo {
+  flex: 1;
+}
+
+.conteudo-esquerdo p {
+  font-family: 'Quicksand', sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: auto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 10px 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+.conteudo-esquerdo b {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #FE3C50;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* === CAIXA DA IMAGEM === */
+.caixa-vermelha {
+  margin-left: 20px;
+  background-color: #fff;
+}
+
+/* === IMAGENS INTERNAS - POSICIONAMENTO POR DIREÇÃO DO CONTAINER === */
+.container-verde.esquerda .col-img {
+  order: -1;
+  margin-right: 30px;
+}
+
+.container-verde.direita .col-img {
+  order: 1;
+  margin-left: 30px;
+}
+
+/* === CLASSES ESPECÍFICAS DAS IMAGENS === */
+.foto-george {
+  width: 300px;
+  height: 300px;
+}
+
+.foto-escola {
+  width: 300px;
+  height: 300px;
+}
+
+
+.foto-equipe {
+  width: 300px;
+  height: 200px;
+}
+
+
+.foto-mari-george {
+  width: 400px;
+  height: 200px;
+}
+
+/* === ESTILO BASE DE TODAS IMAGENS DENTRO DE .col-img === */
+.col-img img {
+  object-fit: cover;
+  border-radius: 25px;
+  border: 5px solid #6DB3E5;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* === TÍTULOS COMO IMAGEM === */
+.titulo-sobre-esquerdo {
+  width: 300px;
+  float: left;
+  margin-top: -100px;
+  margin-bottom: 20px;
+}
+
+.titulo-sobre-direito {
+  width: 300px;
+  float: right;
+  margin-top: -100px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.titulo-secao {
+  width: 300px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+
+
+
+/* === CONTATO COM LAYOUT FLEX === */
+.contato-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.contato-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 900px;
+  width: 100%;
+  padding: 30px;
+  border: 2px solid #e3e6d6;
+  border-radius: 25px;
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(45deg, #f9fced 0, #e3e6d6 0.4px, #ffffff 0, #ffffff 50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* importante! */
+}
+
+/* imagem do lado no desktop */
+.contato-imagem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contato-img {
+  width: 200px;
+  max-width: 100%;
+}
+
+/* form e título agrupados */
+.contato-form-box {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contato-titulo {
+  font-family: 'Chaloops', cursive;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+  transition: 0.2s ease-in-out;
+}
+
+.contato-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  border-color: #6DB3E5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(109, 179, 229, 0.4);
+}
+
+.contato-form button {
+  padding: 12px;
+  background-color: #6DB3E5;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contato-form button:hover {
+  background-color: #4d94c6;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .container-verde {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container-verde.esquerda .col-img,
+  .container-verde.direita .col-img {
+    order: 0;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .col-img img {
+    width: 80% !important;
+    max-width: 300px;
+    height: auto !important;
+  }
+
+  .foto-mari-george {
+    max-width: 90%;
+  }
+
+  .conteudo-esquerdo {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .conteudo-esquerdo p {
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 5px 0;
+  }
+
+  .conteudo-esquerdo b {
+    font-size: 13px;
+  }
+
+  .titulo-sobre-esquerdo,
+  .titulo-sobre-direito {
+    float: none !important;
+    display: block;
+    margin: 0 auto 10px auto !important;
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .titulo-secao {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+  }
+  .contato-form {
+    width: 100%;
+  }
+
+  .contato-form input,
+.contato-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+  .contato-conteudo {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .contato-imagem {
+    justify-content: center;
+  }
+
+  .contato-img {
+    width: 120px;
+  }
+
+  .contato-titulo {
+    font-size: 24px;
+  }
+
+
+}

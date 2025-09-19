@@ -1,0 +1,101 @@
+.header-container {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 38vh, 420px); /* banner responsivo verticalmente */
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sky-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('../images/Banner/arrombado.jpg') center/cover no-repeat !important;
+  z-index: 1;
+}
+
+.logo-nuvem {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-44%);
+  z-index: 2;
+  width: clamp(200px, 26vw, 500px);
+}
+
+.criancas-banner {
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  height: clamp(180px, 25vh, 320px); /* antes: 150px ~ 260px */
+  z-index: 3;
+}
+
+.george-banner {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  height: clamp(200px, 28vh, 340px); /* antes: 170px ~ 280px */
+  z-index: 3;
+}
+
+.passaros-atras {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-52%);
+  width: 80vw;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.passaros-frente {
+  position: absolute;
+  top: clamp(180px, 28vh, 300px);
+  left: 0;
+  width: 100vw;
+  height: auto;
+  z-index: 6;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) and (max-width: 1400px) {
+  .logo-nuvem {
+    top: 20%;
+    left: 20%;
+    transform: translateX(0);
+    width: clamp(250px, 30vw, 400px);
+  }
+
+  .george-banner {
+    right: 5%;
+    height: 280px;
+  }
+
+  .criancas-banner,
+  .passaros-atras,
+  .passaros-frente {
+    display: none !important;
+  }
+}
+
+/* === MEDIA QUERIES opcional === */
+@media (max-width: 769px) {
+  .criancas-banner,
+  .passaros-atras,
+  .passaros-frente {
+    display: none !important;
+  }
+
+  .george-banner {
+    right: 10%;
+    height: 180px;
+  }
+
+  .logo-nuvem {
+    top: 10%;
+  }
+}

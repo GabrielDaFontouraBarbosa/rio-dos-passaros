@@ -1,0 +1,139 @@
+/* === DESKTOP PADRÃO === */
+.mobile-header,
+.menu-toggle {
+  display: none;
+}
+
+.navbar {
+  height: 160px;
+  width: 100%;
+  background-image: url('../images/nuvem_navbar_4.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: center top;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background-image: url('../images/nuvem_navbar_4.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.navbar li {
+  padding: 15px;
+}
+
+.navbar a {
+  font-family: 'chaloops', 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/nuvem-plain5.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 180px;
+  height: 100px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #4B0082;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+  filter: drop-shadow(5px 4px 6px rgba(84, 102, 151, 0.7));
+}
+
+.navbar li:nth-child(2) a { color: #d124a1; }
+.navbar li:nth-child(3) a { color: #1e6dc6; }
+.navbar li:nth-child(4) a { color: #c57f0a; }
+.navbar li:nth-child(5) a { color: #238c94; }
+
+.navbar a:hover {
+  transform: scale(1.1);
+}
+
+
+/* === MOBILE E TABLET === */
+@media screen and (max-width: 1024px) {
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #78b6f2;
+    height: 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 100;
+  }
+
+  .menu-toggle {
+    display: flex;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+
+  .navbar {
+    position: relative;
+    height: auto;
+    background: none;
+    padding: 0;
+    z-index: 90;
+  }
+
+  .navbar::after {
+    display: none;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #004285;
+  }
+
+  .navbar.show ul {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  .navbar a {
+    font-size: 20px;
+    width: 90%;
+    height: 70px;
+    background-size: 90% auto;
+    margin: 0 auto;
+  }
+}

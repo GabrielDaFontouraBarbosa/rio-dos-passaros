@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Rio dos Pássaros</title>
+  <!-- Vincula ao CSS de login -->
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <img src="./images/Logomarca TRSP.png" alt="Logo Rio dos Pássaros" class="logo"/>
+    <h2>Área Administrativa</h2>
+
+    <!-- Form de login -->
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+       <button onclick="window.location.href='index.html'" class="back-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7 7-7m8 14v-4a4 4 0 00-4-4H3" />
+    </svg>
+    Voltar
+  </button>
+    </form>
+
+    <!-- Parágrafo para exibir mensagem de erro -->
+    <p id="loginError" class="error-message"></p>
+  </div>
+
+  
+
+
+
+
+  <!-- Vincula ao JS de login -->
+  <script src="./js/script-login.js"></script>
+</body>
+</html>
