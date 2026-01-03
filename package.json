@@ -2,7 +2,8 @@
   "dependencies": {
     "lightgallery": "^2.8.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

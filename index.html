@@ -28,851 +28,143 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/sobrenos.css">
-    <link rel="stylesheet" href="css/passaros.css">
-    <link rel="stylesheet" href="css/galeria.css">
     <link rel="stylesheet" href="css/barco.css">
     <link rel="stylesheet" href="css/socialbotoes.css">
     <link rel="stylesheet" href="css/loading.css">
-    <link rel="stylesheet" href="css/game.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" href="css/video-section.css">
 
-    <!-- PhotoSwipe core CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-
-    <!-- Áudio oculto -->
-    <audio id="playerPiado" hidden></audio>
-
-    <!-- Scripts externos -->
-    <script src="js/script-quiz.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!--           ConveyThis Script Start         -->
-<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_32e59b19a6e5ba1fcfad9e035d1e9acc"></script>
-<!--           ConveyThis Script End         -->
-    
-     <!-- CSS do Justified Gallery (para organizar as miniaturas) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"
-  />
-<!-- CSS principal do lightGallery -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.0/css/lightgallery.min.css"
-  />
-
-  <!-- (Plugins de Zoom e Thumbnail do lightGallery) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/lg-zoom@2.3.0/css/lg-zoom.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/lg-thumbnail@2.2.0/css/lg-thumbnail.min.css"
-  />
-
-  <!-- Favicon -->
-   <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
 
     <!-- Meta Tags para SEO -->
     <meta name="description" content="Descubra o Rio dos Pássaros, um projeto educativo que encanta crianças e adultos com música, diversão e consciência ambiental. Conheça nossos pássaros e participe da nossa jornada!">
-    <meta name="keywords" content="pássaros, educação, natureza, música, crianças, Rio dos Pássaros">
+    <meta name="keywords" content="pássaros, education, natureza, música, crianças, Rio dos Pássaros">
     <meta name="author" content="George Pretyman">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Rio dos Pássaros">
-    <meta property="og:description" content="Descubra o Rio dos Pássaros, um projeto educativo que encanta crianças e adultos com música, diversão e consciência ambiental. Conheça nossos pássaros e participe da nossa jornada!">
-    <meta property="og:image" content="images/Banner/logov2.png">
-    <meta property="og:url" content="https://www.riodospassaros.com.br">
 </head>
 
-<!--Body-->
 <body>
+    <!-- BANNER -->
+    <header class="header-container">
+        <div class="sky-bg"></div>
+        <img src="images/Banner/logov2.png" class="logo-nuvem">
+        <img src="images/Banner/criancas.png" class="criancas-banner">
+        <img src="images/Banner/georgeeneto.png" class="george-banner">
+        <img src="images/Banner/passaros-tras.png" class="passaros-atras">
+    </header>
 
-    <!-- AVISO DE CONSTRUÇÃO -->
-  <div id="avisoConstrucao" class="overlay">
-    <div class="aviso-container">
-      <button class="close-btn" onclick="fecharAviso()">×</button>
-      <h2>Confira o vídeo do Tiê-Sangue!</h2>
-      <div style="width:100%; max-width:560px; margin:auto;">
-        <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:16px;">
-          <iframe 
-            src="https://www.youtube.com/embed/2OT1y1yLQvk?si=lZbji7PTx8jxTNOJ" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen
-            style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:16px;">
-          </iframe>
+    <!-- NAVBAR -->
+    <div class="mobile-header">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ Menu
         </div>
-      </div>
-       <button onclick="window.open('https://youtu.be/2OT1y1yLQvk?si=lZbji7PTx8jxTNOJ', '_blank')" style="margin:10px 0; padding:12px 32px; background:#e74c3c; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:1.1em;">
-      Assistir no YouTube
-      </button>
-  <img src="images/tie sangue bonitinho.png" alt="Tiê Sangue" style="height:220px; position: relative; top: 30px;">
-</div>
-      
-    <!-- Script -->
-     <script>
-  function fecharAviso() {
-    document.getElementById("avisoConstrucao").style.display = "none";
-  }
-
-  window.addEventListener('load', () => {
-    document.getElementById("avisoConstrucao").style.display = "flex";
-  });
-</script>
-
-
     </div>
-
-  <!-- BANNER -->
-  <header class="header-container">
-    <div class="sky-bg"></div> <!-- Fundo -->
-    <img src="images/Banner/logov2.png" class="logo-nuvem">
-    <img src="images/Banner/criancas.png" class="criancas-banner">
-    <img src="images/Banner/georgeeneto.png" class="george-banner">
-    <img src="images/Banner/passaros-tras.png" class="passaros-atras">
-  </header>
-
-  <!-- NAVBAR -->
-  <div class="mobile-header">
-    <div class="menu-toggle" onclick="toggleMenu()">
-      ☰ Menu
-    </div>
-  </div>
-  
+    
     <nav class="navbar"> 
         <ul>
-          <li><a id="btnHome" href="#">Início</a></li>
-          <li><a id="btnSobreNos" href="#">Sobre Nós</a></li>
-          <li><a id="btnPassaros" href="#">Pássaros</a></li>
-          <li><a id="btnGaleria" href="#">Galeria</a></li>
-          <li><a id="btnJogos">Jogos</a></li>
+            <li><a id="btnHome" href="#">Início</a></li>
+            <li><a id="btnSobreNos" href="#">Sobre Nós</a></li>
         </ul> 
     </nav>
 
     <section id="home">
-  <!-- BLOCO DE APRESENTAÇÃO -->
-  <div class="bloco-apresentacao">
-    
-    <div class="conteudo-superior">
-      <!-- Lado esquerdo com imagem -->
-      <div class="lado-esquerdo">
-        <img src="./images/gifs/violao_branco.gif" alt="George e os pássaros">
-      </div>
-      
-      <!-- Lado direito com texto -->
-      <div class="lado-direito">
-        <h1>Bem-vindo ao Rio dos Pássaros!</h1>
-        <p>Seja bem-vindo ao Rio dos Pássaros, um universo encantado onde a natureza e a educação se encontram!</p>
-        <p>Criado em 2010 por George Pretyman, nosso projeto nasceu com a missão de aproximar crianças da biodiversidade brasileira, despertando a curiosidade e o respeito pelos pássaros.</p>
-        <p>Acreditamos que conhecer é o primeiro passo para proteger: quando as crianças aprendem sobre os pássaros, elas desenvolvem um olhar mais consciente e amoroso pelo meio ambiente.</p>
-      </div>
-    </div>
-
-    <!-- Rodapé do bloco de apresentação -->
-    <div class="rodape-apresentacao">
-      <img src="./images/livros1.png" style="padding: 10px; padding-top: 20px; padding-left: 20px; float: right; height: 100px;">
-      <img src="./images/globo.png" style="padding: 10px; padding-right: 20px; float: left; height: 110px;">
-      <p>
-        Nosso trabalho vai além das telas! Levamos música, aprendizado e diversão para escolas do Rio de Janeiro, criando momentos inesquecíveis entre crianças, pais e professores. 
-        <b>Quer levar essa experiência para sua escola?</b> Entre em contato e embarque nessa jornada conosco!
-      </p>
-    </div>
-  </div>
-
-  <!-- RDP — Chamada do Quiz (central hero) -->
-<section class="rdp-quiz-wrap">
-  <!-- decorações laterais -->
-  <img class="rdp-quiz__dec rdp-quiz__dec--left" src="images/svg/george.svg" alt="" aria-hidden="true" />
-  <img class="rdp-quiz__dec rdp-quiz__dec--right" src="images/svg/passaro-vetor.svg" alt="" aria-hidden="true" />
-
-  <div class="rdp-quiz rdp-quiz--xl">
-    <div class="rdp-quiz__icon" aria-hidden="true">🐦</div>
-
-    <div class="rdp-quiz__info">
-      <h2 class="rdp-quiz__title">Quiz do Rio dos Pássaros</h2>
-      <p class="rdp-quiz__text">Topa testar seus conhecimentos sobre nossas aves?</p>
-    </div>
-
-    <div class="rdp-quiz__actions">
-      <a class="rdp-quiz__btn" href="/quiz/index.html">Ir para o Quiz</a>
-    </div>
-  </div>
-</section>
-
-  
-   <img src="images/joaodebarrogalho.png" alt="João-De-Barro" class="joao-objeto">
-<img src="images/coleirinho.png" alt="Coleiro" class="coleiro-objeto">
-  
-
-  <!-- BLOCO DE VÍDEOS -->
-
-      <div class="bg-videos-scroll"></div>
-  <div class="bloco-videos">
-    <div class="titulo-infantil">
-   
-      <h1 class="titulo-magico">
-        Vídeos<br><span class="destaque-divertido">Divertidos!</span>
-      </h1>
-    </div>
-
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <!-- Slides com vídeos -->
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Pássaro Preto" src="https://www.youtube.com/embed/79PxStGU0wY" allowfullscreen loading="lazy"></iframe>
-          </div>
+        <!-- BLOCO DE APRESENTAÇÃO -->
+        <div class="bloco-apresentacao">
+            <div class="conteudo-superior">
+                <div class="lado-esquerdo">
+                    <img src="./images/gifs/violao_branco.gif" alt="George e os pássaros">
+                </div>
+                <div class="lado-direito">
+                    <h1>Bem-vindo ao Rio dos Pássaros!</h1>
+                    <p>Seja bem-vindo ao Rio dos Pássaros, um universo encantado onde a natureza e a educação se encontram!</p>
+                    <p>Criado em 2010 por George Pretyman, nosso projeto nasceu com a missão de aproximar crianças da biodiversidade brasileira, despertando a curiosidade e o respeito pelos pássaros.</p>
+                    <p>Acreditamos que conhecer é o primeiro passo para proteger: quando as crianças aprendem sobre os pássaros, elas desenvolvem um olhar mais consciente e amoroso pelo meio ambiente.</p>
+                </div>
+            </div>
+            <div class="rodape-apresentacao">
+                <img src="./images/livros1.png" style="padding: 10px; padding-top: 20px; padding-left: 20px; float: right; height: 100px;">
+                <img src="./images/globo.png" style="padding: 10px; padding-right: 20px; float: left; height: 110px;">
+                <p>
+                    Nosso trabalho vai além das telas! Levamos música, aprendizado e diversão para escolas do Rio de Janeiro, criando momentos inesquecíveis entre crianças, pais e professores. 
+                    <b>Quer levar essa experiência para sua escola?</b> Entre em contato e embarque nessa jornada conosco!
+                </p>
+            </div>
         </div>
 
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Canário Da Terra" src="https://www.youtube.com/embed/qYA-fpSCv60" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
+        <!-- VIDEO PLAYER SECTION -->
+        <section class="video-section">
+            <div class="video-section-header">
+                <h2 class="titulo-magico">Vídeos do Rio</h2>
+                <div class="search-container">
+                    <input type="text" id="videoSearch" class="search-input" placeholder="Buscar pássaro...">
+                    <select id="birdDropdown" class="bird-dropdown">
+                    </select>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="main-video">
+                    <iframe id="mainPlayer" class="main-video-player" src="https://www.youtube.com/embed/79PxStGU0wY" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-thumbnails" id="videoThumbnails">
+                </div>
+            </div>
+        </section>
 
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Curió" src="https://www.youtube.com/embed/WIN-R_c_Iuk" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Gaivota" src="https://www.youtube.com/embed/vWR-HemrhrY?si=kbwWqnawLJj14l-t" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Araponga"src="https://www.youtube.com/embed/zfTYHufyaF4?si=0o1uXixxb0TKnZMu" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Quero-Quero"src="https://www.youtube.com/embed/uqcG-IsYbRk?si=VG-DrEBuYdndciWu" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Rio Dos Pássaros"src="https://www.youtube.com/embed/uI_I_ApJdpo?si=fTiax9LdtgByW_SC" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Coleiro"src="https://www.youtube.com/embed/RwZU5FWuZs4?si=am3JUVkvJLB2jSd1" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="João-De-Barro"src="https://www.youtube.com/embed/1XRdkVp__XA?si=N-ZwL1hF21yuXl5Z" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Tico-Tico"src="https://www.youtube.com/embed/VN5UprvbgqQ?si=VscFQ6kDksmruiWx" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Arara"src="https://www.youtube.com/embed/WEtqdGiHpZI?si=ZL01kfRtQd8EyzV6" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Papagaio"src="https://www.youtube.com/embed/YPnhVCAh3s0?si=wMqfzylYEePfjnMF" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Bacurau"src="https://www.youtube.com/embed/hwdDw3OqqUc?si=InY_8R-LKk4fVI5H" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Beija-Flor"src="https://www.youtube.com/embed/cbdLm7vGpqI?si=n0bzwZfW0v3AQiPy" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Sabiá"src="https://www.youtube.com/embed/cbdLm7vGpqI?si=ySMMjaZMt3wd-CNX" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Inhambu"src="www.youtube.com/embed/4lhFJbviAhI?si=_VQn1Adl0rEAalC2" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Uirapuru"src="https://www.youtube.com/embed/o6lzIXCvpoo?si=v9-Z9bNEqPsirWI8" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Tiziu" src="https://www.youtube.com/embed/xkxl0binH0I?si=-cDhV4tM4TSwUeYO" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Bem-te-vi"src="https://www.youtube.com/embed/z3jwepapUcY?si=M3tT9KkI3vSBIpfR" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Natal Dos Pássaros"src="https://www.youtube.com/embed/ZJQkGaVIy1I?si=8rKkKdrhZONgMMmz" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Tiê-Sangue"src="https://www.youtube.com/embed/2OT1y1yLQvk?si=dZ0oad_t-S-Jplwq" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="iframe-container">
-            <iframe alt="Sem-Fim" src="https://www.youtube.com/embed/n5_gkV_cjqg?si=qpQ54ak-Irs-UJyQ" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
-
-      <!-- Controles do Swiper -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-  <!-- Botão com ícone de login -->
-<button onclick="window.location.href='login.html'" class="login-btn" aria-label="Login de administrador">
-  <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
-       viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M15 12H3m0 0l4-4m-4 4l4 4m10 4h2a2 2 0 002-2V6a2 2 0 00-2-2h-2" />
-  </svg>
-</button>
-
-<div id="google_translate_element">
-  <span class="idioma-chaloops">Idioma</span>
-</div>
-
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'pt',
-      includedLanguages: 'pt,en,es,fr,it,de,ru,zh-CN,ja', // coloque os idiomas que você quiser
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-</script>
-
-<script type="text/javascript" 
-  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-
-</section>
-
-
-
-
-  <!--SOBRE NÓS-->
-
-          <section id="sobre">
+        <!-- SOBRE NÓS -->
+        <section id="sobre">
             <div class="sobre-container">
-              <img src="./images/1x/sobrenos3.png" style=" width:300px ; margin-top: -60px;" class="titulo-secao">
-              <div class="sobre-intro"><p>
-                O Rio dos Pássaros nasceu do amor pela natureza e do desejo de 
-                compartilhar esse encanto com o mundo! Aqui a gente coloca um texto introdutório sobre o projeto.
-              </p></div>
-              <br><Br>
-          
-              <!-- BLOCO 1 — imagem à direita -->
-              <div class="container-verde direita" style="margin-top: 50px;">
-                <div class="conteudo-esquerdo">
-                  <img src="./images/1x/oprojeto.png" class="titulo-sobre-esquerdo">
-                 
-                  <p>
-                    O fundador, <b>George Pretyman</b>, cresceu cercado 
-                    por culturas diferentes, mas sempre teve um olhar especial para o Brasil e sua riquíssima 
-                    biodiversidade. Ao retornar ao país, transformou sua paixão pelos pássaros em um projeto 
-                    educativo que une música, diversão e consciência ambiental. Hoje, o <b>Rio dos Pássaros</b> é 
-                    um convite para crianças e adultos redescobrirem a magia da natureza!
-                  </p>
+                <img src="./images/1x/sobrenos3.png" style=" width:300px ; margin-top: -60px;" class="titulo-secao">
+                <div class="sobre-intro">
+                    <p>O Rio dos Pássaros nasceu do amor pela natureza e do desejo de compartilhar esse encanto com o mundo!</p>
                 </div>
-                <div class="caixa-vermelha"> 
-                  <div class="col-img">
-                    <img src="./images/fotogeorge.jpg" class="foto-george" alt="George com crianças">
-                  </div>
+                <div class="container-verde direita" style="margin-top: 50px;">
+                    <div class="conteudo-esquerdo">
+                        <img src="./images/1x/oprojeto.png" class="titulo-sobre-esquerdo">
+                        <p>O fundador, <b>George Pretyman</b>, transformou sua paixão pelos pássaros em um projeto educativo que une música, diversão e consciência ambiental.</p>
+                    </div>
+                    <div class="caixa-vermelha"> 
+                        <div class="col-img">
+                            <img src="./images/fotogeorge.jpg" class="foto-george" alt="George">
+                        </div>
+                    </div>
                 </div>
-              </div>
-          
-              <br><br>
-          
-              <!-- BLOCO 2 — imagem à direita -->
-              <div class="container-verde direita">
-                <div class="conteudo-esquerdo">
-                  <img src="./images/1x/aequipe.png" class="titulo-sobre-esquerdo">
-                  <p>
-                    No Rio dos Pássaros, acreditamos que educar é transformar!
-                  </p>
-                  <p>
-                    Nossa missão é despertar nas crianças o amor e o respeito pela natureza através da arte, da música e da interatividade. Cada conteúdo que criamos é pensado para aproximar os pequenos da biodiversidade brasileira de forma lúdica e inspiradora. Queremos que cada criança sinta-se parte desse universo e leve esse conhecimento para a vida!
-                  </p>
-                </div>
-                <div class="caixa-vermelha">
-                  <div class="col-img">
-                    <img src="./images/imagem-mari-george.jpeg" class="foto-equipe" alt="Atividade na escola">
-                  </div>
-                </div>
-              </div>
-            <!-- BLOCO 2 — imagem à direita -->
-            <div class="container-verde direita">
-              <div class="conteudo-esquerdo">
-                <img src="./images/1x/nossamissao3.png" class="titulo-sobre-esquerdo">
-                <p>
-                  No Rio dos Pássaros, acreditamos que educar é transformar!
-                </p>
-                <p>
-                  Nossa missão é despertar nas crianças o amor e o respeito pela natureza através da arte, da música e da interatividade. Cada conteúdo que criamos é pensado para aproximar os pequenos da biodiversidade brasileira de forma lúdica e inspiradora. Queremos que cada criança sinta-se parte desse universo e leve esse conhecimento para a vida!
-                </p>
-              </div>
-              <div class="caixa-vermelha">
-                <div class="col-img">
-                  <img src="./images/imagem-escola.jpeg" class="foto-escola" alt="Atividade na escola">
-                </div>
-              </div>
             </div>
-              <br><br>
-          
-              <!-- BLOCO 3 — imagem à esquerda -->
-              <div class="container-verde esquerda">
-                <div class="conteudo-esquerdo">
-                  <img src="./images/1x/compromisso.png" class="titulo-sobre-direito">
-                  <p>
-                    Nosso objetivo é inspirar crianças e adultos a conhecerem, respeitarem e preservarem a natureza, despertando o olhar para a beleza e a importância do meio ambiente.
-                  </p>
+        </section>
+
+        <!-- CONTATO -->
+        <div class="contato-container">
+            <div class="contato-conteudo">
+                <div class="contato-imagem">
+                    <img src="images/img-01.png" alt="Passarinho" class="contato-img">
                 </div>
-                <div class="caixa-vermelha">
-                  <div class="col-img">
-                    <img src="./images/fotocompromisso.jpeg" class="foto-mari-george" alt="Mari e George">
-                  </div>
-                </div>
-              </div>
-    
-
-                <!-- CONTATO -->
-
-
-              <div class="contato-container">
-                <div class="contato-conteudo">
-                  
-                  <div class="contato-imagem">
-                    <img src="images/img-01.png" alt="Passarinho carteiro" class="contato-img">
-                  </div>
-              
-                  <div class="contato-form-box">
+                <div class="contato-form-box">
                     <h2 class="contato-titulo">Entre Em Contato</h2>
-              
                     <form class="contato-form" action="contato.php" method="POST">
-                      <input type="text" name="name" placeholder="Nome" required>
-                      <input type="email" name="email" placeholder="Email" required>
-                      <input type="text" name="subject" placeholder="Assunto" required>
-                      <textarea name="message" placeholder="Mensagem" required></textarea>
-                      <button type="submit">Mandar Email</button>
+                        <input type="text" name="name" placeholder="Nome" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <textarea name="message" placeholder="Mensagem" required></textarea>
+                        <button type="submit">Enviar</button>
                     </form>
-                  </div>
                 </div>
-              </div>
-
-              
-              
-    </section>
-    
-    <!--   PÁSSAROS   -->
-    <section id="passaros" class="passaros text-center p-3">
-      <h2 class="titulo-passaros">Conheça Nossos Pássaros!</h2>
-      <div class="birds-carousel">
-        <button class="arrow left">&#10094;</button>
-        <div class="carousel-track">
-          <!-- Repita este pattern para cada pássaro -->
-          <button class="bird-btn" data-bird="Canário">
-            <img src="./images/sessaopassaros/CANARIO.png" alt="Canário">
-          </button>
-          <button class="bird-btn" data-bird="Sabiá">
-            <img src="./BOTÕES SITE/Sabiá.png" alt="Sabiá">
-          </button>
-          <button class="bird-btn" data-bird="Tiziu">
-            <img src="./BOTÕES SITE/tiziu.png" alt="Tiziu">
-          </button>
-          <button class="bird-btn" data-bird="Araponga">
-            <img src="./BOTÕES SITE/Araponga.png" alt="Araponga">
-          </button>
-          <button class="bird-btn" data-bird="Beija-Flor">
-            <img src="./BOTÕES SITE/beijaflores.png" alt="Beija-Flor">
-          </button>
-          <button class="bird-btn" data-bird="Coleiro">
-            <img src="./BOTÕES SITE/Coleiro.png" alt="Coleiro">
-          </button>
-          <button class="bird-btn" data-bird="Quero-Quero">
-            <img src="./BOTÕES SITE/queroquero.png" alt="Quero-Quero">
-          </button>
-          <button class="bird-btn" data-bird="Bem-Te-Vi">
-            <img src="./BOTÕES SITE/Bem-te-vi.png" alt="Bem-Te-Vi">
-          </button>
-          <button class="bird-btn" data-bird="Tico-Tico">
-            <img src="./BOTÕES SITE/ticotico.png" alt="Tico-Tico">
-          </button>
-          <button class="bird-btn" data-bird="Papagaio">
-            <img src="./BOTÕES SITE/PAPAGAIO.png" alt="Papagaio">
-          </button>
-          <button class="bird-btn" data-bird="Arara">
-            <img src="./BOTÕES SITE/arara.png" alt="Arara">
-          </button>
-          <button class="bird-btn" data-bird="Uirapuru">
-            <img src="./BOTÕES SITE/UIRAPURU.png" alt="Uirapuru">
-          </button>
-          <button class="bird-btn" data-bird="Curió">
-            <img src="./BOTÕES SITE/CURIO.png" alt="Curió">
-          </button>
-          <button class="bird-btn" data-bird="Sem-Fim">
-            <img src="./BOTÕES SITE/SEMFIM.png" alt="Sem-Fim">
-          </button>
-          <button class="bird-btn" data-bird="Tangará">
-            <img src="./BOTÕES SITE/ticotico.png" alt="Tangará">
-          </button>
-          <button class="bird-btn" data-bird="Tiê-Sangue">
-            <img src="./BOTÕES SITE/TIESANGUE.png" alt="Tiê-Sangue">
-          </button>
-        </div>
-        <button class="arrow right">&#10095;</button>
-      </div>
-
-    <div id="infoPassaro" class="info-passaro">
-      <img id="fotoRealPassaro" class="foto-passaro" src="" alt="Foto do pássaro">
-      
-      <h2 id="nomePassaro"></h2>
-      <h3 id="descricaoPassaro"></h3> <!-- Descrição ocupa 100% da largura -->
-
-      <!-- BLOCO info-content: aqui fica o vetor ao lado -->
-      <div class="info-content">
-        <div class="info-textos">
-          <p id="habitatPassaro"><strong>Habitat Natural:</strong> <span></span></p>
-          <p id="localBrasilPassaro"><strong>Local no Brasil:</strong> <span></span></p>
-          <p id="biomaPassaro"><strong>Bioma:</strong> <span></span></p>
-          <p id="coloracaoPassaro"><strong>Coloração:</strong> <span></span></p>
-          <p id="baseNutricionalPassaro"><strong>Base Nutricional:</strong> <span></span></p>
-          <p id="nomeCientificoPassaro"><strong>Nome Científico:</strong> <span></span></p>
-        </div>
-
-        <!-- Agora o vetor fica aqui dentro, do lado direito -->
-        <img id="vetorPassaro" class="vetor-passaro" src="" alt="Arte vetorial do pássaro">
-      </div>
-
-      <div class="lyrics">
-        <div class="lyrics-header" onclick="toggleLyrics()">
-          <strong>Lírica:</strong>
-          <span id="lyricsArrow">&#9654;</span>
-        </div>
-        <p id="lyricsPassaro" style="display: none;">[Insira a letra aqui...]</p>
-      </div>
-
-        <div class="mt-3">
-          <button class="btn btn-primary" onclick="abrirLink('karaoke')">Karaokê</button>
-          <button class="btn btn-danger" onclick="abrirLink('youtube')">Vídeo Clip</button>
-          <button class="btn btn-success" onclick="abrirLink('piado')">Ouvir Piado</button>
-        </div>
-      </div>
-
-    </section>
-    
-    
-    
-      
-<section id="jogos">
-  <h2>Flappy Tie-Sangue</h2>
-  <div class="flappy-canvas-container">
-    <!-- dentro de .flappy-canvas-container -->
-<div class="flappy-topbar" aria-hidden="false">
-  <div class="score-display" id="flappyScore">Score: 0</div>
-  <div class="flappy-controls">
-    <button class="btn-secondary" id="pauseBtn" aria-pressed="false" title="Pausar (P)">Pausa (P)</button>
-  </div>
-</div>
-
-<canvas id="flappyTieCanvas" width="360" height="440"></canvas>
-
-<div class="flappy-btns">
-  <button id="startFlappyBtn">Jogar!</button>
-</div>
-
-<p class="flappy-instructions">
-  Clique ou pressione <strong>Espaço</strong> para fazer o Tie-Sangue voar! Pressione <strong>P</strong> para pausar.
-</p>
-      
-  </div>
-</section>
-
-      
-<section id="galeria">
-      <h1>Galeria de Fotos</h1>
-      <p>Explore os registros encantadores dos nossos encontros, cheios de música, alegria e descobertas!</p>
-    
-      <div class="galeria-container">
-        <img id="imagemPrincipal" src="images/fotogaleria/OTO02642.jpg" alt="Imagem principal" loading="lazy">
-        <button class="seta seta-esquerda">&#10094;</button>
-        <button class="seta seta-direita">&#10095;</button>
-      </div>
-    
-      <div class="preview-container" id="previewContainer"></div>
-    
-      <!-- Modal para imagem expandida -->
-      <div id="modal" class="modal">
-        <span class="fechar">&times;</span>
-        <img class="modal-conteudo" id="imagemExpandida">
-      </div>
-    
-      <script>
-        const imagens = [
-          "images/fotogaleria/OTO02642.jpg",
-          "images/fotogaleria/OTO02654.jpg",
-          "images/fotogaleria/OTO02680.jpg",
-          "images/fotogaleria/OTO02684.jpg",
-          "images/fotogaleria/OTO02696.jpg",
-          "images/fotogaleria/OTO02700.jpg",
-          "images/fotogaleria/OTO02708.jpg",
-          "images/fotogaleria/OTO02713.jpg",
-          "images/fotogaleria/OTO02719.jpg",
-          "images/fotogaleria/OTO02721.jpg",
-          "images/fotogaleria/OTO02722.jpg",
-          "images/fotogaleria/OTO02737.jpg",
-          "images/fotogaleria/OTO02766.jpg",
-          "images/fotogaleria/OTO02774.jpg",
-          "images/fotogaleria/OTO02790.jpg",
-          "images/fotogaleria/OTO02810.jpg",
-          "images/fotogaleria/OTO02855.jpg",
-          "images/fotogaleria/OTO02859.jpg",
-          "images/fotogaleria/OTO02861.jpg",
-          "images/fotogaleria/OTO03049.jpg",
-          "images/fotogaleria/OTO03058.jpg",
-          "images/fotogaleria/OTO03078.jpg",
-          "images/fotogaleria/OTO02951.jpg",
-          "images/fotogaleria/OTO02928.jpg",
-          "images/fotogaleria/DSC00435.jpg",
-          "images/fotogaleria/DSC00452.jpg",
-          "images/fotogaleria/DSC00444.jpg",
-        ];
-        
-        let indiceAtual = 0;
-        const imagemPrincipal = document.getElementById('imagemPrincipal');
-        const setaEsquerda = document.querySelector('.seta-esquerda');
-        const setaDireita = document.querySelector('.seta-direita');
-        const previewContainer = document.getElementById('previewContainer');
-    
-        const modal = document.getElementById('modal');
-        const imagemExpandida = document.getElementById('imagemExpandida');
-        const fechar = document.querySelector('.fechar');
-    
-        const MINIATURAS_VISIVEIS = 4;
-        
-        imagemPrincipal.addEventListener('click', () => {
-  imagemExpandida.src = imagens[indiceAtual];
-  imagemExpandida.classList.remove('zoom');
-  modal.style.display = 'block';
-});
-
-fechar.addEventListener('click', () => {
-  modal.style.display = 'none';
-  imagemExpandida.classList.remove('zoom');
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-    imagemExpandida.classList.remove('zoom');
-  }
-});
-
-// Função de zoom ao clicar na imagem expandida
-imagemExpandida.addEventListener('click', () => {
-  imagemExpandida.classList.toggle('zoom');
-});
-
-
-        function atualizarImagemPrincipal() {
-          imagemPrincipal.src = imagens[indiceAtual];
-        }
-    
-        function atualizarMiniaturas() {
-          previewContainer.innerHTML = '';
-          let start = Math.floor(indiceAtual / MINIATURAS_VISIVEIS) * MINIATURAS_VISIVEIS;
-          for (let i = start; i < start + MINIATURAS_VISIVEIS && i < imagens.length; i++) {
-            const mini = document.createElement('img');
-            mini.classList.add('miniatura');
-            if (i === indiceAtual) mini.classList.add('ativa');
-    
-            // Supondo que tenha versões reduzidas na pasta "thumbs"
-            const nomeArquivo = imagens[i].split('/').pop();
-            mini.src = `images/fotogaleria/${nomeArquivo}`;
-    
-            mini.alt = `Miniatura ${i + 1}`;
-            mini.loading = 'lazy';
-    
-            mini.addEventListener('click', () => {
-              indiceAtual = i;
-              atualizarImagemPrincipal();
-              atualizarMiniaturas();
-            });
-    
-            previewContainer.appendChild(mini);
-          }
-        }
-    
-        setaEsquerda.addEventListener('click', () => {
-          indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
-          atualizarImagemPrincipal();
-          atualizarMiniaturas();
-        });
-    
-        setaDireita.addEventListener('click', () => {
-          indiceAtual = (indiceAtual + 1) % imagens.length;
-          atualizarImagemPrincipal();
-          atualizarMiniaturas();
-        });
-    
-        imagemPrincipal.addEventListener('click', () => {
-          imagemExpandida.src = imagens[indiceAtual];
-          modal.style.display = 'block';
-        });
-    
-        fechar.addEventListener('click', () => {
-          modal.style.display = 'none';
-        });
-    
-        window.addEventListener('click', (e) => {
-          if (e.target == modal) {
-            modal.style.display = 'none';
-          }
-        });
-    
-        atualizarImagemPrincipal();
-        atualizarMiniaturas();
-      </script>
-    
-      </section>
-
-
-
-
-
-
-    <!--Social-Botões-->
-    <div class="social-buttons">
-        <a href="https://wa.me/5521975449779?text=Olá%20George%20Pretyman,%20se você%20está%20recebendo esta mensagem%20o botão do site está%20funcionando..." class="social-button" aria-label="WhatsApp" target="_blank">
-            <img src="./images/WPP.png" alt="WhatsApp">
-          </a>
-        <a href="https://www.youtube.com/@riodospassaroskids3427" class="social-button" aria-label="YouTube">
-          <img src="./images/YTB.png" alt="YouTube">
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100089562047918" class="social-button" aria-label="Facebook">
-          <img src="./images/FBK.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/riodospassaros_/" class="social-button" aria-label="Instagram">
-          <img src="./images/INST.png" alt="Instagram">
-        </a>
-      </div>
-
-      <!--Loading-->
-      <div id="loading" class="loading-container d-none">
-        <div class="spinner-wrapper">
-            <div class="spinner-grow text-light" style="width: 3rem; height: 3rem;" role="status">
-                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!--Footer-->
-    
+    <!-- FOOTER IMAGES -->
     <div class="footer-images">
         <img src="images/ondas.png" alt="Ondas" class="waves">
         <img src="images/BARCO.png" alt="Barco" class="boat" id="boat">
     </div>
-    
 
-       <script src="js/bg-color.js" defer></script>
-    <script src="js/script-game.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="./js/script-aviao.js" defer></script>
-    <script src="https://www.youtube.com/iframe_api" defer></script>  
-    <script src="js/script-barco.js" defer></script>
-    <script src="./js/script-fade.js" defer></script>
-    <script src="./js/script-swiper-1" defer></script>
-    <script src="./js/script-bird-card.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
-    crossorigin="anonymous"></script>
-    
-
-    <!--Script-Swiper-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/bg-color.js"></script>
+    <script src="js/script-barco.js"></script>
     <script>
-        var swiper = new Swiper(".blog-slider", {
-            spaceBetween: 30,
-            effect: "fade",
-            loop: true,
-            pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('show');
+        }
     </script>
-
-    <script>
-       var swiper = new Swiper(".mySwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
-    </script>
-    
-    <script>
-      document.getElementById('YoutubeButton').addEventListener('click', function(){
-      
-          window.location.href = 'https://www.youtube.com/@riodospassaroskids3427'
-      }
-    )
-   </script>
-
-    <script>
-    function toggleMenu() {
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('show');
-    }
-    </script>
-
-
-
 </body>
 </html>
