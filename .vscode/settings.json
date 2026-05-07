@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    ".git": true,
+    ".git/**": true,
+    "images/**": false
+  },
+  "search.exclude": {
+    ".git": true,
+    "images/fotogaleria": true,
+    "images/gifs": true,
+    "node_modules": true
+  },
+  "files.watcherExclude": {
+    ".git/**": true,
+    "images/**": true
+  },
+  "python.analysis.extraPaths": []
+}
