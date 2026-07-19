@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url("../css/Quicksand_Bold.otf");
+}
+@font-face {
+    font-family: "Chaloops";
+    src: url("../css/Chaloops-Medium.ttf");
+}
+
+body
+{
+    margin: 0;
+}
+.quiz-container
+{
+    background-image: url("../images/Banner/anime-style-clouds.jpg");
+    background-size: 100% 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.quiz-wrapper
+{
+    width: 1000px;
+}
+.pergunta
+{
+    margin-top: 12px;
+    background-color: bisque;
+    border-radius: 50px;
+    border: 20px rgb(180, 130, 38) solid;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pergunta span
+{
+    display: block;
+    font-size: 36px;
+    font-family: "Chaloops";
+}
+.timer
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    font-size: 36px;
+    font-family: "Chaloops";
+}
+.secao-respostas
+{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.resposta
+{
+    display: flex;
+    margin-bottom: 10px;
+}
+.alternativa
+{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Quicksand";
+    background-color: bisque;
+    border: 5px rgb(180, 130, 38) solid;
+    border-radius: 20px;
+}
+.texto-resposta
+{
+    height: 40px;
+    flex-grow: 1;
+    display: flex;
+    font-family: "Quicksand";
+    background-color: bisque;
+    border: 5px rgb(180, 130, 38) solid;
+    border-radius: 20px;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 0 5px;
+    padding: 0 0 0 10px;
+}
