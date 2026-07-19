@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+</head>
+<body>
+    <div class="quiz-container final-container">
+        <h1>Obrigado por participar do quiz!</h1>
+        <p>Você acertou <span id="acertos">0</span> e errou <span id="erros">0</span>.</p>
+        <p>Tempo total: <span id="tempo">00:00</span></p>
+        <p>Jogar novamente? <a href="index.html">Clique aqui</a></p>
+    </div>
+    <script>
+        const acertosElement = document.getElementById('acertos');
+        const errosElement = document.getElementById('erros');
+        const tempoElement = document.getElementById('tempo');
+
+        const acertos = sessionStorage.getItem('quiz_acertos') || 0;
+        const erros = sessionStorage.getItem('quiz_erros') || 0;
+        const tempo = sessionStorage.getItem('quiz_tempo') || 0;
+
+        function formatSecondsToMMSS(totalSeconds) {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        acertosElement.innerText = acertos;
+        errosElement.innerText = erros;
+        tempoElement.innerText = formatSecondsToMMSS(Number(tempo));
+    </script>
+</body>
+</html>
