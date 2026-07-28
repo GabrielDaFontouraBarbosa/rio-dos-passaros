@@ -10,6 +10,8 @@ const divRB = document.getElementById("divRB")
 const divRC = document.getElementById("divRC")
 const divRD = document.getElementById("divRD")
 
+const audios = [new Audio('./Click.ogg'), new Audio('./CloseTab.ogg', new Audio('./PickPotion.ogg'))]
+
 divRA.addEventListener("click", (e) => {
     responderPergunta("a")
 })
@@ -89,6 +91,7 @@ function definirAlternativaCorreta(pergunta)
 }
 function responderPergunta(resposta)
 {
+    audios[getRandomInt(0, audios.length)].play();
     if (resposta === alternativaCorreta)
     {
         acertos++

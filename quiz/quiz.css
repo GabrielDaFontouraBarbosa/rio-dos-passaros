@@ -19,10 +19,6 @@ body
     display: flex;
     justify-content: center;
 }
-
-.final-container {
-    
-}
 .quiz-wrapper
 {
     width: 1000px;
@@ -37,7 +33,7 @@ body
     border-radius: 50px;
     border: 15px rgb(180, 130, 38) solid;
     height: 50vh; 
-    max-height: 400px;
+    max-height:200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,4 +120,33 @@ body
     background-color: rgb(224, 183, 132);
     border: 5px rgb(73, 52, 12) solid;
     transition: 0.5s;
+}
+.final
+{
+    background-color: bisque;
+    border-radius: 50px;
+    border: 15px rgb(180, 130, 38) solid;
+    padding: 20px;
+    font-family: "Chaloops";
+    margin: 0 20px;
+}
+.final p
+{
+    font-family: "Quicksand";
+}
+@media (max-width: 600px) {
+    .pergunta
+    {
+        border-width: 10px;
+    }
+    .pergunta span
+    {
+        font-size: 24px;
+    }
+    .timer
+    {
+        padding: 0px;
+        font-size: 24px;
+        border-width: 5px;
+    }
 }

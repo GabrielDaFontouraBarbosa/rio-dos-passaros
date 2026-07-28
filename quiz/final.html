@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
+    <link rel="stylesheet" href="./quiz.css">
 </head>
 <body>
     <div class="quiz-container final-container">
-        <h1>Obrigado por participar do quiz!</h1>
-        <p>Você acertou <span id="acertos">0</span> e errou <span id="erros">0</span>.</p>
-        <p>Tempo total: <span id="tempo">00:00</span></p>
-        <p>Jogar novamente? <a href="index.html">Clique aqui</a></p>
+        <div class="quiz-wrapper final-wrapper">
+            <div class="final">
+                <h1>Obrigado por participar do quiz!</h1>
+                <p>Você acertou <span id="acertos">0</span> e errou <span id="erros">0</span>.</p>
+                <p>Tempo total: <span id="tempo">00:00</span></p>
+                <p>Jogar novamente? <a href="index.html">Clique aqui</a></p>                  
+            </div>
+        </div>
     </div>
     <script>
         const acertosElement = document.getElementById('acertos');
