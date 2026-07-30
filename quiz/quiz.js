@@ -5,6 +5,11 @@ const respostaB = document.getElementById("respostaB");
 const respostaC = document.getElementById("respostaC");
 const respostaD = document.getElementById("respostaD");
 
+const alternativaALabel = document.querySelector("#divRA .alternativa span");
+const alternativaBLabel = document.querySelector("#divRB .alternativa span");
+const alternativaCLabel = document.querySelector("#divRC .alternativa span");
+const alternativaDLabel = document.querySelector("#divRD .alternativa span");
+
 const divRA = document.getElementById("divRA")
 const divRB = document.getElementById("divRB")
 const divRC = document.getElementById("divRC")
@@ -56,20 +61,71 @@ function adicionarSegundo()
     timerElement.innerText = formatSecondsToMMSS(tempo);
 }
 
+let currentLanguage = 'pt';
+let currentQuestion = null;
+
 function carregarPergunta()
 {
     var randomNumber = getRandomInt(0, perguntas.length)
     var pergunta = perguntas[randomNumber]
     perguntas.splice(randomNumber, 1)
+    currentQuestion = pergunta
 
-    perguntaElement.innerText = pergunta.pergunta
-    respostaA.innerText = pergunta.respostas.a.resposta
-    respostaB.innerText = pergunta.respostas.b.resposta
-    respostaC.innerText = pergunta.respostas.c.resposta
-    respostaD.innerText = pergunta.respostas.d.resposta
-
+    renderQuestion(pergunta)
     definirAlternativaCorreta(pergunta)
 }
+
+function renderQuestion(question) {
+    const translated = getTranslatedQuestion(question)
+    perguntaElement.innerText = translated.pergunta
+    respostaA.innerText = translated.respostas.a.resposta
+    respostaB.innerText = translated.respostas.b.resposta
+    respostaC.innerText = translated.respostas.c.resposta
+    respostaD.innerText = translated.respostas.d.resposta
+
+    alternativaALabel.innerText = translated.labels[0]
+    alternativaBLabel.innerText = translated.labels[1]
+    alternativaCLabel.innerText = translated.labels[2]
+    alternativaDLabel.innerText = translated.labels[3]
+}
+
+function getTranslatedQuestion(question) {
+    const labels = getLabelsForLanguage(currentLanguage)
+    const base = {
+        pergunta: question.pergunta,
+        respostas: question.respostas,
+        labels
+    }
+
+    if (!question.translations || !question.translations[currentLanguage]) {
+        return base
+    }
+
+    const translation = question.translations[currentLanguage]
+    return {
+        pergunta: translation.pergunta,
+        respostas: {
+            a: { resposta: translation.respostas.a.resposta, correta: question.respostas.a.correta },
+            b: { resposta: translation.respostas.b.resposta, correta: question.respostas.b.correta },
+            c: { resposta: translation.respostas.c.resposta, correta: question.respostas.c.correta },
+            d: { resposta: translation.respostas.d.resposta, correta: question.respostas.d.correta },
+        },
+        labels
+    }
+}
+
+function getLabelsForLanguage(lang) {
+    const mapping = {
+        pt: ['A', 'B', 'C', 'D'],
+        en: ['A', 'B', 'C', 'D'],
+        es: ['A', 'B', 'C', 'D'],
+        fr: ['A', 'B', 'C', 'D'],
+        it: ['A', 'B', 'C', 'D'],
+        de: ['A', 'B', 'C', 'D']
+    }
+    return mapping[lang] || mapping.pt
+}
+
 function definirAlternativaCorreta(pergunta)
 {
     if(pergunta.respostas.a.correta)
@@ -117,6 +173,15 @@ function finalizarQuiz()
     sessionStorage.setItem('quiz_erros', erros)
     sessionStorage.setItem('quiz_tempo', tempo)
     window.location.href = 'final.html'
+}
+
+function changeLanguage(lang) {
+    currentLanguage = lang
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    if (currentQuestion) {
+        renderQuestion(currentQuestion)
+    }
 }
 
 iniciarTimer();

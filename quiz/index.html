@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="./quiz.css">
 </head>
 <body>    
+    <div class="lang-switcher">
+        <span class="lang-label">Idioma:</span>
+        <button class="lang-btn active" type="button" data-lang="pt" aria-label="Português" onclick="changeLanguage('pt')">🇧🇷</button>
+        <button class="lang-btn" type="button" data-lang="en" aria-label="English" onclick="changeLanguage('en')">🇺🇸</button>
+        <button class="lang-btn" type="button" data-lang="es" aria-label="Español" onclick="changeLanguage('es')">🇪🇸</button>
+        <button class="lang-btn" type="button" data-lang="fr" aria-label="Français" onclick="changeLanguage('fr')">🇫🇷</button>
+        <button class="lang-btn" type="button" data-lang="it" aria-label="Italiano" onclick="changeLanguage('it')">🇮🇹</button>
+        <button class="lang-btn" type="button" data-lang="de" aria-label="Deutsch" onclick="changeLanguage('de')">🇩🇪</button>
+    </div>
+
     <div class="quiz-container"> 
         <div class="quiz-wrapper">
             <span class="timer" id="timer">00:00</span>

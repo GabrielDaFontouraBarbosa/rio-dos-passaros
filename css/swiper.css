@@ -2,6 +2,8 @@
 
 .bloco-videos {
   margin-top: 50px!important;
+  background: transparent !important;
+  padding: 2rem 1rem 3rem;
 }
 
 .swiper-container {
@@ -10,17 +12,18 @@
     align-items: center;
     width: 100%;
     height: 45vh;
-     margin: 3rem auto 3rem auto; /* margem top menor, margem bottom ok */
+    margin: 2rem auto 2rem auto;
     overflow: hidden;
     position: relative;
+    background: transparent !important;
 }
 
 .swiper-slide {
-    background: #000;
+    background: transparent !important;
     border-radius: 15px;
     overflow: hidden;
-    border: #FFD700 2px solid;
-    box-shadow: 0 10px 30px rgba(250, 162, 128, 0.342);
+    border: none;
+    box-shadow: none;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
