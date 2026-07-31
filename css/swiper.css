@@ -1,6 +1,7 @@
 /* Mantendo a base original - só melhorando o necessário */
 
 .bloco-videos {
+  display: none;
   margin-top: 50px!important;
   background: transparent !important;
   padding: 2rem 1rem 3rem;

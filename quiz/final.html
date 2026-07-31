@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado</title>
+    <title>Result</title>
     <link rel="stylesheet" href="./quiz.css">
 </head>
 <body>
     <div class="quiz-container final-container">
         <div class="quiz-wrapper final-wrapper">
             <div class="final">
-                <h1>Obrigado por participar do quiz!</h1>
-                <p>Você acertou <span id="acertos">0</span> e errou <span id="erros">0</span>.</p>
-                <p>Tempo total: <span id="tempo">00:00</span></p>
-                <p>Jogar novamente? <a href="index.html">Clique aqui</a></p>                  
+                <h1>Thank you for taking the quiz!</h1>
+                <p class="pt-translation">Obrigado por participar do quiz!</p>
+                <p>You got <span id="acertos">0</span> right and <span id="erros">0</span> wrong.</p>
+                <p class="pt-translation">Você acertou <span id="acertosPt">0</span> e errou <span id="errosPt">0</span>.</p>
+                <p>Total time: <span id="tempo">00:00</span></p>
+                <p class="pt-translation">Tempo total: <span id="tempoPt">00:00</span></p>
+                <p>Play again? <a href="index.html">Click here</a></p>
+                <p class="pt-translation">Jogar novamente? <a href="index.html">Clique aqui</a></p>
             </div>
         </div>
     </div>
@@ -21,6 +25,9 @@
         const acertosElement = document.getElementById('acertos');
         const errosElement = document.getElementById('erros');
         const tempoElement = document.getElementById('tempo');
+        const acertosPtElement = document.getElementById('acertosPt');
+        const errosPtElement = document.getElementById('errosPt');
+        const tempoPtElement = document.getElementById('tempoPt');
 
         const acertos = sessionStorage.getItem('quiz_acertos') || 0;
         const erros = sessionStorage.getItem('quiz_erros') || 0;
@@ -35,6 +42,9 @@
         acertosElement.innerText = acertos;
         errosElement.innerText = erros;
         tempoElement.innerText = formatSecondsToMMSS(Number(tempo));
+        acertosPtElement.innerText = acertos;
+        errosPtElement.innerText = erros;
+        tempoPtElement.innerText = formatSecondsToMMSS(Number(tempo));
     </script>
 </body>
 </html>

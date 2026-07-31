@@ -1,46 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-b7si22NGe7NPRGgP0iI0lk2NcUyyzOcKrWwBS5Ak36EJUlqIgk1D/a10eSA0HiOa3Whf0aiA7rDqAelMhpeMkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./quiz.css">
 </head>
 <body>    
-    <div class="lang-switcher">
-        <span class="lang-label">Idioma:</span>
-        <button class="lang-btn active" type="button" data-lang="pt" aria-label="Português" onclick="changeLanguage('pt')">🇧🇷</button>
-        <button class="lang-btn" type="button" data-lang="en" aria-label="English" onclick="changeLanguage('en')">🇺🇸</button>
-        <button class="lang-btn" type="button" data-lang="es" aria-label="Español" onclick="changeLanguage('es')">🇪🇸</button>
-        <button class="lang-btn" type="button" data-lang="fr" aria-label="Français" onclick="changeLanguage('fr')">🇫🇷</button>
-        <button class="lang-btn" type="button" data-lang="it" aria-label="Italiano" onclick="changeLanguage('it')">🇮🇹</button>
-        <button class="lang-btn" type="button" data-lang="de" aria-label="Deutsch" onclick="changeLanguage('de')">🇩🇪</button>
+    <div class="overlay-panel" id="modeSelection">
+        <div class="mode-panel">
+            <h1>Choose your quiz</h1>
+            <p class="pt-translation">Escolha seu quiz</p>
+            <div class="mode-actions">
+                <button id="birdQuizBtn" class="mode-btn" type="button">
+                    <span class="en-text">Bird Quiz</span>
+                    <span class="pt-translation">Quiz dos Pássaros</span>
+                </button>
+                <button id="soundQuizBtn" class="mode-btn" type="button">
+                    <span class="en-text">Guess the Bird Call</span>
+                    <span class="pt-translation">Adivinhe o Piado</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="quiz-container"> 
         <div class="quiz-wrapper">
             <span class="timer" id="timer">00:00</span>
-            <div class="pergunta">
-                <span id="pergunta">Pergunta Pergunta Pergunta?</span>
+            <div class="quiz-main">
+                <div class="pergunta">
+                    <div id="questionContent">
+                        <span id="pergunta">Question Question Question?</span>
+                        <span id="perguntaPt" class="pt-translation"></span>
+                    </div>
+                    <div id="audioPlaceholder" class="audio-placeholder hidden">
+                        <div class="note-circle">🎵</div>
+                        <div class="audio-title" id="audioTitle">Listen to the bird call</div>
+                        <div class="audio-title-pt pt-translation" id="audioTitlePt"></div>
+                        <button id="playSoundBtn" class="play-sound-btn" type="button">Play sound</button>
+                        <div class="audio-note-text" id="audioNoteText">Press to hear the sound</div>
+                        <div class="audio-note-text-pt pt-translation" id="audioNoteTextPt"></div>
+                        <audio id="birdAudio"></audio>
+                    </div>
+                </div>
+                <div class="secao-respostas" id="answersSection">
+                    <div class="resposta" id="divRA">
+                        <div class="alternativa"><span>A</span></div>
+                        <div class="texto-resposta">
+                            <span id="respostaA">Answer</span>
+                            <span id="respostaAPt" class="pt-translation"></span>
+                        </div>
+                    </div>
+                    <div class="resposta" id="divRB">
+                        <div class="alternativa"><span>B</span></div>
+                        <div class="texto-resposta">
+                            <span id="respostaB">Answer</span>
+                            <span id="respostaBPt" class="pt-translation"></span>
+                        </div>
+                    </div>
+                    <div class="resposta" id="divRC">
+                        <div class="alternativa"><span>C</span></div>
+                        <div class="texto-resposta">
+                            <span id="respostaC">Answer</span>
+                            <span id="respostaCPt" class="pt-translation"></span>
+                        </div>
+                    </div>
+                    <div class="resposta" id="divRD">
+                        <div class="alternativa"><span>D</span></div>
+                        <div class="texto-resposta">
+                            <span id="respostaD">Answer</span>
+                            <span id="respostaDPt" class="pt-translation"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="secao-respostas">
-                <div class="resposta" id="divRA">
-                    <div class="alternativa"><span>A</span></div>
-                    <div class="texto-resposta"><span id="respostaA">Resposta</span></div>
-                </div>
-                <div class="resposta" id="divRB">
-                    <div class="alternativa"><span>B</span></div>
-                    <div class="texto-resposta"><span id="respostaB">Resposta</span></div>
-                </div>
-                <div class="resposta" id="divRC">
-                    <div class="alternativa"><span>C</span></div>
-                    <div class="texto-resposta"><span id="respostaC">Resposta</span></div>
-                </div>
-                <div class="resposta" id="divRD">
-                    <div class="alternativa"><span>D</span></div>
-                    <div class="texto-resposta"><span id="respostaD">Resposta</span></div>
+            <div class="translation-panel">
+                <div class="translation-header">Translation</div>
+                <div class="translation-copy">
+                    <div class="translation-question-block">
+                        <div class="translation-label-block">Question</div>
+                        <span id="questionTranslation">Here goes the question translation</span>
+                        <div id="audioTranslation" class="translation-line"></div>
+                    </div>
+                    <div class="translation-answers">
+                        <div class="translation-answer-row">
+                            <span class="translation-choice">A</span>
+                            <span id="translationA">Translation A</span>
+                        </div>
+                        <div class="translation-answer-row">
+                            <span class="translation-choice">B</span>
+                            <span id="translationB">Translation B</span>
+                        </div>
+                        <div class="translation-answer-row">
+                            <span class="translation-choice">C</span>
+                            <span id="translationC">Translation C</span>
+                        </div>
+                        <div class="translation-answer-row">
+                            <span class="translation-choice">D</span>
+                            <span id="translationD">Translation D</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="result-overlay hidden" id="soundResultOverlay">
+        <div class="result-card">
+            <h2 id="resultTitle">Correct!</h2>
+            <p class="pt-translation" id="resultTitlePt">Acertou!</p>
+            <img id="resultBirdImage" src="" alt="Bird image">
+            <iframe id="resultVideo" class="result-video hidden" src="" allowfullscreen loading="lazy"></iframe>
+            <p id="resultBirdName">This sound was from ...</p>
+            <p class="pt-translation" id="resultBirdNamePt">Esse som era de ...</p>
+            <a id="resultVideoLink" class="video-link hidden" href="" target="_blank" rel="noopener">Watch on YouTube</a>
+            <button id="closeResultBtn" class="choice-btn" type="button">
+                <span class="en-text">Continue</span>
+                <span class="pt-translation">Continuar</span>
+            </button>
         </div>
     </div>
     <script src="./perguntas.js"></script>
