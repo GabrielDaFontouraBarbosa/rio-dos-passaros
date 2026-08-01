@@ -72,6 +72,7 @@
 .navbar li:nth-child(3) a { color: #1e6dc6; }
 .navbar li:nth-child(4) a { color: #c57f0a; }
 .navbar li:nth-child(5) a { color: #238c94; }
+.navbar li:nth-child(6) a { color: #2e86ab; }
 
 .navbar a:hover {
   transform: scale(1.1);
@@ -79,7 +80,7 @@
 
 
 /* === MOBILE E TABLET === */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1300px) {
   .mobile-header {
     display: flex;
     justify-content: space-between;

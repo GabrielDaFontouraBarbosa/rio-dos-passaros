@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             botao.addEventListener("click", (e) => {
                 e.preventDefault();
                 trocarSecao(secaoId);
+                document.querySelector(".navbar").classList.remove("show");
             });
             
             // Melhoria: adiciona ARIA para acessibilidade
@@ -85,7 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
     configurarBotao("btnSobreNos", "sobre");
     configurarBotao("btnPassaros", "passaros");
     configurarBotao("btnGaleria", "galeria");
-    configurarBotao("btnJogos", "jogos");
+    configurarBotao("btnVideo", "video");
+    configurarBotao("btnMapa", "mapa");
   
     // Função adicional para mostrar animação ou interações na seção "home"
     function configurarHome() {

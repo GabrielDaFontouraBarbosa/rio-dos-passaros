@@ -1,6 +1,7 @@
 const perguntas = 
 [
     {
+        type: 'texto',
         pergunta: "Which bird can sing the national anthem?",
         respostas:
         {
@@ -89,7 +90,7 @@ const perguntas =
         }
     },
     {
-        type: 'audio',
+        type: 'texto',
         pergunta: "Which bird has the short floating song?",
         respostas:
         {
@@ -98,18 +99,9 @@ const perguntas =
             c: {resposta: "Tiziu", correta: false},
             d: {resposta: "Hummingbird", correta: false},
         },
-        audioSrc: "../js/piados/coleiropiado.mp3",
-        imageFile: "coleiro-vetor.png",
-        videoId: "RwZU5FWuZs4",
-        audioTitle: "Listen to the bird call and choose",
-        audioNoteText: "Tap the button to hear the bird sound",
-        playButton: "Play sound",
         translations: {
             pt: {
                 pergunta: "Qual pássaro tem o canto curto e flutuante?",
-                audioTitle: "Ouça o piado e escolha o pássaro",
-                audioNoteText: "Toque no botão para ouvir o som do pássaro",
-                playButton: "Tocar piado",
                 respostas: {
                     a: { resposta: "Coleiro" },
                     b: { resposta: "Sabiá" },
@@ -121,7 +113,7 @@ const perguntas =
     },
     {
         type: 'audio',
-        pergunta: "Which bird makes this quick bright sound?",
+        pergunta: "Which bird makes this sound?",
         respostas:
         {
             a: {resposta: "Sabiá", correta: false},
@@ -137,7 +129,7 @@ const perguntas =
         playButton: "Play sound",
         translations: {
             pt: {
-                pergunta: "Qual é o pássaro do som rápido e brilhante?",
+                pergunta: "Qual pássaro é este som?",
                 audioTitle: "Ouça o piado e escolha o pássaro",
                 audioNoteText: "Toque no botão para ouvir o som do pássaro",
                 playButton: "Tocar piado",
@@ -152,7 +144,7 @@ const perguntas =
     },
     {
         type: 'audio',
-        pergunta: "Which bird makes this soft melodic sound?",
+        pergunta: "Which bird makes this sound?",
         respostas:
         {
             a: {resposta: "Bem-te-vi", correta: false},
@@ -168,7 +160,7 @@ const perguntas =
         playButton: "Play sound",
         translations: {
             pt: {
-                pergunta: "Qual pássaro faz um piado suave e melodioso?",
+                pergunta: "Qual pássaro é este som?",
                 audioTitle: "Ouça o piado e escolha o pássaro",
                 audioNoteText: "Toque no botão para ouvir o som do pássaro",
                 playButton: "Tocar piado",
@@ -183,7 +175,7 @@ const perguntas =
     },
     {
         type: 'audio',
-        pergunta: "Which bird makes this fast repeated call?",
+        pergunta: "Which bird makes this sound?",
         respostas:
         {
             a: {resposta: "Macaw", correta: false},
@@ -199,7 +191,7 @@ const perguntas =
         playButton: "Play sound",
         translations: {
             pt: {
-                pergunta: "Qual é o pássaro que tem um chamamento rápido e repetido?",
+                pergunta: "Qual pássaro é este som?",
                 audioTitle: "Ouça o piado e escolha o pássaro",
                 audioNoteText: "Toque no botão para ouvir o som do pássaro",
                 playButton: "Tocar piado",
@@ -214,7 +206,7 @@ const perguntas =
     },
     {
         type: 'audio',
-        pergunta: "Which bird makes this deep strong forest sound?",
+        pergunta: "Which bird makes this sound?",
         respostas:
         {
             a: {resposta: "Araponga", correta: true},
@@ -230,7 +222,7 @@ const perguntas =
         playButton: "Play sound",
         translations: {
             pt: {
-                pergunta: "Qual pássaro faz o som grave e forte da floresta?",
+                pergunta: "Qual pássaro é este som?",
                 audioTitle: "Ouça o piado e escolha o pássaro",
                 audioNoteText: "Toque no botão para ouvir o som do pássaro",
                 playButton: "Tocar piado",
@@ -245,7 +237,7 @@ const perguntas =
     },
     {
         type: 'audio',
-        pergunta: "Which bird makes this clear proud sound?",
+        pergunta: "Which bird makes this sound?",
         respostas:
         {
             a: {resposta: "Coleiro", correta: false},
@@ -261,7 +253,7 @@ const perguntas =
         playButton: "Play sound",
         translations: {
             pt: {
-                pergunta: "Qual pássaro emite um som claro e orgulhoso?",
+                pergunta: "Qual pássaro é este som?",
                 audioTitle: "Ouça o piado e escolha o pássaro",
                 audioNoteText: "Toque no botão para ouvir o som do pássaro",
                 playButton: "Tocar piado",
@@ -275,7 +267,7 @@ const perguntas =
         }
     },
     {
-        type: 'audio',
+        type: 'texto',
         pergunta: "Which bird sings in a quick hopping voice?",
         respostas:
         {
@@ -284,18 +276,9 @@ const perguntas =
             c: {resposta: "Bem-te-vi", correta: false},
             d: {resposta: "Araponga", correta: false},
         },
-        audioSrc: "../js/piados/ticoticopiado.mp3",
-        imageFile: "tico-tico-vetor.png",
-        videoId: "VN5UprvbgqQ",
-        audioTitle: "Listen to the bird call and choose",
-        audioNoteText: "Tap the button to hear the bird sound",
-        playButton: "Play sound",
         translations: {
             pt: {
                 pergunta: "Qual pássaro canta com voz rápida e saltitante?",
-                audioTitle: "Ouça o piado e escolha o pássaro",
-                audioNoteText: "Toque no botão para ouvir o som do pássaro",
-                playButton: "Tocar piado",
                 respostas: {
                     a: { resposta: "Tico-Tico" },
                     b: { resposta: "Sabiá" },
@@ -306,6 +289,7 @@ const perguntas =
         }
     },
     {
+        type: 'texto',
         pergunta: "Which bird has the highest song?",
         respostas:
         {
@@ -363,6 +347,7 @@ const perguntas =
         }
     },
     {
+        type: 'texto',
         pergunta: "Which bird flaps its wings the fastest?",
         respostas:
         {
@@ -420,6 +405,7 @@ const perguntas =
         }
     },
     {
+        type: 'texto',
         pergunta: "Which bird is famous for its beautiful song?",
         respostas:
         {
@@ -477,6 +463,7 @@ const perguntas =
         }
     },
     {
+        type: 'texto',
         pergunta: "Which bird loves lakes and rivers?",
         respostas:
         {

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/banner.css?v=20260730">
     <link rel="stylesheet" href="css/sobrenos.css?v=20260730">
     <link rel="stylesheet" href="css/passaros.css?v=20260730">
+    <link rel="stylesheet" href="css/mapa.css?v=20260731">
     <link rel="stylesheet" href="css/galeria.css?v=20260730">
     <link rel="stylesheet" href="css/barco.css?v=20260730">
     <link rel="stylesheet" href="css/socialbotoes.css?v=20260730">
@@ -52,7 +53,6 @@
     <audio id="playerPiado" hidden></audio>
 
     <!-- Scripts externos -->
-    <script src="js/script-quiz.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
@@ -161,7 +161,8 @@
           <li><a id="btnSobreNos" href="#">Sobre Nós</a></li>
           <li><a id="btnPassaros" href="#">Pássaros</a></li>
           <li><a id="btnGaleria" href="#">Galeria</a></li>
-          <li><a id="btnMusica" href="#">Música</a></li>
+          <li><a id="btnVideo" href="#">Vídeo</a></li>
+          <li><a id="btnMapa" href="#">Mapa</a></li>
         </ul> 
     </nav>
 
@@ -602,8 +603,45 @@
 
     </section>
 
+    <!-- MAPA -->
+    <section id="mapa">
+      <h2 class="titulo-mapa">Mapa do Brasil <span class="en">(Map of Brazil)</span></h2>
+      <p class="mapa-subtitulo">
+        Passe o mouse ou clique em um estado para descobrir as aves que vivem lá!
+        <span class="en">(Hover or click on a state to discover the birds that live there!)</span>
+      </p>
+
+      <div class="mapa-layout">
+        <div id="mapa-wrap">
+          <svg id="mapa-svg" viewBox="0 0 660 620"></svg>
+          <div id="mapa-tooltip"></div>
+        </div>
+
+        <div id="mapa-legenda">
+          <h3>Regiões <span class="en">(Regions)</span></h3>
+          <div class="mapa-legenda-item" data-regiao="N"><span class="mapa-swatch" style="background:var(--mapa-n)"></span>Norte <span class="en">(North)</span></div>
+          <div class="mapa-legenda-item" data-regiao="NE"><span class="mapa-swatch" style="background:var(--mapa-ne)"></span>Nordeste <span class="en">(Northeast)</span></div>
+          <div class="mapa-legenda-item" data-regiao="CO"><span class="mapa-swatch" style="background:var(--mapa-co)"></span>Centro-Oeste <span class="en">(Midwest)</span></div>
+          <div class="mapa-legenda-item" data-regiao="SE"><span class="mapa-swatch" style="background:var(--mapa-se)"></span>Sudeste <span class="en">(Southeast)</span></div>
+          <div class="mapa-legenda-item" data-regiao="S"><span class="mapa-swatch" style="background:var(--mapa-s)"></span>Sul <span class="en">(South)</span></div>
+
+          <div id="mapa-info">
+            <div class="mapa-placeholder">Selecione um estado para ver detalhes. <span class="en">(Select a state to see details.)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mapa-aves-painel">
+        <h3 id="mapa-aves-titulo">Aves Nativas <span class="en">(Native Birds)</span></h3>
+        <p class="mapa-aves-subtitulo" id="mapa-aves-subtitulo">Clique em uma região na legenda, ou em um estado no mapa, para ver as espécies nativas e seus habitats. <span class="en">(Click a region in the legend, or a state on the map, to see native species and their habitats.)</span></p>
+        <div class="mapa-aves-grid" id="mapa-aves-grid">
+          <div class="mapa-placeholder">Nenhuma região selecionada ainda. <span class="en">(No region selected yet.)</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- VIDEOS -->
-    <section class="video-section">
+    <section id="video" class="video-section">
         <div class="video-section-header">
             <h2 class="titulo-magico">Vídeos do Rio</h2>
             <div class="search-container">
@@ -806,15 +844,17 @@ imagemExpandida.addEventListener('click', () => {
     </div>
     
 
-       <script src="js/bg-color.js" defer></script>
-    <script src="js/script-game.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="./js/script-aviao.js" defer></script>
-    <script src="https://www.youtube.com/iframe_api" defer></script>  
-    <script src="js/script-barco.js" defer></script>
-    <script src="./js/script-fade.js" defer></script>
+       <script src="js/bg-color.js?v=20260731" defer></script>
+    <script src="js/script-game.js?v=20260731" defer></script>
+    <script src="js/main.js?v=20260731" defer></script>
+    <script src="./js/script-aviao.js?v=20260731" defer></script>
+    <script src="https://www.youtube.com/iframe_api" defer></script>
+    <script src="js/script-barco.js?v=20260731" defer></script>
+    <script src="./js/script-fade.js?v=20260731" defer></script>
     <script src="./js/script-swiper-1" defer></script>
-    <script src="./js/script-bird-card.js" defer></script>
+    <script src="./js/script-bird-card.js?v=20260731" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
+    <script src="./js/script-mapa.js?v=20260731" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
     crossorigin="anonymous"></script>
@@ -868,8 +908,8 @@ imagemExpandida.addEventListener('click', () => {
     }
     </script>
 
-    <script src="js/player.js" defer></script>
-    <script src="js/video-player.js" defer></script>
+    <script src="js/player.js?v=20260731" defer></script>
+    <script src="js/video-player.js?v=20260731" defer></script>
 
 </body>
 </html>

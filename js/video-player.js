@@ -5,21 +5,21 @@ const videoData = [
     { title: "Bacurau", id: "hwdDw3OqqUc" },
     { title: "Beija-Flor", id: "cbdLm7vGpqI" },
     { title: "Bem-te-vi", id: "z3jwepapUcY" },
-    { title: "Can├írio Da Terra", id: "qYA-fpSCv60" },
+    { title: "Canário Da Terra", id: "qYA-fpSCv60" },
     { title: "Coleiro", id: "RwZU5FWuZs4" },
-    { title: "Curi├│", id: "WIN-R_c_Iuk" },
+    { title: "Curió", id: "WIN-R_c_Iuk" },
     { title: "Gaivota", id: "vWR-HemrhrY" },
     { title: "Inhambu", id: "4lhFJbviAhI" },
-    { title: "Jo├úo-De-Barro", id: "1XRdkVp__XA" },
-    { title: "Natal Dos P├íssaros", id: "ZJQkGaVIy1I" },
+    { title: "João-De-Barro", id: "1XRdkVp__XA" },
+    { title: "Natal Dos Pássaros", id: "ZJQkGaVIy1I" },
     { title: "Papagaio", id: "YPnhVCAh3s0" },
-    { title: "P├íssaro Preto", id: "79PxStGU0wY" },
+    { title: "Pássaro Preto", id: "79PxStGU0wY" },
     { title: "Quero-Quero", id: "uqcG-IsYbRk" },
-    { title: "Rio Dos P├íssaros", id: "uI_I_ApJdpo" },
-    { title: "Sabi├í", id: "cbdLm7vGpqI" },
+    { title: "Rio Dos Pássaros", id: "uI_I_ApJdpo" },
+    { title: "Sabiá", id: "cbdLm7vGpqI" },
     { title: "Sem-Fim", id: "n5_gkV_cjqg" },
     { title: "Tico-Tico", id: "VN5UprvbgqQ" },
-    { title: "Ti├¬-Sangue", id: "2OT1y1yLQvk" },
+    { title: "Tiê-Sangue", id: "2OT1y1yLQvk" },
     { title: "Tiziu", id: "xkxl0binH0I" },
     { title: "Uirapuru", id: "o6lzIXCvpoo" }
 ].sort((a, b) => a.title.localeCompare(b.title));
@@ -29,7 +29,7 @@ function loadVideos(filter = "") {
     const dropdown = document.getElementById('birdDropdown');
     
     thumbContainer.innerHTML = '';
-    dropdown.innerHTML = '<option value="">Todos os P├íssaros</option>';
+    dropdown.innerHTML = '<option value="">Todos os Pássaros</option>';
 
     videoData.forEach(video => {
         if (video.title.toLowerCase().includes(filter.toLowerCase())) {

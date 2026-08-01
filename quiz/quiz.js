@@ -17,6 +17,7 @@ const respostaAPt = document.getElementById("respostaAPt");
 const respostaBPt = document.getElementById("respostaBPt");
 const respostaCPt = document.getElementById("respostaCPt");
 const respostaDPt = document.getElementById("respostaDPt");
+const answersSection = document.getElementById("answersSection");
 const divRA = document.getElementById("divRA");
 const divRB = document.getElementById("divRB");
 const divRC = document.getElementById("divRC");
@@ -34,12 +35,6 @@ const resultTitle = document.getElementById("resultTitle");
 const resultTitlePt = document.getElementById("resultTitlePt");
 const closeResultBtn = document.getElementById("closeResultBtn");
 
-const questionTranslation = document.getElementById("questionTranslation");
-const audioTranslation = document.getElementById("audioTranslation");
-const translationA = document.getElementById("translationA");
-const translationB = document.getElementById("translationB");
-const translationC = document.getElementById("translationC");
-const translationD = document.getElementById("translationD");
 const respostasMap = {
     a: divRA,
     b: divRB,
@@ -56,6 +51,27 @@ let erros = 0;
 let timerId = null;
 let tempo = 0;
 let isShowingResult = false;
+let isAnswering = false;
+let advanceTimeoutId = null;
+
+const MODO_PARA_TIPO = { sound: 'audio', bird: 'texto' };
+
+function validarPerguntas(lista) {
+    lista.forEach((questao, indice) => {
+        if (!['audio', 'texto'].includes(questao.type)) {
+            console.warn(`Pergunta ${indice} tem "type" ausente ou inválido (${questao.type}):`, questao.pergunta);
+        }
+        if (questao.type === 'audio') {
+            if (!questao.audioSrc) {
+                console.warn(`Pergunta de áudio sem "audioSrc":`, questao.pergunta);
+            }
+            if (!questao.imageFile) {
+                console.warn(`Pergunta de áudio sem "imageFile":`, questao.pergunta);
+            }
+        }
+    });
+}
+validarPerguntas(perguntas);
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -94,80 +110,6 @@ function getLabelsForLanguage(lang) {
     return ['A', 'B', 'C', 'D'];
 }
 
-const translationDictionary = {
-    'which': 'qual',
-    'bird': 'pássaro',
-    'can': 'pode',
-    'sing': 'cantar',
-    'the': 'o',
-    'national': 'nacional',
-    'anthem': 'hino',
-    'makes': 'faz',
-    'this': 'este',
-    'sound': 'som',
-    'listen': 'ouça',
-    'to': 'ao',
-    'call': 'piado',
-    'and': 'e',
-    'choose': 'escolha',
-    'tap': 'toque',
-    'button': 'botão',
-    'hear': 'ouvir',
-    'play': 'tocar',
-    'has': 'tem',
-    'short': 'curto',
-    'floating': 'flutuante',
-    'song': 'canto',
-    'quick': 'rápido',
-    'bright': 'brilhante',
-    'soft': 'suave',
-    'melodic': 'melodioso',
-    'deep': 'grave',
-    'strong': 'forte',
-    'forest': 'floresta',
-    'clear': 'claro',
-    'proud': 'orgulhoso',
-    'fast': 'rápido',
-    'repeated': 'repetido',
-    'sings': 'canta',
-    'in': 'com',
-    'hopping': 'saltitante',
-    'voice': 'voz',
-    'highest': 'mais alto',
-    'flaps': 'bate',
-    'its': 'suas',
-    'wings': 'asas',
-    'fastest': 'mais rápido',
-    'is': 'é',
-    'famous': 'famoso',
-    'for': 'pelo',
-    'beautiful': 'bonito',
-    'loves': 'adora',
-    'lakes': 'lagos',
-    'rivers': 'rios',
-    'press': 'pressione',
-    'birdcall': 'piado'
-};
-
-function preserveCase(token, translation) {
-    if (!token) return translation;
-    if (token[0] === token[0].toUpperCase()) {
-        return translation.charAt(0).toUpperCase() + translation.slice(1);
-    }
-    return translation;
-}
-
-function translateText(text) {
-    return text.split(/(\s+|[.,!?;:])/).map(token => {
-        if (token.trim() === '') return token;
-        const normalized = token.toLowerCase().replace(/[.,!?;:]$/, '');
-        const translation = translationDictionary[normalized];
-        if (!translation) return token;
-        const translatedToken = preserveCase(token, translation);
-        return /[.,!?;:]$/.test(token) ? translatedToken + token.slice(-1) : translatedToken;
-    }).join('');
-}
-
 function getTranslatedQuestion(question) {
     return {
         pergunta: question.pergunta,
@@ -195,21 +137,33 @@ function initializeQuiz() {
     stopTimer();
     startTimer();
 
-    const availableQuestions = perguntas.filter(question => {
-        if (quizMode === 'sound') {
-            return question.type === 'audio';
-        }
-        return !question.type || question.type !== 'audio';
-    });
+    const tipoEsperado = MODO_PARA_TIPO[quizMode];
+    const availableQuestions = perguntas.filter(question => question.type === tipoEsperado);
 
     activeQuestions = shuffleArray(availableQuestions);
     acertos = 0;
     erros = 0;
+
+    if (!activeQuestions.length) {
+        stopTimer();
+        audioPlaceholder.classList.add('hidden');
+        answersSection.classList.add('hidden');
+        perguntaElement.innerText = 'No questions available for this quiz mode yet.';
+        perguntaPt.innerText = 'Nenhuma pergunta disponível para este modo de quiz ainda.';
+        return;
+    }
+
+    answersSection.classList.remove('hidden');
     carregarPergunta();
 }
 
 function carregarPergunta() {
+    if (advanceTimeoutId) {
+        clearTimeout(advanceTimeoutId);
+        advanceTimeoutId = null;
+    }
     resetAnswerStyles();
+    isAnswering = false;
 
     if (!activeQuestions.length) {
         finalizarQuiz();
@@ -253,24 +207,6 @@ function renderQuestion(question) {
     respostaBPt.innerText = pt.respostas?.b?.resposta || '';
     respostaCPt.innerText = pt.respostas?.c?.resposta || '';
     respostaDPt.innerText = pt.respostas?.d?.resposta || '';
-
-    renderTranslations(question);
-}
-
-function renderTranslations(question) {
-    const portuguese = question.translations?.pt || {};
-    questionTranslation.innerText = portuguese.pergunta || translateText(question.pergunta);
-
-    if (question.type === 'audio') {
-        audioTranslation.innerText = portuguese.audioNoteText || translateText(question.audioNoteText || 'Press to hear the bird sound');
-    } else {
-        audioTranslation.innerText = '';
-    }
-
-    translationA.innerText = portuguese.respostas?.a?.resposta || translateText(question.respostas.a.resposta);
-    translationB.innerText = portuguese.respostas?.b?.resposta || translateText(question.respostas.b.resposta);
-    translationC.innerText = portuguese.respostas?.c?.resposta || translateText(question.respostas.c.resposta);
-    translationD.innerText = portuguese.respostas?.d?.resposta || translateText(question.respostas.d.resposta);
 }
 
 function resetAnswerStyles() {
@@ -284,9 +220,10 @@ function getCorrectAnswerKey(question) {
 }
 
 function responderPergunta(answerKey) {
-    if (!currentQuestion || isShowingResult) {
+    if (!currentQuestion || isShowingResult || isAnswering) {
         return;
     }
+    isAnswering = true;
 
     const selectedElement = respostasMap[answerKey];
     const correctKey = getCorrectAnswerKey(currentQuestion);
@@ -306,7 +243,7 @@ function responderPergunta(answerKey) {
         return;
     }
 
-    window.setTimeout(() => {
+    advanceTimeoutId = window.setTimeout(() => {
         carregarPergunta();
     }, 650);
 }
@@ -317,10 +254,11 @@ function showSoundResult(question) {
     const correctKey = getCorrectAnswerKey(question);
     const birdName = translated.respostas[correctKey].resposta;
     const birdNamePt = pt.respostas?.[correctKey]?.resposta || birdName;
-    const imageFile = question.imageFile || 'bem-te-vi-vetor.png';
-    const imagePath = `../images/sessaopassaros/${imageFile}`;
-
-    resultBirdImage.src = imagePath;
+    if (!question.imageFile) {
+        console.warn('Pergunta de áudio sem "imageFile", ocultando imagem do resultado:', question.pergunta);
+    }
+    resultBirdImage.src = question.imageFile ? `../images/sessaopassaros/${question.imageFile}` : '';
+    resultBirdImage.style.visibility = question.imageFile ? 'visible' : 'hidden';
     resultBirdImage.alt = birdName;
     resultBirdName.innerText = `This sound was from ${birdName}!`;
     resultBirdNamePt.innerText = `Esse som era de ${birdNamePt}!`;
