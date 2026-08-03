@@ -67,6 +67,12 @@
   transition: transform 0.3s ease-in-out;
   filter: drop-shadow(5px 4px 6px rgba(84, 102, 151, 0.7));
 }
+.navbar a span
+{
+  text-align: center;
+  display: block;
+  line-height: 25px;
+}
 
 .navbar li:nth-child(2) a { color: #d124a1; }
 .navbar li:nth-child(3) a { color: #1e6dc6; }
