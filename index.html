@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="css/sobrenos.css?v=20260730">
     <link rel="stylesheet" href="css/passaros.css?v=20260730">
     <link rel="stylesheet" href="css/mapa.css?v=20260731">
+    <link rel="stylesheet" href="css/passaro-do-dia.css?v=20260802">
     <link rel="stylesheet" href="css/galeria.css?v=20260730">
     <link rel="stylesheet" href="css/barco.css?v=20260730">
     <link rel="stylesheet" href="css/socialbotoes.css?v=20260730">
@@ -163,6 +164,7 @@
           <li><a id="btnGaleria" href="#">Galeria</a></li>
           <li><a id="btnVideo" href="#">Vídeo</a></li>
           <li><a id="btnMapa" href="#">Mapa</a></li>
+          <li><a id="btnListaPassaros" href="./passaros-lista.html">Todos os Pássaros</a></li>
         </ul> 
     </nav>
 
@@ -220,7 +222,14 @@
   </div>
 </section>
 
-  
+  <!-- PÁSSARO DO DIA -->
+  <div class="passaro-do-dia-wrap" id="passaroDoDiaWrap">
+    <div class="passaro-do-dia-card" id="passaroDoDiaCard">
+      <p class="passaro-do-dia-carregando">Carregando o pássaro do dia...</p>
+    </div>
+  </div>
+
+
    <img src="images/joaodebarrogalho.png" alt="João-De-Barro" class="joao-objeto">
 <img src="images/coleirinho.png" alt="Coleiro" class="coleiro-objeto">
   
@@ -562,7 +571,7 @@
             <img src="./BOTÕES SITE/SEMFIM.png" alt="Sem-Fim">
           </button>
           <button class="bird-btn" data-bird="Tangará">
-            <img src="./BOTÕES SITE/ticotico.png" alt="Tangará">
+            <img src="./images/sessaopassaros/tangará-foto.png" alt="Tangará">
           </button>
           <button class="bird-btn" data-bird="Tiê-Sangue">
             <img src="./BOTÕES SITE/TIESANGUE.png" alt="Tiê-Sangue">
@@ -861,6 +870,7 @@ imagemExpandida.addEventListener('click', () => {
     <script src="./js/script-bird-card.js?v=20260731" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
     <script src="./js/script-mapa.js?v=20260731" defer></script>
+    <script src="./js/script-passaro-do-dia.js?v=20260802" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
     crossorigin="anonymous"></script>

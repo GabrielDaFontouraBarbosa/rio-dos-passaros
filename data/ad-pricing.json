@@ -1,0 +1,191 @@
+{
+    "_aviso": "Dados de demonstração — valores ilustrativos, não são preços reais de anúncio.",
+    "precos": {
+        "US-NY": {
+            "cpm": 1500,
+            "cpc": 4.2,
+            "reach": 380000,
+            "currency": "BRL"
+        },
+        "BRA": {
+            "cpm": 12.5,
+            "cpc": 0.85,
+            "reach": 450000,
+            "currency": "BRL"
+        },
+        "USA": {
+            "cpm": 45,
+            "cpc": 2.1,
+            "reach": 1200000,
+            "currency": "BRL"
+        },
+        "GBR": {
+            "cpm": 42,
+            "cpc": 1.95,
+            "reach": 480000,
+            "currency": "BRL"
+        },
+        "DEU": {
+            "cpm": 38.5,
+            "cpc": 1.8,
+            "reach": 620000,
+            "currency": "BRL"
+        },
+        "CHE": {
+            "cpm": 50,
+            "cpc": 2.3,
+            "reach": 95000,
+            "currency": "BRL"
+        },
+        "NOR": {
+            "cpm": 47,
+            "cpc": 2.15,
+            "reach": 60000,
+            "currency": "BRL"
+        },
+        "AUS": {
+            "cpm": 40,
+            "cpc": 1.85,
+            "reach": 310000,
+            "currency": "BRL"
+        },
+        "CAN": {
+            "cpm": 41,
+            "cpc": 1.9,
+            "reach": 410000,
+            "currency": "BRL"
+        },
+        "NLD": {
+            "cpm": 36,
+            "cpc": 1.7,
+            "reach": 210000,
+            "currency": "BRL"
+        },
+        "SWE": {
+            "cpm": 39,
+            "cpc": 1.75,
+            "reach": 140000,
+            "currency": "BRL"
+        },
+        "DNK": {
+            "cpm": 37.5,
+            "cpc": 1.72,
+            "reach": 90000,
+            "currency": "BRL"
+        },
+        "IRL": {
+            "cpm": 35,
+            "cpc": 1.65,
+            "reach": 80000,
+            "currency": "BRL"
+        },
+        "BEL": {
+            "cpm": 33,
+            "cpc": 1.6,
+            "reach": 150000,
+            "currency": "BRL"
+        },
+        "AUT": {
+            "cpm": 32,
+            "cpc": 1.58,
+            "reach": 120000,
+            "currency": "BRL"
+        },
+        "SGP": {
+            "cpm": 34,
+            "cpc": 1.62,
+            "reach": 75000,
+            "currency": "BRL"
+        },
+        "KOR": {
+            "cpm": 30,
+            "cpc": 1.4,
+            "reach": 620000,
+            "currency": "BRL"
+        },
+        "NZL": {
+            "cpm": 31,
+            "cpc": 1.45,
+            "reach": 65000,
+            "currency": "BRL"
+        },
+        "JPN": {
+            "cpm": 28,
+            "cpc": 1.35,
+            "reach": 980000,
+            "currency": "BRL"
+        },
+        "FRA": {
+            "cpm": 29,
+            "cpc": 1.38,
+            "reach": 720000,
+            "currency": "BRL"
+        },
+        "ITA": {
+            "cpm": 22,
+            "cpc": 1.05,
+            "reach": 540000,
+            "currency": "BRL"
+        },
+        "ESP": {
+            "cpm": 20,
+            "cpc": 0.95,
+            "reach": 480000,
+            "currency": "BRL"
+        },
+        "PRT": {
+            "cpm": 15,
+            "cpc": 0.7,
+            "reach": 180000,
+            "currency": "BRL"
+        },
+        "CHL": {
+            "cpm": 11,
+            "cpc": 0.6,
+            "reach": 140000,
+            "currency": "BRL"
+        },
+        "URY": {
+            "cpm": 10.5,
+            "cpc": 0.58,
+            "reach": 40000,
+            "currency": "BRL"
+        },
+        "ARG": {
+            "cpm": 8.5,
+            "cpc": 0.48,
+            "reach": 260000,
+            "currency": "BRL"
+        },
+        "MEX": {
+            "cpm": 9,
+            "cpc": 0.52,
+            "reach": 390000,
+            "currency": "BRL"
+        },
+        "COL": {
+            "cpm": 7.5,
+            "cpc": 0.44,
+            "reach": 210000,
+            "currency": "BRL"
+        },
+        "PER": {
+            "cpm": 6.8,
+            "cpc": 0.4,
+            "reach": 150000,
+            "currency": "BRL"
+        },
+        "ZAF": {
+            "cpm": 9.5,
+            "cpc": 0.55,
+            "reach": 180000,
+            "currency": "BRL"
+        },
+        "IND": {
+            "cpm": 4.2,
+            "cpc": 0.25,
+            "reach": 1500000,
+            "currency": "BRL"
+        }
+    }
+}

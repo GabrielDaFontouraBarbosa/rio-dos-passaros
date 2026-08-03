@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os Pássaros - Rio dos Pássaros</title>
+  <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/passaros-lista.css?v=20260802">
+</head>
+<body>
+  <header class="lista-header">
+    <a href="./index.html" class="lista-voltar">← Início</a>
+    <h1>Todos os Pássaros <span class="lista-contagem" id="listaContagem"></span></h1>
+    <p>Uma enciclopédia de aves brasileiras — clique numa ave pra saber mais.</p>
+  </header>
+
+  <div class="lista-busca-wrap">
+    <input type="text" id="buscaPassaro" class="lista-busca" placeholder="Buscar por nome ou nome científico...">
+  </div>
+
+  <main id="listaGrid" class="lista-grid">
+    <div class="lista-carregando">Carregando os pássaros...</div>
+  </main>
+
+  <div id="modalPassaro" class="modal-passaro hidden">
+    <div class="modal-passaro-conteudo">
+      <button id="fecharModalPassaro" class="modal-passaro-fechar" aria-label="Fechar">×</button>
+      <img id="modalPassaroFoto" src="" alt="">
+      <div class="modal-passaro-texto">
+        <h2 id="modalPassaroNome"></h2>
+        <p id="modalPassaroCientifico" class="modal-passaro-cientifico"></p>
+        <p id="modalPassaroDescricao"></p>
+        <div id="modalPassaroExtras"></div>
+        <p id="modalPassaroCredito" class="modal-passaro-credito"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script-passaros-lista.js?v=20260802"></script>
+</body>
+</html>

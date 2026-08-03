@@ -25,6 +25,7 @@
 
   <!-- CSS Customizado -->
   <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="./css/admin-metrics.css?v=20260801" />
 </head>
 <body>
   <!-- Navbar simples -->
@@ -35,87 +36,278 @@
   </nav>
 
   <div class="container my-4">
-    <!-- Cards de métricas -->
-    <div class="row g-4 mb-4">
-      <div class="col-md-4">
-        <div class="card metric-card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Mensagens Recebidas</h5>
-            <p id="totalMessages" class="metric-value">0</p>
-            <i class="bi bi-chat-dots-fill metric-icon"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card metric-card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Acessos na Semana</h5>
-            <p id="totalAccesses" class="metric-value">0</p>
-            <i class="bi bi-bar-chart-fill metric-icon"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card metric-card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Usuários Online</h5>
-            <p id="usersOnline" class="metric-value">--</p>
-            <i class="bi bi-people-fill metric-icon"></i>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-visao-geral" data-bs-toggle="tab" data-bs-target="#visao-geral-pane" type="button" role="tab" aria-controls="visao-geral-pane" aria-selected="true">Visão Geral</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-metricas" data-bs-toggle="tab" data-bs-target="#metricas-pane" type="button" role="tab" aria-controls="metricas-pane" aria-selected="false">Métricas</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-mapa-anuncios" data-bs-toggle="tab" data-bs-target="#mapa-anuncios-pane" type="button" role="tab" aria-controls="mapa-anuncios-pane" aria-selected="false">Mapa de Anúncios</button>
+      </li>
+    </ul>
 
-    <!-- Seções de tabela + gráfico -->
-    <div class="row">
-      <!-- Tabela de Mensagens -->
-      <div class="col-lg-7 mb-4">
-        <div class="card">
-          <div class="card-header bg-success text-white">
-            <h6 class="mb-0">Mensagens Recentes</h6>
+    <div class="tab-content pt-4" id="adminTabsContent">
+
+      <!-- ===================== ABA: VISÃO GERAL (existente, intocada) ===================== -->
+      <div class="tab-pane fade show active" id="visao-geral-pane" role="tabpanel" aria-labelledby="tab-visao-geral" tabindex="0">
+        <!-- Cards de métricas -->
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="card metric-card">
+              <div class="card-body text-center">
+                <h5 class="card-title">Mensagens Recebidas</h5>
+                <p id="totalMessages" class="metric-value">0</p>
+                <i class="bi bi-chat-dots-fill metric-icon"></i>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <table
-              id="messageTable"
-              class="table table-striped table-hover nowrap"
-              style="width:100%"
-            >
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Assunto</th>
-                  <th>Mensagem</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Populado via JS -->
-              </tbody>
-            </table>
+          <div class="col-md-4">
+            <div class="card metric-card">
+              <div class="card-body text-center">
+                <h5 class="card-title">Acessos na Semana</h5>
+                <p id="totalAccesses" class="metric-value">0</p>
+                <i class="bi bi-bar-chart-fill metric-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card metric-card">
+              <div class="card-body text-center">
+                <h5 class="card-title">Usuários Online</h5>
+                <p id="usersOnline" class="metric-value">--</p>
+                <i class="bi bi-people-fill metric-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seções de tabela + gráfico -->
+        <div class="row">
+          <!-- Tabela de Mensagens -->
+          <div class="col-lg-7 mb-4">
+            <div class="card">
+              <div class="card-header bg-success text-white">
+                <h6 class="mb-0">Mensagens Recentes</h6>
+              </div>
+              <div class="card-body">
+                <table
+                  id="messageTable"
+                  class="table table-striped table-hover nowrap"
+                  style="width:100%"
+                >
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Email</th>
+                      <th>Assunto</th>
+                      <th>Mensagem</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Populado via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfico de Acessos (Bar Chart) -->
+          <div class="col-lg-5 mb-4">
+            <div class="card">
+              <div class="card-header bg-success text-white">
+                <h6 class="mb-0">Gráfico de Acessos (últimos 7 dias)</h6>
+              </div>
+              <div class="card-body">
+                <canvas id="accessChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Gráfico de Acessos (Bar Chart) -->
-      <div class="col-lg-5 mb-4">
-        <div class="card">
-          <div class="card-header bg-success text-white">
-            <h6 class="mb-0">Gráfico de Acessos (últimos 7 dias)</h6>
+      <!-- ===================== ABA: MÉTRICAS ===================== -->
+      <div class="tab-pane fade" id="metricas-pane" role="tabpanel" aria-labelledby="tab-metricas" tabindex="0">
+        <div class="tema-plumagem">
+          <div class="aba-cabecalho">
+            <h2>Métricas de acesso e receita</h2>
+            <div class="d-flex align-items-center gap-2" data-cadeado-container>
+              <span class="tag-somente-leitura">Somente leitura</span>
+              <button class="cadeado-btn" data-abrir-cadeado aria-label="Cadeado trancado. Clique para destrancar com o PIN.">
+                <span data-cadeado-icone>🔒</span> Destrancar
+              </button>
+              <button class="cadeado-btn" data-trancar-agora hidden aria-label="Cadeado destrancado. Clique para trancar agora.">
+                🔓 Trancar agora
+              </button>
+            </div>
           </div>
-          <div class="card-body">
-            <canvas id="accessChart"></canvas>
+
+          <div class="periodo-seletor" id="seletorPeriodoMetricas">
+            <button data-periodo="7">7 dias</button>
+            <button data-periodo="30" class="ativo">30 dias</button>
+            <button data-periodo="90">90 dias</button>
+            <button data-periodo="365">12 meses</button>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-label">Visitas</div>
+              <div class="kpi-valor tabular" id="kpiVisitas">—</div>
+              <div class="kpi-variacao" id="kpiVisitasVariacao"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Visitantes únicos</div>
+              <div class="kpi-valor tabular" id="kpiVisitantes">—</div>
+              <div class="kpi-variacao" id="kpiVisitantesVariacao"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Receita</div>
+              <div class="kpi-valor tabular" id="kpiReceita">—</div>
+              <div class="kpi-variacao" id="kpiReceitaVariacao"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">RPM</div>
+              <div class="kpi-valor tabular" id="kpiRpm">—</div>
+              <div class="kpi-variacao" id="kpiRpmVariacao"></div>
+            </div>
+          </div>
+
+          <div class="grafico-grid">
+            <div class="grafico-card">
+              <h3>Acessos ao longo do tempo</h3>
+              <div class="grafico-canvas-wrap"><canvas id="graficoAcessos"></canvas></div>
+            </div>
+            <div class="grafico-card">
+              <h3>Receita AdSense por dia</h3>
+              <div class="grafico-canvas-wrap"><canvas id="graficoReceita"></canvas></div>
+            </div>
+            <div class="grafico-card">
+              <h3>Impressões × Cliques × CTR</h3>
+              <div class="grafico-canvas-wrap"><canvas id="graficoImpressoesCliques"></canvas></div>
+            </div>
+            <div class="grafico-card">
+              <h3>Origem do tráfego</h3>
+              <div class="grafico-canvas-wrap"><canvas id="graficoOrigem"></canvas></div>
+            </div>
+            <div class="grafico-card full">
+              <h3>Top páginas</h3>
+              <div style="overflow-x:auto;">
+                <table class="tabela-plumagem" id="tabelaTopPaginas">
+                  <thead>
+                    <tr>
+                      <th data-campo="pagina">Página</th>
+                      <th data-campo="visitas" class="num">Visitas</th>
+                      <th data-campo="receita" class="num">Receita</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="painel-edicao somente-edicao" id="painelEdicaoMetricas">
+            <h3>Ajustar valores</h3>
+            <p class="drawer-pais-iso">Edite os números que alimentam os gráficos do período selecionado acima.</p>
+            <div style="overflow-x:auto;">
+              <table id="tabelaEdicaoMetricas">
+                <thead>
+                  <tr><th>Data</th><th>Visitas</th><th>Visitantes únicos</th><th>Impressões</th><th>Cliques</th><th>Receita (R$)</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="acoes-edicao">
+              <button class="btn-salvar" id="btnSalvarMetricas">Salvar</button>
+              <button class="btn-descartar" id="btnDescartarMetricas">Descartar</button>
+              <span class="aviso-nao-salvo" id="avisoNaoSalvoMetricas" hidden>Alterações não salvas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== ABA: MAPA DE ANÚNCIOS ===================== -->
+      <div class="tab-pane fade" id="mapa-anuncios-pane" role="tabpanel" aria-labelledby="tab-mapa-anuncios" tabindex="0">
+        <div class="tema-plumagem">
+          <div class="aba-cabecalho">
+            <h2>Mapa de anúncios</h2>
+            <div class="d-flex align-items-center gap-2" data-cadeado-container>
+              <span class="tag-somente-leitura">Somente leitura</span>
+              <button class="cadeado-btn" data-abrir-cadeado aria-label="Cadeado trancado. Clique para destrancar com o PIN.">
+                <span data-cadeado-icone>🔒</span> Destrancar
+              </button>
+              <button class="cadeado-btn" data-trancar-agora hidden aria-label="Cadeado destrancado. Clique para trancar agora.">
+                🔓 Trancar agora
+              </button>
+            </div>
+          </div>
+          <p style="color:var(--pluma-texto-muted); margin-top:-10px;">Passe o mouse ou clique num país pra ver o preço de anúncio dele. Arraste pra girar, use o scroll pra dar zoom.</p>
+
+          <div class="globo-layout">
+            <div id="globo-wrap">
+              <div id="globo-canvas-host"></div>
+              <div class="globo-skeleton" id="globo-skeleton">
+                <div class="spinner-border" role="status"></div>
+                <span>Carregando o globo...</span>
+              </div>
+            </div>
+            <div id="drawerPais" class="vazio">Clique num país no globo pra ver os detalhes de anúncio dele aqui.</div>
+          </div>
+
+          <div class="painel-edicao somente-edicao" style="margin-top:16px;">
+            <h3>Definir preço padrão</h3>
+            <p class="drawer-pais-iso">Aplica esses valores a todos os países que ainda não têm preço definido.</p>
+            <div class="d-flex flex-wrap gap-3 align-items-end">
+              <div>
+                <label class="kpi-label d-block">CPM (R$)</label>
+                <input type="number" min="0" step="0.01" id="padraoCpm" value="5.00" style="width:110px;" class="editavel-input">
+              </div>
+              <div>
+                <label class="kpi-label d-block">CPC (R$)</label>
+                <input type="number" min="0" step="0.01" id="padraoCpc" value="0.30" style="width:110px;" class="editavel-input">
+              </div>
+              <div>
+                <label class="kpi-label d-block">Alcance/mês</label>
+                <input type="number" min="0" step="1" id="padraoReach" value="50000" style="width:130px;" class="editavel-input">
+              </div>
+              <button class="btn-salvar" id="btnPrecoPadrao">Aplicar a países sem preço</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Botão de logout -->
-    <div class="text-center">
+    <div class="text-center mt-4">
       <button id="logoutBtn" class="btn btn-danger btn-lg">
         <i class="bi bi-box-arrow-right"></i> Sair
       </button>
     </div>
   </div>
+
+  <!-- Modal do PIN (compartilhado pelas abas Métricas e Mapa de Anúncios) -->
+  <div class="modal fade" id="modalPin" tabindex="-1" aria-labelledby="modalPinLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPinLabel">Digite o PIN</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="pin-grupo" id="pinGrupoInputs">
+            <input type="text" inputmode="numeric" maxlength="1" class="pin-digito" aria-label="Primeiro dígito do PIN">
+            <input type="text" inputmode="numeric" maxlength="1" class="pin-digito" aria-label="Segundo dígito do PIN">
+            <input type="text" inputmode="numeric" maxlength="1" class="pin-digito" aria-label="Terceiro dígito do PIN">
+            <input type="text" inputmode="numeric" maxlength="1" class="pin-digito" aria-label="Quarto dígito do PIN">
+          </div>
+          <p id="pinErro"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" style="z-index:1080;"></div>
 
   <!-- Ícones do Bootstrap Icons -->
   <link
@@ -145,7 +337,14 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  <!-- globe.gl (globo 3D da aba Mapa de Anúncios) -->
+  <script src="https://unpkg.com/globe.gl"></script>
+
   <!-- JS Customizado -->
+  <script src="./js/adminData.js?v=20260801"></script>
+  <script src="./js/script-admin-lock.js?v=20260801"></script>
+  <script src="./js/script-admin-metrics.js?v=20260801"></script>
+  <script src="./js/script-admin-globe.js?v=20260801"></script>
   <script src="./js/script-admin.js"></script>
 </body>
 </html>

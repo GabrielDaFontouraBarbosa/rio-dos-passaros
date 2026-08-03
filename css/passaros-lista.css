@@ -1,0 +1,223 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, #fffef8 0%, #fff5dc 42%, #ffe2b8 100%);
+  color: #333;
+  min-height: 100vh;
+}
+
+.lista-header {
+  text-align: center;
+  padding: 32px 20px 16px;
+  position: relative;
+}
+
+.lista-voltar {
+  position: absolute;
+  left: 20px;
+  top: 32px;
+  text-decoration: none;
+  color: #284275;
+  font-weight: 700;
+  background: #fff;
+  border: 2px solid #ffde59;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.lista-header h1 {
+  font-family: "chaloops", cursive;
+  color: #d94b59;
+  font-size: 2.2rem;
+  margin: 0 0 6px;
+  text-shadow: -1px -1px 0 #FFFEBF, 1px -1px 0 #FFFEBF, -1px 1px 0 #FFFEBF, 1px 1px 0 #FFFEBF;
+}
+
+.lista-contagem {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: #7a5a3a;
+}
+
+.lista-header p {
+  color: #555;
+  margin: 0;
+}
+
+.lista-busca-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px 20px 24px;
+}
+
+.lista-busca {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 2px solid #ffde59;
+  font-size: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  outline: none;
+}
+.lista-busca:focus {
+  border-color: #d94b59;
+}
+
+.lista-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.lista-carregando {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #7a5a3a;
+  padding: 40px;
+}
+
+.passaro-card {
+  background: #fff;
+  border: 2px solid #ffde59;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.passaro-card:hover,
+.passaro-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+.passaro-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #f0f0f0;
+  display: block;
+}
+
+.passaro-card-info {
+  padding: 10px 12px 14px;
+}
+
+.passaro-card-nome {
+  font-weight: 700;
+  color: #284275;
+  font-size: 0.95rem;
+  margin: 0 0 2px;
+}
+
+.passaro-card-cientifico {
+  font-style: italic;
+  color: #999;
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+.lista-sem-resultado {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #7a5a3a;
+  padding: 40px;
+}
+
+/* ---- Modal de detalhe ---- */
+.modal-passaro {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+.modal-passaro.hidden { display: none; }
+
+.modal-passaro-conteudo {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-passaro-fechar {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #d94b59;
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.modal-passaro-conteudo img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  background: #f0f0f0;
+}
+
+.modal-passaro-texto {
+  padding: 20px 24px 24px;
+}
+
+.modal-passaro-texto h2 {
+  font-family: "chaloops", cursive;
+  color: #d94b59;
+  margin: 0 0 4px;
+}
+
+.modal-passaro-cientifico {
+  font-style: italic;
+  color: #7a5a3a;
+  margin: 0 0 14px;
+}
+
+.modal-passaro-texto p { line-height: 1.5; }
+
+.modal-passaro-extra-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0e4c8;
+}
+.modal-passaro-extra-row span:first-child { color: #7a5a3a; font-weight: 600; }
+
+.modal-passaro-credito {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: #999;
+}
+.modal-passaro-credito a { color: #999; }
+
+@media (max-width: 480px) {
+  .lista-voltar { position: static; display: inline-block; margin-bottom: 10px; }
+  .lista-header h1 { font-size: 1.7rem; }
+  .lista-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .passaro-card img { height: 110px; }
+}

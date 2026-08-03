@@ -1,0 +1,763 @@
+{
+  "_aviso": "Dados de demonstração — não refletem tráfego ou receita reais do site.",
+  "diario": [
+    {
+      "data": "2026-05-03",
+      "visitas": 441,
+      "visitantesUnicos": 351,
+      "impressoes": 6853,
+      "cliques": 71,
+      "receita": 24.01
+    },
+    {
+      "data": "2026-05-04",
+      "visitas": 390,
+      "visitantesUnicos": 311,
+      "impressoes": 6178,
+      "cliques": 72,
+      "receita": 21.86
+    },
+    {
+      "data": "2026-05-05",
+      "visitas": 387,
+      "visitantesUnicos": 312,
+      "impressoes": 6034,
+      "cliques": 67,
+      "receita": 21.36
+    },
+    {
+      "data": "2026-05-06",
+      "visitas": 385,
+      "visitantesUnicos": 310,
+      "impressoes": 6471,
+      "cliques": 65,
+      "receita": 23.97
+    },
+    {
+      "data": "2026-05-07",
+      "visitas": 382,
+      "visitantesUnicos": 314,
+      "impressoes": 6202,
+      "cliques": 63,
+      "receita": 22.22
+    },
+    {
+      "data": "2026-05-08",
+      "visitas": 401,
+      "visitantesUnicos": 325,
+      "impressoes": 6742,
+      "cliques": 71,
+      "receita": 24.23
+    },
+    {
+      "data": "2026-05-09",
+      "visitas": 478,
+      "visitantesUnicos": 388,
+      "impressoes": 7828,
+      "cliques": 94,
+      "receita": 29.07
+    },
+    {
+      "data": "2026-05-10",
+      "visitas": 471,
+      "visitantesUnicos": 382,
+      "impressoes": 7179,
+      "cliques": 78,
+      "receita": 27.15
+    },
+    {
+      "data": "2026-05-11",
+      "visitas": 399,
+      "visitantesUnicos": 324,
+      "impressoes": 6659,
+      "cliques": 67,
+      "receita": 24.88
+    },
+    {
+      "data": "2026-05-12",
+      "visitas": 401,
+      "visitantesUnicos": 326,
+      "impressoes": 6062,
+      "cliques": 67,
+      "receita": 23.14
+    },
+    {
+      "data": "2026-05-13",
+      "visitas": 386,
+      "visitantesUnicos": 311,
+      "impressoes": 6011,
+      "cliques": 67,
+      "receita": 22.88
+    },
+    {
+      "data": "2026-05-14",
+      "visitas": 407,
+      "visitantesUnicos": 335,
+      "impressoes": 6708,
+      "cliques": 77,
+      "receita": 25.1
+    },
+    {
+      "data": "2026-05-15",
+      "visitas": 409,
+      "visitantesUnicos": 335,
+      "impressoes": 6652,
+      "cliques": 75,
+      "receita": 25.56
+    },
+    {
+      "data": "2026-05-16",
+      "visitas": 481,
+      "visitantesUnicos": 385,
+      "impressoes": 7343,
+      "cliques": 74,
+      "receita": 27.66
+    },
+    {
+      "data": "2026-05-17",
+      "visitas": 501,
+      "visitantesUnicos": 410,
+      "impressoes": 7578,
+      "cliques": 82,
+      "receita": 28.28
+    },
+    {
+      "data": "2026-05-18",
+      "visitas": 406,
+      "visitantesUnicos": 331,
+      "impressoes": 6259,
+      "cliques": 67,
+      "receita": 23.96
+    },
+    {
+      "data": "2026-05-19",
+      "visitas": 410,
+      "visitantesUnicos": 338,
+      "impressoes": 6552,
+      "cliques": 69,
+      "receita": 24.94
+    },
+    {
+      "data": "2026-05-20",
+      "visitas": 406,
+      "visitantesUnicos": 328,
+      "impressoes": 6448,
+      "cliques": 70,
+      "receita": 24.52
+    },
+    {
+      "data": "2026-05-21",
+      "visitas": 432,
+      "visitantesUnicos": 355,
+      "impressoes": 6617,
+      "cliques": 71,
+      "receita": 24.59
+    },
+    {
+      "data": "2026-05-22",
+      "visitas": 424,
+      "visitantesUnicos": 343,
+      "impressoes": 6382,
+      "cliques": 75,
+      "receita": 25.06
+    },
+    {
+      "data": "2026-05-23",
+      "visitas": 512,
+      "visitantesUnicos": 415,
+      "impressoes": 7820,
+      "cliques": 91,
+      "receita": 30.88
+    },
+    {
+      "data": "2026-05-24",
+      "visitas": 513,
+      "visitantesUnicos": 415,
+      "impressoes": 8333,
+      "cliques": 90,
+      "receita": 32.39
+    },
+    {
+      "data": "2026-05-25",
+      "visitas": 405,
+      "visitantesUnicos": 323,
+      "impressoes": 6714,
+      "cliques": 80,
+      "receita": 26.43
+    },
+    {
+      "data": "2026-05-26",
+      "visitas": 426,
+      "visitantesUnicos": 340,
+      "impressoes": 6555,
+      "cliques": 71,
+      "receita": 25.65
+    },
+    {
+      "data": "2026-05-27",
+      "visitas": 437,
+      "visitantesUnicos": 353,
+      "impressoes": 6708,
+      "cliques": 78,
+      "receita": 26.57
+    },
+    {
+      "data": "2026-05-28",
+      "visitas": 414,
+      "visitantesUnicos": 340,
+      "impressoes": 6291,
+      "cliques": 69,
+      "receita": 25.06
+    },
+    {
+      "data": "2026-05-29",
+      "visitas": 433,
+      "visitantesUnicos": 352,
+      "impressoes": 7355,
+      "cliques": 88,
+      "receita": 28.53
+    },
+    {
+      "data": "2026-05-30",
+      "visitas": 491,
+      "visitantesUnicos": 393,
+      "impressoes": 7436,
+      "cliques": 80,
+      "receita": 28.68
+    },
+    {
+      "data": "2026-05-31",
+      "visitas": 523,
+      "visitantesUnicos": 424,
+      "impressoes": 8684,
+      "cliques": 96,
+      "receita": 35.18
+    },
+    {
+      "data": "2026-06-01",
+      "visitas": 415,
+      "visitantesUnicos": 339,
+      "impressoes": 6546,
+      "cliques": 73,
+      "receita": 26.67
+    },
+    {
+      "data": "2026-06-02",
+      "visitas": 421,
+      "visitantesUnicos": 335,
+      "impressoes": 6949,
+      "cliques": 73,
+      "receita": 27.84
+    },
+    {
+      "data": "2026-06-03",
+      "visitas": 428,
+      "visitantesUnicos": 348,
+      "impressoes": 7137,
+      "cliques": 77,
+      "receita": 29.17
+    },
+    {
+      "data": "2026-06-04",
+      "visitas": 422,
+      "visitantesUnicos": 336,
+      "impressoes": 6750,
+      "cliques": 81,
+      "receita": 27.11
+    },
+    {
+      "data": "2026-06-05",
+      "visitas": 423,
+      "visitantesUnicos": 341,
+      "impressoes": 6475,
+      "cliques": 65,
+      "receita": 26.22
+    },
+    {
+      "data": "2026-06-06",
+      "visitas": 510,
+      "visitantesUnicos": 408,
+      "impressoes": 8046,
+      "cliques": 94,
+      "receita": 32.62
+    },
+    {
+      "data": "2026-06-07",
+      "visitas": 491,
+      "visitantesUnicos": 401,
+      "impressoes": 8045,
+      "cliques": 91,
+      "receita": 31.92
+    },
+    {
+      "data": "2026-06-08",
+      "visitas": 431,
+      "visitantesUnicos": 352,
+      "impressoes": 7268,
+      "cliques": 83,
+      "receita": 29.89
+    },
+    {
+      "data": "2026-06-09",
+      "visitas": 441,
+      "visitantesUnicos": 361,
+      "impressoes": 6737,
+      "cliques": 71,
+      "receita": 27.94
+    },
+    {
+      "data": "2026-06-10",
+      "visitas": 417,
+      "visitantesUnicos": 337,
+      "impressoes": 6816,
+      "cliques": 76,
+      "receita": 28.48
+    },
+    {
+      "data": "2026-06-11",
+      "visitas": 417,
+      "visitantesUnicos": 337,
+      "impressoes": 6555,
+      "cliques": 68,
+      "receita": 26.38
+    },
+    {
+      "data": "2026-06-12",
+      "visitas": 434,
+      "visitantesUnicos": 351,
+      "impressoes": 6830,
+      "cliques": 79,
+      "receita": 27.21
+    },
+    {
+      "data": "2026-06-13",
+      "visitas": 519,
+      "visitantesUnicos": 419,
+      "impressoes": 8479,
+      "cliques": 92,
+      "receita": 35.57
+    },
+    {
+      "data": "2026-06-14",
+      "visitas": 510,
+      "visitantesUnicos": 407,
+      "impressoes": 7733,
+      "cliques": 86,
+      "receita": 31.77
+    },
+    {
+      "data": "2026-06-15",
+      "visitas": 409,
+      "visitantesUnicos": 331,
+      "impressoes": 6179,
+      "cliques": 66,
+      "receita": 24.9
+    },
+    {
+      "data": "2026-06-16",
+      "visitas": 423,
+      "visitantesUnicos": 342,
+      "impressoes": 6546,
+      "cliques": 67,
+      "receita": 26.68
+    },
+    {
+      "data": "2026-06-17",
+      "visitas": 433,
+      "visitantesUnicos": 357,
+      "impressoes": 6851,
+      "cliques": 81,
+      "receita": 29.13
+    },
+    {
+      "data": "2026-06-18",
+      "visitas": 430,
+      "visitantesUnicos": 345,
+      "impressoes": 6709,
+      "cliques": 76,
+      "receita": 28.39
+    },
+    {
+      "data": "2026-06-19",
+      "visitas": 407,
+      "visitantesUnicos": 335,
+      "impressoes": 6405,
+      "cliques": 73,
+      "receita": 26.09
+    },
+    {
+      "data": "2026-06-20",
+      "visitas": 498,
+      "visitantesUnicos": 406,
+      "impressoes": 7867,
+      "cliques": 83,
+      "receita": 32.87
+    },
+    {
+      "data": "2026-06-21",
+      "visitas": 519,
+      "visitantesUnicos": 424,
+      "impressoes": 8418,
+      "cliques": 88,
+      "receita": 36.15
+    },
+    {
+      "data": "2026-06-22",
+      "visitas": 433,
+      "visitantesUnicos": 352,
+      "impressoes": 6762,
+      "cliques": 70,
+      "receita": 29.09
+    },
+    {
+      "data": "2026-06-23",
+      "visitas": 419,
+      "visitantesUnicos": 338,
+      "impressoes": 6718,
+      "cliques": 77,
+      "receita": 28.18
+    },
+    {
+      "data": "2026-06-24",
+      "visitas": 414,
+      "visitantesUnicos": 334,
+      "impressoes": 6709,
+      "cliques": 68,
+      "receita": 28.88
+    },
+    {
+      "data": "2026-06-25",
+      "visitas": 418,
+      "visitantesUnicos": 334,
+      "impressoes": 6764,
+      "cliques": 72,
+      "receita": 28.64
+    },
+    {
+      "data": "2026-06-26",
+      "visitas": 404,
+      "visitantesUnicos": 326,
+      "impressoes": 6756,
+      "cliques": 71,
+      "receita": 28.65
+    },
+    {
+      "data": "2026-06-27",
+      "visitas": 513,
+      "visitantesUnicos": 418,
+      "impressoes": 8427,
+      "cliques": 94,
+      "receita": 35.97
+    },
+    {
+      "data": "2026-06-28",
+      "visitas": 489,
+      "visitantesUnicos": 402,
+      "impressoes": 7447,
+      "cliques": 75,
+      "receita": 31.58
+    },
+    {
+      "data": "2026-06-29",
+      "visitas": 412,
+      "visitantesUnicos": 335,
+      "impressoes": 6690,
+      "cliques": 76,
+      "receita": 29.01
+    },
+    {
+      "data": "2026-06-30",
+      "visitas": 421,
+      "visitantesUnicos": 337,
+      "impressoes": 6761,
+      "cliques": 79,
+      "receita": 29.49
+    },
+    {
+      "data": "2026-07-01",
+      "visitas": 421,
+      "visitantesUnicos": 346,
+      "impressoes": 7156,
+      "cliques": 85,
+      "receita": 30.12
+    },
+    {
+      "data": "2026-07-02",
+      "visitas": 418,
+      "visitantesUnicos": 344,
+      "impressoes": 6572,
+      "cliques": 71,
+      "receita": 28.1
+    },
+    {
+      "data": "2026-07-03",
+      "visitas": 410,
+      "visitantesUnicos": 337,
+      "impressoes": 6193,
+      "cliques": 73,
+      "receita": 26.48
+    },
+    {
+      "data": "2026-07-04",
+      "visitas": 515,
+      "visitantesUnicos": 417,
+      "impressoes": 8646,
+      "cliques": 87,
+      "receita": 36.63
+    },
+    {
+      "data": "2026-07-05",
+      "visitas": 516,
+      "visitantesUnicos": 415,
+      "impressoes": 8728,
+      "cliques": 97,
+      "receita": 37.5
+    },
+    {
+      "data": "2026-07-06",
+      "visitas": 407,
+      "visitantesUnicos": 333,
+      "impressoes": 6798,
+      "cliques": 80,
+      "receita": 30.19
+    },
+    {
+      "data": "2026-07-07",
+      "visitas": 426,
+      "visitantesUnicos": 347,
+      "impressoes": 7066,
+      "cliques": 78,
+      "receita": 31.82
+    },
+    {
+      "data": "2026-07-08",
+      "visitas": 406,
+      "visitantesUnicos": 329,
+      "impressoes": 6367,
+      "cliques": 67,
+      "receita": 28.44
+    },
+    {
+      "data": "2026-07-09",
+      "visitas": 437,
+      "visitantesUnicos": 351,
+      "impressoes": 7289,
+      "cliques": 86,
+      "receita": 33.22
+    },
+    {
+      "data": "2026-07-10",
+      "visitas": 423,
+      "visitantesUnicos": 345,
+      "impressoes": 6998,
+      "cliques": 73,
+      "receita": 31.91
+    },
+    {
+      "data": "2026-07-11",
+      "visitas": 499,
+      "visitantesUnicos": 409,
+      "impressoes": 8300,
+      "cliques": 97,
+      "receita": 36.91
+    },
+    {
+      "data": "2026-07-12",
+      "visitas": 508,
+      "visitantesUnicos": 413,
+      "impressoes": 7656,
+      "cliques": 86,
+      "receita": 34.45
+    },
+    {
+      "data": "2026-07-13",
+      "visitas": 423,
+      "visitantesUnicos": 345,
+      "impressoes": 6608,
+      "cliques": 68,
+      "receita": 30.28
+    },
+    {
+      "data": "2026-07-14",
+      "visitas": 425,
+      "visitantesUnicos": 348,
+      "impressoes": 6811,
+      "cliques": 76,
+      "receita": 29.67
+    },
+    {
+      "data": "2026-07-15",
+      "visitas": 411,
+      "visitantesUnicos": 338,
+      "impressoes": 6837,
+      "cliques": 79,
+      "receita": 30.16
+    },
+    {
+      "data": "2026-07-16",
+      "visitas": 437,
+      "visitantesUnicos": 351,
+      "impressoes": 7356,
+      "cliques": 84,
+      "receita": 32.97
+    },
+    {
+      "data": "2026-07-17",
+      "visitas": 425,
+      "visitantesUnicos": 350,
+      "impressoes": 6717,
+      "cliques": 70,
+      "receita": 30.45
+    },
+    {
+      "data": "2026-07-18",
+      "visitas": 504,
+      "visitantesUnicos": 411,
+      "impressoes": 8101,
+      "cliques": 85,
+      "receita": 36.16
+    },
+    {
+      "data": "2026-07-19",
+      "visitas": 530,
+      "visitantesUnicos": 424,
+      "impressoes": 8790,
+      "cliques": 91,
+      "receita": 41.03
+    },
+    {
+      "data": "2026-07-20",
+      "visitas": 453,
+      "visitantesUnicos": 368,
+      "impressoes": 7153,
+      "cliques": 79,
+      "receita": 33.26
+    },
+    {
+      "data": "2026-07-21",
+      "visitas": 430,
+      "visitantesUnicos": 353,
+      "impressoes": 6863,
+      "cliques": 71,
+      "receita": 32.3
+    },
+    {
+      "data": "2026-07-22",
+      "visitas": 426,
+      "visitantesUnicos": 342,
+      "impressoes": 6408,
+      "cliques": 75,
+      "receita": 30
+    },
+    {
+      "data": "2026-07-23",
+      "visitas": 444,
+      "visitantesUnicos": 365,
+      "impressoes": 7063,
+      "cliques": 71,
+      "receita": 31.96
+    },
+    {
+      "data": "2026-07-24",
+      "visitas": 441,
+      "visitantesUnicos": 353,
+      "impressoes": 7293,
+      "cliques": 76,
+      "receita": 33.12
+    },
+    {
+      "data": "2026-07-25",
+      "visitas": 540,
+      "visitantesUnicos": 430,
+      "impressoes": 8755,
+      "cliques": 97,
+      "receita": 40.78
+    },
+    {
+      "data": "2026-07-26",
+      "visitas": 546,
+      "visitantesUnicos": 450,
+      "impressoes": 8540,
+      "cliques": 88,
+      "receita": 38.99
+    },
+    {
+      "data": "2026-07-27",
+      "visitas": 456,
+      "visitantesUnicos": 373,
+      "impressoes": 7376,
+      "cliques": 86,
+      "receita": 35.22
+    },
+    {
+      "data": "2026-07-28",
+      "visitas": 459,
+      "visitantesUnicos": 372,
+      "impressoes": 7730,
+      "cliques": 90,
+      "receita": 35.1
+    },
+    {
+      "data": "2026-07-29",
+      "visitas": 443,
+      "visitantesUnicos": 361,
+      "impressoes": 7075,
+      "cliques": 75,
+      "receita": 33.05
+    },
+    {
+      "data": "2026-07-30",
+      "visitas": 458,
+      "visitantesUnicos": 377,
+      "impressoes": 7286,
+      "cliques": 84,
+      "receita": 34.9
+    },
+    {
+      "data": "2026-07-31",
+      "visitas": 465,
+      "visitantesUnicos": 374,
+      "impressoes": 7042,
+      "cliques": 76,
+      "receita": 32.41
+    }
+  ],
+  "origemTrafego": {
+    "organico": 46,
+    "direto": 27,
+    "redesSociais": 19,
+    "referencia": 8
+  },
+  "topPaginas": [
+    {
+      "pagina": "Início",
+      "visitas": 18420,
+      "receita": 612.3
+    },
+    {
+      "pagina": "Quiz",
+      "visitas": 9840,
+      "receita": 298.1
+    },
+    {
+      "pagina": "Pássaros",
+      "visitas": 7210,
+      "receita": 231.45
+    },
+    {
+      "pagina": "Galeria",
+      "visitas": 4380,
+      "receita": 128.9
+    },
+    {
+      "pagina": "Mapa",
+      "visitas": 3125,
+      "receita": 94.6
+    },
+    {
+      "pagina": "Vídeo",
+      "visitas": 2760,
+      "receita": 81.15
+    }
+  ]
+}

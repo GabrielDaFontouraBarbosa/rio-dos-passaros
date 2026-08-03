@@ -1,4 +1,14 @@
 const dados = {
+  "Tangará": {
+    descricao: "O Tangará, também chamado de dançador ou fandangueiro, é famoso por seu jeitinho de saltitar e dançar nos galhos durante o cortejo. É endêmico da Mata Atlântica brasileira!",
+    habitat: "Sub-bosques e capoeiras de florestas.",
+    localBrasil: "Da Bahia ao Rio Grande do Sul.",
+    bioma: "Mata Atlântica.",
+    coloracao: "Corpo azul-turquesa, cabeça preta e uma touca vermelha no topo.",
+    baseNutricional: "Frutinhas e pequenos insetos.",
+    nomeCientifico: "Chiroxiphia caudata"
+  },
+
   "Canário": {
     descricao: "O Canário é famoso por seu canto melodioso e plumagem vibrante. Muito querido em todo o Brasil!",
     habitat: "Ambientes urbanos, jardins e áreas rurais.",

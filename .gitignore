@@ -1,1 +1,4 @@
 site-riodospassaros.zip
+
+# PIN do admin — cada ambiente define o seu, nunca vai pro repositório
+admin-config.php
