@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja - Rio dos Pássaros</title>
+  <meta name="description" content="Loja oficial do Rio dos Pássaros: HQ em quadrinhos, quadros ilustrados com as aves do Brasil e o mel artesanal do Sítio Santa Cruz.">
+  <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/loja.css?v=20260804">
+</head>
+<body>
+  <header class="loja-header">
+    <a href="./index.html" class="loja-voltar">← Início</a>
+    <h1>Loja Rio dos Pássaros</h1>
+    <p>Leve um pedacinho do Rio dos Pássaros pra sua casa: quadrinhos, quadros das aves e o mel do Sítio Santa Cruz.</p>
+  </header>
+
+  <main class="loja-container">
+
+    <!-- HQ -->
+    <section class="loja-secao" id="secaoHq">
+      <div class="loja-secao-header">
+        <span class="loja-secao-icone">📖</span>
+        <h2>HQ Rio dos Pássaros</h2>
+      </div>
+      <div id="hqContainer">
+        <p class="quadros-sem-resultado">Carregando produto...</p>
+      </div>
+    </section>
+
+    <!-- QUADROS -->
+    <section class="loja-secao" id="secaoQuadros">
+      <div class="loja-secao-header">
+        <span class="loja-secao-icone">🖼️</span>
+        <h2>Quadros de Pássaros</h2>
+      </div>
+      <p class="loja-secao-desc" id="quadrosDescricao"></p>
+
+      <input type="text" id="buscaQuadro" class="quadros-busca" placeholder="Buscar pássaro pelo nome...">
+
+      <div class="quadros-grid" id="quadrosGrid">
+        <p class="quadros-sem-resultado">Carregando pássaros...</p>
+      </div>
+
+      <div class="quadro-config" id="quadroConfig">
+        <div class="quadro-config-preview">
+          <img id="quadroConfigImg" src="" alt="">
+          <strong id="quadroConfigNome"></strong>
+        </div>
+        <div class="quadro-config-opcoes">
+          <div class="campo-grupo">
+            <label class="rotulo">Tamanho</label>
+            <div class="opcoes-pill" id="quadroTamanhos"></div>
+          </div>
+          <div class="campo-grupo">
+            <label class="rotulo">Moldura</label>
+            <div class="opcoes-pill" id="quadroMolduras"></div>
+          </div>
+          <div class="produto-preco" id="quadroPreco"></div>
+          <div class="qtd-control" id="quadroQtdControl">
+            <button type="button" data-acao="menos">−</button>
+            <span id="quadroQtd">1</span>
+            <button type="button" data-acao="mais">+</button>
+          </div>
+          <button type="button" class="btn-comprar" id="btnAddQuadro">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEL -->
+    <section class="loja-secao" id="secaoMel">
+      <div class="loja-secao-header">
+        <span class="loja-secao-icone">🍯</span>
+        <h2 id="melNome">Mel do Sítio Santa Cruz</h2>
+      </div>
+      <div id="melContainer">
+        <p class="quadros-sem-resultado">Carregando produto...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Botão flutuante do carrinho -->
+  <button type="button" class="carrinho-botao" id="btnAbrirCarrinho">
+    🛒 Carrinho <span class="carrinho-contagem" id="carrinhoContagem">0</span>
+  </button>
+
+  <!-- Painel do carrinho -->
+  <div class="carrinho-painel" id="carrinhoPainel">
+    <div class="carrinho-caixa">
+      <div class="carrinho-caixa-header">
+        <h2>Seu Carrinho</h2>
+        <button type="button" class="carrinho-fechar" id="btnFecharCarrinho" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="carrinho-lista" id="carrinhoLista">
+        <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+      </div>
+
+      <div class="carrinho-rodape">
+        <div class="carrinho-total">
+          <span>Total</span>
+          <span id="carrinhoTotal">R$ 0,00</span>
+        </div>
+        <button type="button" class="btn-finalizar" id="btnFinalizar" disabled>
+          Finalizar Pedido pelo WhatsApp
+        </button>
+        <p class="carrinho-obs">Pagamento, frete e prazo de entrega são combinados diretamente pelo WhatsApp após o pedido.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="loja-toast" id="lojaToast"></div>
+
+  <script src="./js/script-loja.js?v=20260804"></script>
+</body>
+</html>

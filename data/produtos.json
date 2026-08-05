@@ -1,0 +1,38 @@
+{
+  "_aviso": "Preços de exemplo — o George deve ajustar os valores abaixo para os preços reais dos produtos.",
+  "whatsapp": "5521975449779",
+  "hq": {
+    "id": "hq",
+    "nome": "HQ Rio dos Pássaros",
+    "descricao": "As aventuras de George e da turma do Rio dos Pássaros em quadrinhos! Uma jornada colorida pela Mata Atlântica, cheia de música, humor e descobertas sobre as aves do Brasil.",
+    "preco": 39.9,
+    "imagem": "images/George-Canário-da-terra.png"
+  },
+  "quadros": {
+    "nome": "Quadros de Pássaros",
+    "descricao": "Escolha o seu pássaro favorito e leve pra casa uma ilustração em formato de quadro, pronta pra decorar o quarto ou a sala.",
+    "precoBase": 89.9,
+    "tamanhos": [
+      { "id": "a4", "nome": "A4 (21×30cm)", "adicional": 0 },
+      { "id": "a3", "nome": "A3 (30×42cm)", "adicional": 35 },
+      { "id": "a2", "nome": "A2 (42×59cm)", "adicional": 80 }
+    ],
+    "molduras": [
+      { "id": "natural", "nome": "Moldura Natural", "adicional": 0 },
+      { "id": "branca", "nome": "Moldura Branca", "adicional": 0 },
+      { "id": "preta", "nome": "Moldura Preta", "adicional": 0 },
+      { "id": "sem", "nome": "Sem moldura (só a arte)", "adicional": -25 }
+    ]
+  },
+  "mel": {
+    "id": "mel",
+    "nome": "Mel do Sítio Santa Cruz",
+    "descricao": "Mel puro e artesanal, produzido com carinho no Sítio Santa Cruz — parceiro do Rio dos Pássaros. Direto da colmeia pra sua mesa!",
+    "imagem": null,
+    "variantes": [
+      { "id": "250g", "nome": "Pote 250g", "preco": 24.9 },
+      { "id": "500g", "nome": "Pote 500g", "preco": 42.9 },
+      { "id": "kit3", "nome": "Kit com 3 potes de 250g", "preco": 64.9 }
+    ]
+  }
+}
