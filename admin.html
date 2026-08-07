@@ -26,6 +26,7 @@
   <!-- CSS Customizado -->
   <link rel="stylesheet" href="./css/admin.css" />
   <link rel="stylesheet" href="./css/admin-metrics.css?v=20260801" />
+  <link rel="stylesheet" href="./css/admin-pro-hud.css?v=20260807" />
 </head>
 <body>
   <!-- Navbar simples -->
@@ -232,14 +233,22 @@
         <div class="tema-plumagem">
           <div class="aba-cabecalho">
             <h2>Mapa de anúncios</h2>
-            <div class="d-flex align-items-center gap-2" data-cadeado-container>
-              <span class="tag-somente-leitura">Somente leitura</span>
-              <button class="cadeado-btn" data-abrir-cadeado aria-label="Cadeado trancado. Clique para destrancar com o PIN.">
-                <span data-cadeado-icone>🔒</span> Destrancar
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <button type="button" class="btn-pro-ativar" id="btnAtivarPro" disabled title="Disponível assim que o globo 3D terminar de carregar">
+                <span aria-hidden="true">⭐</span> Ativar Plano PRO
               </button>
-              <button class="cadeado-btn" data-trancar-agora hidden aria-label="Cadeado destrancado. Clique para trancar agora.">
-                🔓 Trancar agora
+              <button type="button" class="btn-pro-sair" id="btnSairPro" hidden>
+                Sair do modo PRO
               </button>
+              <div class="d-flex align-items-center gap-2" data-cadeado-container>
+                <span class="tag-somente-leitura">Somente leitura</span>
+                <button class="cadeado-btn" data-abrir-cadeado aria-label="Cadeado trancado. Clique para destrancar com o PIN.">
+                  <span data-cadeado-icone>🔒</span> Destrancar
+                </button>
+                <button class="cadeado-btn" data-trancar-agora hidden aria-label="Cadeado destrancado. Clique para trancar agora.">
+                  🔓 Trancar agora
+                </button>
+              </div>
             </div>
           </div>
           <p style="color:var(--pluma-texto-muted); margin-top:-10px;">Passe o mouse ou clique num país pra ver o preço de anúncio dele. Arraste pra girar, use o scroll pra dar zoom.</p>
@@ -251,8 +260,67 @@
                 <div class="spinner-border" role="status"></div>
                 <span>Carregando o globo...</span>
               </div>
+
+              <!-- HUD do Plano PRO: some por cima do globo só depois de ativado -->
+              <div id="proHudFaixa" class="pro-hud-faixa" hidden>
+                <div class="pro-hud-selo">
+                  <span aria-hidden="true">⭐</span> PLANO PRO
+                  <span class="pro-hud-ao-vivo"><span class="pro-hud-ponto"></span>AO VIVO</span>
+                </div>
+                <div class="pro-hud-metricas">
+                  <div class="pro-hud-metrica">
+                    <span class="pro-hud-metrica-label">Impressões hoje</span>
+                    <span class="pro-hud-metrica-valor tabular" id="proImpressoes">0</span>
+                  </div>
+                  <div class="pro-hud-metrica">
+                    <span class="pro-hud-metrica-label">Cliques hoje</span>
+                    <span class="pro-hud-metrica-valor tabular" id="proCliques">0</span>
+                  </div>
+                  <div class="pro-hud-metrica">
+                    <span class="pro-hud-metrica-label">CTR</span>
+                    <span class="pro-hud-metrica-valor tabular" id="proCtr">0%</span>
+                  </div>
+                  <div class="pro-hud-metrica">
+                    <span class="pro-hud-metrica-label">Usuários agora</span>
+                    <span class="pro-hud-metrica-valor tabular" id="proUsuariosAgora">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sequência de introdução do upgrade pro Plano PRO -->
+              <div id="proIntroOverlay" class="pro-intro-overlay" hidden>
+                <div class="pro-intro-card">
+                  <div class="pro-intro-icone">⭐</div>
+                  <h3>Ativando o Plano PRO</h3>
+                  <p class="pro-intro-sub">Expansão de campanha — Nova Iorque, EUA</p>
+                  <div class="pro-intro-barra"><div class="pro-intro-barra-preenchimento" id="proIntroBarra"></div></div>
+                  <ul class="pro-intro-checklist" id="proIntroChecklist"></ul>
+                  <button type="button" class="pro-intro-pular" id="btnPularIntro">Pular animação</button>
+                </div>
+              </div>
             </div>
+
             <div id="drawerPais" class="vazio">Clique num país no globo pra ver os detalhes de anúncio dele aqui.</div>
+
+            <div id="drawerPro" class="drawer-pro" hidden>
+              <div class="drawer-pro-cabecalho">
+                <div class="drawer-pro-titulo">🦜 Campanha PRO — Nova Iorque</div>
+                <div class="drawer-pro-status" id="proStatusDesde">Ativa desde agora</div>
+              </div>
+
+              <div class="drawer-pro-orcamento">
+                <div class="drawer-linha"><span>Orçamento investido</span><span id="proOrcamentoGasto">R$ 0</span></div>
+                <div class="pro-barra-orcamento"><div class="pro-barra-orcamento-preenchimento" id="proOrcamentoBarra"></div></div>
+                <div class="drawer-pais-iso" id="proOrcamentoTexto">de R$ 0 alocados</div>
+              </div>
+
+              <h4 class="drawer-pro-subtitulo">Segmentação de público em NY</h4>
+              <div id="proSegmentacaoDispositivo" class="pro-segmentacao"></div>
+              <div id="proSegmentacaoIdade" class="pro-segmentacao"></div>
+
+              <h4 class="drawer-pro-subtitulo">Atividade em tempo real</h4>
+              <ul id="proTicker" class="pro-ticker"></ul>
+            </div>
           </div>
 
           <div class="painel-edicao somente-edicao" style="margin-top:16px;">
@@ -345,6 +413,7 @@
   <script src="./js/script-admin-lock.js?v=20260801"></script>
   <script src="./js/script-admin-metrics.js?v=20260801"></script>
   <script src="./js/script-admin-globe.js?v=20260801"></script>
+  <script src="./js/script-admin-pro-hud.js?v=20260807"></script>
   <script src="./js/script-admin.js"></script>
 </body>
 </html>

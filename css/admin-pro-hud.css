@@ -1,0 +1,314 @@
+/* ===============================================================
+   HUD do "Plano PRO" — simulação de upgrade e campanha em Nova
+   Iorque, por cima do globo da aba Mapa de Anúncios. Tudo aqui é
+   dado fictício de demonstração (ver data/ad-pricing.json _aviso).
+   =============================================================== */
+.tema-plumagem {
+  --pro-ouro: #ffd60a;
+  --pro-ouro-forte: #f2b90c;
+  --pro-ouro-glow: rgba(255, 214, 10, 0.35);
+}
+
+/* ---------------- Botões de ativar/sair do modo PRO ---------------- */
+.btn-pro-ativar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ffe066, var(--pro-ouro) 45%, var(--pro-ouro-forte));
+  color: #241a00;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(255, 214, 10, 0.4), 0 4px 14px rgba(255, 214, 10, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-pro-ativar:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255, 214, 10, 0.55), 0 6px 18px rgba(255, 214, 10, 0.35);
+}
+.btn-pro-ativar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.35);
+}
+.btn-pro-sair {
+  background: transparent;
+  border: 1px solid var(--pluma-borda);
+  color: var(--pluma-texto-muted);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-pro-sair:hover { border-color: var(--pluma-vermelho); color: var(--pluma-vermelho-forte); }
+
+/* ---------------- Sequência de introdução (upgrade) ---------------- */
+.pro-intro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, rgba(28, 22, 0, 0.9), rgba(6, 7, 10, 0.96));
+  padding: 20px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pro-intro-overlay:not([hidden]) { animation: pro-fade-in 0.4s ease; }
+}
+.pro-intro-card {
+  width: min(420px, 100%);
+  background: var(--pluma-bg-elevado);
+  border: 1px solid var(--pro-ouro);
+  box-shadow: 0 0 40px var(--pro-ouro-glow);
+  border-radius: 18px;
+  padding: 28px 26px;
+  text-align: center;
+  color: var(--pluma-texto);
+}
+.pro-intro-icone { font-size: 2.4rem; margin-bottom: 6px; }
+.pro-intro-card h3 {
+  font-family: 'Chaloops', cursive;
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: var(--pro-ouro);
+}
+.pro-intro-sub { color: var(--pluma-texto-muted); font-size: 0.85rem; margin: 0 0 18px; }
+
+.pro-intro-barra {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--pluma-bg);
+  border: 1px solid var(--pluma-borda);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.pro-intro-barra-preenchimento {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pro-ouro-forte), var(--pro-ouro));
+  transition: width 0.5s ease;
+}
+
+.pro-intro-checklist {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.pro-check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--pluma-texto-muted);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.pro-check-item[data-estado="ativo"],
+.pro-check-item[data-estado="feito"] {
+  opacity: 1;
+  color: var(--pluma-texto);
+}
+.pro-check-icone { flex-shrink: 0; width: 20px; text-align: center; }
+.pro-check-item[data-estado="feito"] .pro-check-icone { color: var(--pluma-verde); }
+@media (prefers-reduced-motion: no-preference) {
+  .pro-check-item[data-estado="ativo"] .pro-check-icone { animation: pro-girar 0.9s linear infinite; }
+}
+
+.pro-intro-pular {
+  background: none;
+  border: none;
+  color: var(--pluma-texto-muted);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.pro-intro-pular:hover { color: var(--pluma-texto); }
+
+/* ---------------- Faixa de HUD por cima do globo ---------------- */
+.pro-hud-faixa {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(15, 19, 25, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--pro-ouro);
+  border-radius: 14px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pro-hud-faixa:not([hidden]) { animation: pro-fade-in 0.5s ease; }
+}
+.pro-hud-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--pro-ouro);
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pro-hud-selo span:first-child { animation: pro-brilho 2.2s ease-in-out infinite; }
+}
+.pro-hud-ao-vivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  font-size: 0.72rem;
+  color: var(--pluma-vermelho-forte);
+  font-weight: 700;
+}
+.pro-hud-ponto { width: 7px; height: 7px; border-radius: 50%; background: var(--pluma-vermelho-forte); }
+@media (prefers-reduced-motion: no-preference) {
+  .pro-hud-ponto { animation: pro-pulso 1.4s ease-in-out infinite; }
+}
+.pro-hud-metricas { display: flex; gap: 20px; flex-wrap: wrap; }
+.pro-hud-metrica { display: flex; flex-direction: column; align-items: flex-end; min-width: 64px; }
+.pro-hud-metrica-label {
+  font-size: 0.65rem;
+  color: var(--pluma-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.pro-hud-metrica-valor { font-size: 1.05rem; font-weight: 700; color: var(--pluma-texto); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .pro-valor-pop { animation: pro-pop 0.35s ease; }
+}
+
+/* ---------------- Painel lateral (drawer) da campanha PRO ---------------- */
+.drawer-pro {
+  width: 340px;
+  flex-shrink: 0;
+  background: var(--pluma-bg-elevado);
+  border: 1px solid var(--pro-ouro);
+  border-radius: 16px;
+  padding: 20px;
+  color: var(--pluma-texto);
+  display: flex;
+  flex-direction: column;
+  max-height: 560px;
+  overflow-y: auto;
+}
+.drawer-pro-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.drawer-pro-titulo { font-weight: 700; font-size: 1rem; }
+.drawer-pro-status { font-size: 0.72rem; color: var(--pro-ouro); white-space: nowrap; }
+.drawer-pro-subtitulo {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--pluma-texto-muted);
+  margin: 18px 0 10px;
+}
+
+.pro-barra-orcamento {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--pluma-bg);
+  border: 1px solid var(--pluma-borda);
+  overflow: hidden;
+  margin: 6px 0;
+}
+.pro-barra-orcamento-preenchimento {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pro-ouro-forte), var(--pro-ouro));
+  transition: width 0.6s ease;
+}
+
+.pro-segmentacao { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.pro-seg-linha {
+  display: grid;
+  grid-template-columns: 64px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--pluma-texto-muted);
+}
+.pro-seg-barra {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--pluma-bg);
+  border: 1px solid var(--pluma-borda);
+  overflow: hidden;
+}
+.pro-seg-barra-preenchimento {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pluma-verde), var(--pro-ouro));
+  transition: width 0.8s ease;
+}
+.pro-seg-valor { text-align: right; font-variant-numeric: tabular-nums; color: var(--pluma-texto); }
+
+.pro-ticker { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.78rem; }
+.pro-ticker-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--pluma-bg);
+  border: 1px solid var(--pluma-borda);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--pluma-texto);
+}
+.pro-ticker-tempo { color: var(--pluma-texto-muted); white-space: nowrap; font-size: 0.7rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .pro-ticker-item-novo { animation: pro-ticker-entra 0.35s ease; }
+}
+
+/* ---------------- Keyframes ---------------- */
+@keyframes pro-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pro-girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes pro-pulso {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+@keyframes pro-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); color: var(--pro-ouro); }
+  100% { transform: scale(1); }
+}
+@keyframes pro-brilho {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  50% { filter: drop-shadow(0 0 6px var(--pro-ouro)); }
+}
+@keyframes pro-ticker-entra {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- Responsivo ---------------- */
+@media (max-width: 992px) {
+  .drawer-pro { width: 100%; max-height: none; }
+}
+@media (max-width: 480px) {
+  .pro-hud-faixa { padding: 8px 10px; }
+  .pro-hud-metricas { gap: 12px; }
+  .pro-hud-metrica-valor { font-size: 0.9rem; }
+  .pro-intro-card { padding: 20px 18px; }
+}

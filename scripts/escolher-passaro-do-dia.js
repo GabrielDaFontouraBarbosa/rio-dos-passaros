@@ -35,5 +35,8 @@ historico.push(escolhido);
 const novoEstado = { data: hoje, passaroId: escolhido, historicoRecente: historico };
 fs.writeFileSync(CAMINHO_ESTADO, JSON.stringify(novoEstado, null, 2) + '\n', 'utf8');
 
-const nome = passaros.find((p) => p.id === escolhido)?.nome;
-console.log(`Pássaro do dia (${hoje}): ${nome} [${escolhido}] — ${historico.length}/${todosIds.length} já mostrados neste ciclo.`);
+const passaroEscolhido = passaros.find((p) => p.id === escolhido);
+console.log(`Pássaro do dia (${hoje}): ${passaroEscolhido?.nome} [${escolhido}] — ${historico.length}/${todosIds.length} já mostrados neste ciclo.`);
+
+const { notificar } = require('./notificar-passaro-do-dia');
+notificar(passaroEscolhido).catch((erro) => console.log('Falha ao notificar:', erro.message));

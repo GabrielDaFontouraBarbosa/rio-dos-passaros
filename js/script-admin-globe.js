@@ -304,6 +304,12 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('resize', ajustarTamanho);
 
       configurarPainelPrecoPadrao();
+
+      // Expõe a instância pronta pra outros scripts (ex.: o HUD do Plano PRO)
+      // poderem desenhar camadas extra (arcos, anéis) sem duplicar a
+      // inicialização do globo.
+      window.AdminGlobo = globo;
+      document.dispatchEvent(new CustomEvent('admin-globo-pronto', { detail: { globo } }));
     } catch (erro) {
       await renderFallbackTabela('Não foi possível carregar o mapa de anúncios agora. Tente de novo mais tarde.');
     }

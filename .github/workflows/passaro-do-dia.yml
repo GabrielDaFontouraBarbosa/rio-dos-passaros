@@ -16,8 +16,18 @@ jobs:
       - name: Baixa o repositório
         uses: actions/checkout@v4
 
-      - name: Escolhe o pássaro do dia
+      - name: Configura o Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Escolhe o pássaro do dia e avisa por e-mail/WhatsApp
         run: node scripts/escolher-passaro-do-dia.js
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          BOSS_EMAIL: ${{ secrets.BOSS_EMAIL }}
+          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
 
       - name: Commita e envia a mudança
         run: |
