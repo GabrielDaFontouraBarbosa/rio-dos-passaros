@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const carrinhoLista = document.getElementById('carrinhoLista');
   const carrinhoTotalEl = document.getElementById('carrinhoTotal');
   const btnFinalizar = document.getElementById('btnFinalizar');
+  const btnExpandir = document.getElementById('btnExpandir')
 
   try {
     const [resProdutos, resPassaros] = await Promise.all([
@@ -32,11 +33,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const numeroWhatsapp = produtos.whatsapp || '5521975449779';
+  var gridExpandido = true;
 
   renderHq();
   renderQuadros();
   renderMel();
   renderCarrinho();
+  ocultarGrid(21);
+
+  // Expandir Grid
+  btnExpandir.addEventListener("click", () => ocultarGrid(21));
+
+  function ocultarGrid(max = 99999) {
+    const grid = document.getElementById("quadrosGrid")
+    const cards = grid.querySelectorAll(".quadro-opcao");
+
+    if (gridExpandido) {
+      cards.forEach((card, index) => {
+        if (index >= max) {
+          card.classList.add("ocultar");
+        }
+      });
+
+      btnExpandir.classList.remove("virado");
+      gridExpandido = false;
+    } else {
+      cards.forEach(card => {
+        card.classList.remove("ocultar");
+      });
+
+      btnExpandir.classList.add("virado");
+      gridExpandido = true;
+    }
+  }
 
   // ---------- Helpers ----------
   function formatarMoeda(valor) {
@@ -199,7 +228,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       grid.innerHTML = lista
         .map(
-          (p) => `
+          (p, index) => `
         <button type="button" class="quadro-opcao" data-id="${p.id}">
           <div class="moldura-preview">
             <img src="${p.foto.arquivo}" alt="${p.nome}" loading="lazy">

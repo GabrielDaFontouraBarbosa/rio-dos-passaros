@@ -215,6 +215,36 @@ img { max-width: 100%; }
 }
 .btn-comprar:hover { background: #c23a48; transform: translateY(-2px); }
 
+.btn-expandir {
+  background: #d94b59;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+  vertical-align: middle;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.btn-expandir>img {
+  display: block;
+}
+.btn-expandir.virado>img
+{
+  transform: rotate(180deg);
+  transition: 1s;
+}
+
+.btn-expandir:hover { background: #c23a48; transform: translateY(-2px); }
+
 /* ---- Quadros ---- */
 .quadros-busca {
   width: 100%;
@@ -236,6 +266,7 @@ img { max-width: 100%; }
   margin-bottom: 22px;
 }
 
+
 .quadro-opcao {
   background: #fff5dc;
   border: 3px solid transparent;
@@ -244,7 +275,17 @@ img { max-width: 100%; }
   cursor: pointer;
   padding: 0;
   text-align: center;
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: 0.5s;
+}
+.quadro-opcao.ocultar
+{
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  height: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
 }
 .quadro-opcao:hover { transform: translateY(-3px); }
 .quadro-opcao.selecionado { border-color: #d94b59; background: #fff; }
