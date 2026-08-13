@@ -265,15 +265,15 @@
               <div id="proHudFaixa" class="pro-hud-faixa" hidden>
                 <div class="pro-hud-selo">
                   <span aria-hidden="true">⭐</span> PLANO PRO
-                  <span class="pro-hud-ao-vivo"><span class="pro-hud-ponto"></span>AO VIVO</span>
+                  <span class="pro-hud-ao-vivo" id="proHudAoVivo"><span class="pro-hud-ponto"></span><span class="pro-hud-ao-vivo-texto">AO VIVO</span></span>
                 </div>
                 <div class="pro-hud-metricas">
                   <div class="pro-hud-metrica">
-                    <span class="pro-hud-metrica-label">Impressões hoje</span>
+                    <span class="pro-hud-metrica-label">Impressões</span>
                     <span class="pro-hud-metrica-valor tabular" id="proImpressoes">0</span>
                   </div>
                   <div class="pro-hud-metrica">
-                    <span class="pro-hud-metrica-label">Cliques hoje</span>
+                    <span class="pro-hud-metrica-label">Cliques</span>
                     <span class="pro-hud-metrica-valor tabular" id="proCliques">0</span>
                   </div>
                   <div class="pro-hud-metrica">
@@ -308,10 +308,15 @@
                 <div class="drawer-pro-status" id="proStatusDesde">Ativa desde agora</div>
               </div>
 
+              <div class="drawer-pro-historico" id="proHistorico" hidden></div>
+
               <div class="drawer-pro-orcamento">
                 <div class="drawer-linha"><span>Orçamento investido</span><span id="proOrcamentoGasto">R$ 0</span></div>
                 <div class="pro-barra-orcamento"><div class="pro-barra-orcamento-preenchimento" id="proOrcamentoBarra"></div></div>
                 <div class="drawer-pais-iso" id="proOrcamentoTexto">de R$ 0 alocados</div>
+                <button type="button" class="btn-pro-nova-campanha" id="btnNovaCampanha" hidden>
+                  <span aria-hidden="true">↻</span> Nova campanha
+                </button>
               </div>
 
               <h4 class="drawer-pro-subtitulo">Segmentação de público em NY</h4>

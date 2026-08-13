@@ -2,9 +2,9 @@
     "_aviso": "Dados de demonstração — valores ilustrativos, não são preços reais de anúncio.",
     "precos": {
         "US-NY": {
-            "cpm": 1500,
-            "cpc": 4.2,
-            "reach": 380000,
+            "cpm": 55,
+            "cpc": 2.4,
+            "reach": 28000,
             "currency": "BRL"
         },
         "BRA": {

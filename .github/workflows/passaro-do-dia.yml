@@ -28,6 +28,10 @@ jobs:
           BOSS_EMAIL: ${{ secrets.BOSS_EMAIL }}
           CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
           CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          # Lista pública de inscritos (ver workers/inscrever-passaro-do-dia.js).
+          # Sem estes dois, o broadcast é pulado e só o aviso pessoal sai.
+          RESEND_SEGMENT_ID: ${{ secrets.RESEND_SEGMENT_ID }}
+          RESEND_REMETENTE: ${{ secrets.RESEND_REMETENTE }}
 
       - name: Commita e envia a mudança
         run: |

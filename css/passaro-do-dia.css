@@ -89,3 +89,86 @@
   .passaro-do-dia-card { flex-direction: column; text-align: center; padding: 24px 16px; }
   .passaro-do-dia-selo { right: -38px; top: 10px; }
 }
+
+/* ---------------- Inscrição por e-mail no pássaro do dia ---------------- */
+.pdd-inscricao { margin-top: 14px; }
+
+.pdd-inscricao-abrir {
+  background: transparent;
+  border: 1px solid #6DB3E5;
+  color: #4d94c6;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 7px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pdd-inscricao-abrir:hover { background: #6DB3E5; color: #fff; }
+
+.pdd-inscricao-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #7a5a3a;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.pdd-inscricao-linha { display: flex; gap: 8px; flex-wrap: wrap; }
+.pdd-inscricao-linha input[type="email"] {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 9px 14px;
+  border: 1px solid #d9c7b4;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  color: #444;
+}
+.pdd-inscricao-linha input[type="email"]:focus {
+  outline: 2px solid #6DB3E5;
+  outline-offset: 1px;
+  border-color: #6DB3E5;
+}
+.pdd-inscricao-enviar {
+  background: #6DB3E5;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.pdd-inscricao-enviar:hover:not(:disabled) { background: #4d94c6; }
+.pdd-inscricao-enviar:disabled { opacity: 0.6; cursor: default; }
+
+/* Armadilha de robô: fora da tela, mas não display:none — alguns robôs pulam
+   campos escondidos com display/visibility, e a graça é que eles preencham. */
+#pddJardim {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.pdd-inscricao-aviso {
+  font-size: 0.76rem;
+  color: #8a7a6a;
+  line-height: 1.45;
+  margin: 8px 0 0;
+}
+.pdd-inscricao-status { font-size: 0.85rem; margin: 8px 0 0; line-height: 1.45; }
+.pdd-inscricao-status.neutro { color: #7a5a3a; }
+.pdd-inscricao-status.sucesso { color: #2e7d52; }
+.pdd-inscricao-status.erro { color: #d94b59; }
+.pdd-retorno {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(109, 179, 229, 0.12);
+}
+
+@media (max-width: 600px) {
+  .pdd-inscricao-linha { flex-direction: column; }
+  .pdd-inscricao-enviar { width: 100%; }
+}

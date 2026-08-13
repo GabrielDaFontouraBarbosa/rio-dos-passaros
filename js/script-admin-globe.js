@@ -104,6 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let inicializado = false;
   let paisSelecionadoIso = null;
 
+  // Fonte de verdade dos preços pra quem estiver fora deste arquivo (hoje, o HUD
+  // do Plano PRO, que precisa do CPM de Nova Iorque). Lê a variável viva, então
+  // já enxerga qualquer edição feita no drawer sem reler o JSON do disco.
+  window.AdminPrecos = {
+    get: (chave) => precos[chave] || null,
+    todos: () => ({ ...precos }),
+  };
+
+  function avisarPrecosAlterados() {
+    document.dispatchEvent(new CustomEvent('admin-precos-alterados', { detail: { precos } }));
+  }
+
   function tPreco(chave) {
     const p = precos[chave];
     if (!p) return null;
@@ -172,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
           precos[iso] = { cpm, cpc, reach, currency: 'BRL' };
           recalcularCpmMax();
           atualizarCamadaPoligonos();
+          avisarPrecosAlterados();
           renderDrawer(props, false);
         } catch (erro) {
           alert(`Não deu pra salvar: ${erro.message}`);
@@ -196,14 +209,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnEditar) btnEditar.addEventListener('click', () => renderDrawer(props, true));
   }
 
+  // Percentil (não o máximo) usado pra calibrar a escala de cor/altura: todo CPM
+  // aqui é editável pelo drawer, e com máximo absoluto bastava UM valor absurdo
+  // (um zero a mais num campo) pra empurrar o resto do mundo pro fundo da escala
+  // — o Brasil viraria t≈0,008. Com p90 um outlier isolado só satura no topo,
+  // porque tPreco() já limita t em 1. Nova Iorque continua com cor de destaque à
+  // parte via ehEstadoDestacado().
+  const PERCENTIL_ESCALA = 0.9;
+
+  function percentil(valores, p) {
+    const ordenados = [...valores].sort((a, b) => a - b);
+    if (!ordenados.length) return 0;
+    const pos = (ordenados.length - 1) * p;
+    const base = Math.floor(pos);
+    const proximo = ordenados[base + 1];
+    if (proximo === undefined) return ordenados[base];
+    return ordenados[base] + (proximo - ordenados[base]) * (pos - base);
+  }
+
   function recalcularCpmMax() {
-    // a escala de cor/altura dos países é calibrada só pelos países — um
-    // "pacote" de estado dos EUA (ex.: US-NY a R$1500) não pode esmagar a
-    // escala de todo mundo. Nova Iorque tem tratamento visual à parte.
-    const valores = Object.entries(precos)
-      .filter(([chave]) => !chave.startsWith('US-'))
-      .map(([, p]) => p.cpm);
-    cpmMax = valores.length ? Math.max(...valores) : 1;
+    const valores = Object.values(precos)
+      .map((p) => p.cpm)
+      .filter((v) => Number.isFinite(v) && v > 0);
+    cpmMax = percentil(valores, PERCENTIL_ESCALA) || 1;
   }
 
   function atualizarCamadaPoligonos() {
@@ -345,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.assign(precos, payload);
         recalcularCpmMax();
         atualizarCamadaPoligonos();
+        avisarPrecosAlterados();
         alert(`Preço padrão aplicado a ${semPreco.length} localidade(s).`);
       } catch (erro) {
         alert(`Não deu pra aplicar: ${erro.message}`);
