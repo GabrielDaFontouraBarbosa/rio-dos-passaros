@@ -90,28 +90,6 @@ const perguntas =
         }
     },
     {
-        type: 'texto',
-        pergunta: "Which bird has the short floating song?",
-        respostas:
-        {
-            a: {resposta: "Coleiro", correta: true},
-            b: {resposta: "Sabiá", correta: false},
-            c: {resposta: "Tiziu", correta: false},
-            d: {resposta: "Hummingbird", correta: false},
-        },
-        translations: {
-            pt: {
-                pergunta: "Qual pássaro tem o canto curto e flutuante?",
-                respostas: {
-                    a: { resposta: "Coleiro" },
-                    b: { resposta: "Sabiá" },
-                    c: { resposta: "Tiziu" },
-                    d: { resposta: "Beija-Flor" }
-                }
-            }
-        }
-    },
-    {
         type: 'audio',
         pergunta: "Which bird makes this sound?",
         respostas:
@@ -268,7 +246,7 @@ const perguntas =
     },
     {
         type: 'texto',
-        pergunta: "Which bird sings in a quick hopping voice?",
+        pergunta: "Which bird sings in a quick hopping sound?",
         respostas:
         {
             a: {resposta: "Tico-Tico", correta: true},
@@ -516,6 +494,94 @@ const perguntas =
                     b: { resposta: "Taube" },
                     c: { resposta: "Stieglitz" },
                     d: { resposta: "Eisvogel" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird's song became famous worldwide because of a song written about it?",
+        respostas:
+        {
+            a: {resposta: "Tico-Tico", correta: true},
+            b: {resposta: "Sabiá", correta: false},
+            c: {resposta: "Araponga", correta: false},
+            d: {resposta: "Curió", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual pássaro cuja música ficou conhecida no mundo inteiro por ter uma canção que fala dele?",
+                respostas: {
+                    a: { resposta: "Tico-Tico" },
+                    b: { resposta: "Sabiá" },
+                    c: { resposta: "Araponga" },
+                    d: { resposta: "Curió" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird likes rivers and gets its food from there?",
+        respostas:
+        {
+            a: {resposta: "Sabiá", correta: false},
+            b: {resposta: "Kingfisher", correta: true},
+            c: {resposta: "Pigeon", correta: false},
+            d: {resposta: "Tico-Tico", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual pássaro gosta de rios e tira o alimento de lá?",
+                respostas: {
+                    a: { resposta: "Sabiá" },
+                    b: { resposta: "Martim-Pescador" },
+                    c: { resposta: "Pombo" },
+                    d: { resposta: "Tico-Tico" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which song has the melody most appreciated by Brazilians?",
+        respostas:
+        {
+            a: {resposta: "Seagull", correta: false},
+            b: {resposta: "Curió", correta: true},
+            c: {resposta: "Anu-Preto", correta: false},
+            d: {resposta: "Sparrow", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual canto tem a melodia mais apreciada pelo brasileiro?",
+                respostas: {
+                    a: { resposta: "Gaivota" },
+                    b: { resposta: "Curió" },
+                    c: { resposta: "Anu-Preto" },
+                    d: { resposta: "Tico-Tico" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird saves people, has a yellow chest, and is seen in every city across Brazil?",
+        respostas:
+        {
+            a: {resposta: "Sabiá", correta: false},
+            b: {resposta: "Bem-te-vi", correta: true},
+            c: {resposta: "Araponga", correta: false},
+            d: {resposta: "Tico-Tico", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual o pássaro que salva as pessoas, tem o peito amarelo e é visto em todo o Brasil, em todas as cidades?",
+                respostas: {
+                    a: { resposta: "Sabiá" },
+                    b: { resposta: "Bem-te-vi" },
+                    c: { resposta: "Araponga" },
+                    d: { resposta: "Tico-Tico" }
                 }
             }
         }

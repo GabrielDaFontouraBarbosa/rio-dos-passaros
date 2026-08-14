@@ -651,3 +651,24 @@ body {
     margin-top: -16px;
     margin-bottom: 24px;
 }
+
+.gabarito-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0 40px;
+    text-align: center;
+}
+
+.gabarito-text {
+    font-family: "Quicksand", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: rgb(73, 52, 12);
+    margin: 0;
+}
+
+.gabarito-text.pt-translation {
+    font-size: 0.9rem;
+    margin-top: -6px;
+}

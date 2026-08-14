@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-b7si22NGe7NPRGgP0iI0lk2NcUyyzOcKrWwBS5Ak36EJUlqIgk1D/a10eSA0HiOa3Whf0aiA7rDqAelMhpeMkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./quiz.css?v=20260731">
+    <link rel="stylesheet" href="./quiz.css?v=20260814">
 </head>
 <body>    
     <div class="overlay-panel" id="modeSelection">
@@ -74,6 +74,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="gabarito-box hidden" id="gabaritoBox">
+                    <button id="gabaritoBtn" class="choice-btn" type="button">
+                        <span class="en-text">See answer</span>
+                        <span class="pt-translation">Ver gabarito</span>
+                    </button>
+                    <p id="gabaritoText" class="gabarito-text hidden"></p>
+                    <p id="gabaritoTextPt" class="gabarito-text pt-translation hidden"></p>
+                    <button id="continueBtn" class="choice-btn hidden" type="button">
+                        <span class="en-text">Continue</span>
+                        <span class="pt-translation">Continuar</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -92,7 +104,7 @@
             </button>
         </div>
     </div>
-    <script src="./perguntas.js?v=20260731"></script>
-    <script src="./quiz.js?v=20260731"></script>
+    <script src="./perguntas.js?v=20260814"></script>
+    <script src="./quiz.js?v=20260814"></script>
 </body>
 </html>

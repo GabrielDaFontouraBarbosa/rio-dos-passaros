@@ -34,6 +34,11 @@ const resultBirdNamePt = document.getElementById("resultBirdNamePt");
 const resultTitle = document.getElementById("resultTitle");
 const resultTitlePt = document.getElementById("resultTitlePt");
 const closeResultBtn = document.getElementById("closeResultBtn");
+const gabaritoBox = document.getElementById("gabaritoBox");
+const gabaritoBtn = document.getElementById("gabaritoBtn");
+const gabaritoText = document.getElementById("gabaritoText");
+const gabaritoTextPt = document.getElementById("gabaritoTextPt");
+const continueBtn = document.getElementById("continueBtn");
 
 const respostasMap = {
     a: divRA,
@@ -163,6 +168,7 @@ function carregarPergunta() {
         advanceTimeoutId = null;
     }
     resetAnswerStyles();
+    hideGabaritoBox();
     isAnswering = false;
 
     if (!activeQuestions.length) {
@@ -234,7 +240,6 @@ function responderPergunta(answerKey) {
         acertos += 1;
     } else {
         selectedElement.classList.add('incorrect');
-        respostasMap[correctKey]?.classList.add('correct');
         erros += 1;
     }
 
@@ -243,9 +248,47 @@ function responderPergunta(answerKey) {
         return;
     }
 
+    if (!isCorrect) {
+        showGabaritoBox(correctKey);
+        return;
+    }
+
     advanceTimeoutId = window.setTimeout(() => {
         carregarPergunta();
     }, 650);
+}
+
+function showGabaritoBox(correctKey) {
+    gabaritoBox.dataset.correctKey = correctKey;
+    gabaritoBtn.classList.remove('hidden');
+    gabaritoText.classList.add('hidden');
+    gabaritoTextPt.classList.add('hidden');
+    continueBtn.classList.add('hidden');
+    gabaritoBox.classList.remove('hidden');
+}
+
+function hideGabaritoBox() {
+    gabaritoBox.classList.add('hidden');
+    delete gabaritoBox.dataset.correctKey;
+}
+
+function revelarGabarito() {
+    const correctKey = gabaritoBox.dataset.correctKey;
+    if (!correctKey || !currentQuestion) {
+        return;
+    }
+    const translated = getTranslatedQuestion(currentQuestion);
+    const pt = currentQuestion.translations?.pt || {};
+    const birdName = translated.respostas[correctKey].resposta;
+    const birdNamePt = pt.respostas?.[correctKey]?.resposta || birdName;
+
+    respostasMap[correctKey]?.classList.add('correct');
+    gabaritoText.innerText = `You got it wrong — here's the answer: ${birdName}`;
+    gabaritoTextPt.innerText = `Se errou, aqui está a resposta: ${birdNamePt}`;
+    gabaritoText.classList.remove('hidden');
+    gabaritoTextPt.classList.remove('hidden');
+    gabaritoBtn.classList.add('hidden');
+    continueBtn.classList.remove('hidden');
 }
 
 function showSoundResult(question) {
@@ -310,6 +353,8 @@ playSoundBtn.addEventListener('click', () => {
 birdQuizBtn.addEventListener('click', () => selectQuizMode('bird'));
 soundQuizBtn.addEventListener('click', () => selectQuizMode('sound'));
 closeResultBtn.addEventListener('click', hideResultOverlay);
+gabaritoBtn.addEventListener('click', revelarGabarito);
+continueBtn.addEventListener('click', carregarPergunta);
 
 divRA.addEventListener('click', () => responderPergunta('a'));
 divRB.addEventListener('click', () => responderPergunta('b'));
