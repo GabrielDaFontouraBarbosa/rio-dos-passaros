@@ -806,4 +806,92 @@ const perguntas =
             }
         }
     },
+    {
+        type: 'texto',
+        pergunta: "Which is the only Brazilian bird considered 'the mason' that builds its house in a spiral, in layers of clay?",
+        respostas:
+        {
+            a: {resposta: "Maritaca", correta: false},
+            b: {resposta: "João-de-Barro", correta: true},
+            c: {resposta: "Cambaxirra", correta: false},
+            d: {resposta: "Maria-Lencinha", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual o único pássaro brasileiro que é considerado o pedreiro e constrói sua casa em espiral em camadas de argila?",
+                respostas: {
+                    a: { resposta: "Maritaca" },
+                    b: { resposta: "João-de-Barro" },
+                    c: { resposta: "Cambaxirra" },
+                    d: { resposta: "Maria-Lencinha" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which is the smallest bird in Brazil, living in the Amazon rainforest?",
+        respostas:
+        {
+            a: {resposta: "Beija-Flor", correta: false},
+            b: {resposta: "Bico-de-Lacre", correta: false},
+            c: {resposta: "Caçula", correta: true},
+            d: {resposta: "Tiziu", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual o menor pássaro do Brasil e que vive na floresta Amazônica?",
+                respostas: {
+                    a: { resposta: "Beija-Flor" },
+                    b: { resposta: "Bico-de-Lacre" },
+                    c: { resposta: "Caçula" },
+                    d: { resposta: "Tiziu" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which is the only bird that jumps in the air and sings at the same time?",
+        respostas:
+        {
+            a: {resposta: "Gaturamo", correta: false},
+            b: {resposta: "Pica-Pau", correta: false},
+            c: {resposta: "Coleiro", correta: false},
+            d: {resposta: "Tiziu", correta: true},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual o único pássaro que salta no ar e canta ao mesmo tempo?",
+                respostas: {
+                    a: { resposta: "Gaturamo" },
+                    b: { resposta: "Pica-Pau" },
+                    c: { resposta: "Coleiro" },
+                    d: { resposta: "Tiziu" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird visits garden fruit trees and whistles high-pitched, like a sharp violin?",
+        respostas:
+        {
+            a: {resposta: "Sanhaço", correta: true},
+            b: {resposta: "Sabiá", correta: false},
+            c: {resposta: "Papagaio", correta: false},
+            d: {resposta: "Beija-Flor", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual o pássaro que, além de visitar as fruteiras dos quintais, assobia muito fino como um violino agudo?",
+                respostas: {
+                    a: { resposta: "Sanhaço" },
+                    b: { resposta: "Sabiá" },
+                    c: { resposta: "Papagaio" },
+                    d: { resposta: "Beija-Flor" }
+                }
+            }
+        }
+    },
 ]
