@@ -586,4 +586,224 @@ const perguntas =
             }
         }
     },
+    {
+        type: 'texto',
+        pergunta: "Which is the largest Brazilian bird?",
+        respostas:
+        {
+            a: {resposta: "Ema", correta: true},
+            b: {resposta: "Harpia", correta: false},
+            c: {resposta: "Jacurutu", correta: false},
+            d: {resposta: "Falcão-peregrino", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual é a maior ave brasileira?",
+                respostas: {
+                    a: { resposta: "Ema" },
+                    b: { resposta: "Harpia" },
+                    c: { resposta: "Jacurutu" },
+                    d: { resposta: "Falcão-peregrino" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is considered, by law, the national bird of Brazil?",
+        respostas:
+        {
+            a: {resposta: "Sabiá-laranjeira", correta: true},
+            b: {resposta: "Bem-te-vi", correta: false},
+            c: {resposta: "Curió", correta: false},
+            d: {resposta: "Tico-Tico", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é considerada, por lei, a ave símbolo do Brasil?",
+                respostas: {
+                    a: { resposta: "Sabiá-laranjeira" },
+                    b: { resposta: "Bem-te-vi" },
+                    c: { resposta: "Curió" },
+                    d: { resposta: "Tico-Tico" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird can hover in place by beating its wings dozens of times per second?",
+        respostas:
+        {
+            a: {resposta: "Beija-flor", correta: true},
+            b: {resposta: "Andorinha", correta: false},
+            c: {resposta: "Martim-Pescador", correta: false},
+            d: {resposta: "Tico-Tico", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave consegue pairar no ar batendo as asas dezenas de vezes por segundo?",
+                respostas: {
+                    a: { resposta: "Beija-flor" },
+                    b: { resposta: "Andorinha" },
+                    c: { resposta: "Martim-Pescador" },
+                    d: { resposta: "Tico-Tico" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird has a large beak that helps it reach fruit and regulate its body temperature?",
+        respostas:
+        {
+            a: {resposta: "Tucano", correta: true},
+            b: {resposta: "Arara-canindé", correta: false},
+            c: {resposta: "Carcará", correta: false},
+            d: {resposta: "Urubu", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave tem um bico grande que ajuda a alcançar frutas e regular a temperatura do corpo?",
+                respostas: {
+                    a: { resposta: "Tucano" },
+                    b: { resposta: "Arara-canindé" },
+                    c: { resposta: "Carcará" },
+                    d: { resposta: "Urubu" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is known for imitating sounds and human speech?",
+        respostas:
+        {
+            a: {resposta: "Papagaio", correta: true},
+            b: {resposta: "Sabiá", correta: false},
+            c: {resposta: "Curió", correta: false},
+            d: {resposta: "Bem-te-vi", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é conhecida por imitar sons e a fala humana?",
+                respostas: {
+                    a: { resposta: "Papagaio" },
+                    b: { resposta: "Sabiá" },
+                    c: { resposta: "Curió" },
+                    d: { resposta: "Bem-te-vi" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is often seen following cattle to catch the insects they stir up?",
+        respostas:
+        {
+            a: {resposta: "Garça-branca", correta: true},
+            b: {resposta: "Seriema", correta: false},
+            c: {resposta: "Quero-quero", correta: false},
+            d: {resposta: "Anu-branco", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave costuma ser vista acompanhando o gado para capturar os insetos que ele espanta?",
+                respostas: {
+                    a: { resposta: "Garça-branca" },
+                    b: { resposta: "Seriema" },
+                    c: { resposta: "Quero-quero" },
+                    d: { resposta: "Anu-branco" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is considered the symbol of the Pantanal?",
+        respostas:
+        {
+            a: {resposta: "Tuiuiú", correta: true},
+            b: {resposta: "Garça-branca", correta: false},
+            c: {resposta: "Carcará", correta: false},
+            d: {resposta: "Seriema", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é considerada o símbolo do Pantanal?",
+                respostas: {
+                    a: { resposta: "Tuiuiú" },
+                    b: { resposta: "Garça-branca" },
+                    c: { resposta: "Carcará" },
+                    d: { resposta: "Seriema" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is commonly seen in backyards and urban areas with fruit trees?",
+        respostas:
+        {
+            a: {resposta: "Sanhaço", correta: true},
+            b: {resposta: "Anu-branco", correta: false},
+            c: {resposta: "Bem-te-vi", correta: false},
+            d: {resposta: "Rolinha", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é comumente vista em quintais e áreas urbanas com árvores frutíferas?",
+                respostas: {
+                    a: { resposta: "Sanhaço" },
+                    b: { resposta: "Anu-branco" },
+                    c: { resposta: "Bem-te-vi" },
+                    d: { resposta: "Rolinha" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird of prey commonly hunts small rodents, reptiles, and insects across Brazil?",
+        respostas:
+        {
+            a: {resposta: "Gavião-carijó", correta: true},
+            b: {resposta: "Coruja-buraqueira", correta: false},
+            c: {resposta: "Urubu", correta: false},
+            d: {resposta: "Carcará", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave de rapina costuma caçar pequenos roedores, répteis e insetos pelo Brasil?",
+                respostas: {
+                    a: { resposta: "Gavião-carijó" },
+                    b: { resposta: "Coruja-buraqueira" },
+                    c: { resposta: "Urubu" },
+                    d: { resposta: "Carcará" }
+                }
+            }
+        }
+    },
+    {
+        type: 'texto',
+        pergunta: "Which bird is commonly associated, across cultures, with the symbol of peace?",
+        respostas:
+        {
+            a: {resposta: "Rolinha", correta: true},
+            b: {resposta: "Quero-quero", correta: false},
+            c: {resposta: "Anu-branco", correta: false},
+            d: {resposta: "Sanhaço", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é comumente associada, em diversas culturas, ao símbolo da paz?",
+                respostas: {
+                    a: { resposta: "Rolinha" },
+                    b: { resposta: "Quero-quero" },
+                    c: { resposta: "Anu-branco" },
+                    d: { resposta: "Sanhaço" }
+                }
+            }
+        }
+    },
 ]
