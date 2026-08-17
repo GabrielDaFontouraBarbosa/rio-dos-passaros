@@ -894,4 +894,26 @@ const perguntas =
             }
         }
     },
+    {
+        type: 'texto',
+        pergunta: "Which bird is known as 'the statue bird', staying completely still at night near sugarcane fields and gates while hunting insects?",
+        respostas:
+        {
+            a: {resposta: "Coruja", correta: false},
+            b: {resposta: "Bacurau", correta: true},
+            c: {resposta: "Urubu", correta: false},
+            d: {resposta: "Quero-quero", correta: false},
+        },
+        translations: {
+            pt: {
+                pergunta: "Qual ave é conhecida como o pássaro-estátua, ficando totalmente parada à noite perto de canaviais e até em cancelas, caçando insetos?",
+                respostas: {
+                    a: { resposta: "Coruja" },
+                    b: { resposta: "Bacurau" },
+                    c: { resposta: "Urubu" },
+                    d: { resposta: "Quero-quero" }
+                }
+            }
+        }
+    },
 ]
