@@ -331,3 +331,39 @@ letter-spacing: 0.5px;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
 }
 
+@media (max-width: 768px) {
+  .birds-carousel {
+    max-width: 100%;
+  }
+
+  .info-passaro {
+    max-width: 92%;
+    margin-top: 60px;
+    padding: 18px;
+  }
+
+  .info-passaro h2 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .info-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-textos {
+    padding-right: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .vetor-passaro {
+    margin-top: 20px;
+  }
+
+  .titulo-passaros {
+    font-size: 2rem;
+  }
+}
+

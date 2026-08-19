@@ -39,3 +39,18 @@
   overflow-y: auto;
   z-index: 10;
 }
+
+@media (max-width: 768px) {
+  .video-container {
+    grid-template-columns: 1fr;
+  }
+
+  .player iframe {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .playlist {
+    max-height: 260px;
+  }
+}

@@ -226,6 +226,10 @@
 
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
+  .sobre-container {
+    width: 92%;
+  }
+
   .container-verde {
     flex-direction: column;
     align-items: center;

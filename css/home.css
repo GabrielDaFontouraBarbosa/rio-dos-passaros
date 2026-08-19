@@ -244,6 +244,10 @@ img.gif-violao {
 }
 
 @media (max-width: 768px) {
+  .anuncio {
+    display: none;
+  }
+
   .lado-direito h1 {
     font-size: 1.8rem;
   }
