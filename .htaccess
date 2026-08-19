@@ -1,0 +1,10 @@
+<Files "mensagens-contato.txt">
+    Require all denied
+</Files>
+
+<IfModule !mod_authz_core.c>
+    <Files "mensagens-contato.txt">
+        Order allow,deny
+        Deny from all
+    </Files>
+</IfModule>

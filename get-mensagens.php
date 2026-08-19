@@ -1,4 +1,9 @@
 <?php
+declare(strict_types=1);
+
+require __DIR__ . '/admin-auth.php';
+exigirLogin();
+
 header('Content-Type: application/json');
 $arquivo = 'mensagens-contato.txt';
 $mensagens = [];

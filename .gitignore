@@ -2,3 +2,7 @@ site-riodospassaros.zip
 
 # PIN do admin — cada ambiente define o seu, nunca vai pro repositório
 admin-config.php
+
+# Mensagens de contato enviadas pelo formulário — dados de visitantes,
+# não deveria acumular no histórico do git
+mensagens-contato.txt

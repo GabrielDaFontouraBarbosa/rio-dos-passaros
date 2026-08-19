@@ -7,6 +7,13 @@ let usersOnlineCount = 0;
 let accessChartInstance = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const sessaoRes = await fetch('./sessao.php');
+  const sessao = await sessaoRes.json();
+  if (!sessao.ok) {
+    window.location.href = 'login.html';
+    return;
+  }
+
   await carregarDados();
 
   // Atualiza usuários online e acessos a cada 10 segundos
@@ -23,7 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }, 10000);
 
   // Logout
-  document.getElementById('logoutBtn').addEventListener('click', () => {
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await fetch('./logout.php');
     window.location.href = 'login.html';
   });
 });
