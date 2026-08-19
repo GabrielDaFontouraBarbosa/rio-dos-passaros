@@ -62,7 +62,7 @@ body {
     margin: 0 18px;
 }
 .pergunta .pt-translation {
-    font-size: 18px;
+    font-size: 25px;
     color: #999;
     font-family: "Quicksand", Arial, sans-serif;
     margin-top: 8px;
@@ -283,7 +283,7 @@ body {
     background: bisque;
     color: rgb(73, 52, 12);
     font-family: "Chaloops";
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 16px 22px;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -579,7 +579,7 @@ body {
 .pt-translation {
     color: #999;
     font-family: "Quicksand", Arial, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     display: block;
     margin-top: 4px;
 }
@@ -596,7 +596,7 @@ body {
 }
 
 .mode-btn .pt-translation {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 .choice-btn {
@@ -607,18 +607,18 @@ body {
 }
 
 .choice-btn .pt-translation {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 .mode-panel .pt-translation {
-    font-size: 1.1rem;
+    font-size: 2rem;
     margin-top: 4px;
     margin-bottom: 8px;
 }
 
 .texto-resposta .pt-translation {
     color: #999;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-family: "Quicksand", Arial, sans-serif;
 }
 
