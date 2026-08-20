@@ -7,6 +7,3 @@ admin-config.php
 # não deveria acumular no histórico do git
 mensagens-contato.txt
 
-# Cartinhas do Mural — dados de visitantes (nome, idade, mensagem),
-# mesma lógica do mensagens-contato.txt acima
-data/mural.json

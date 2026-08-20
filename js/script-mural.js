@@ -1,29 +1,75 @@
+// URL do Worker que guarda as cartinhas do Mural (ver workers/mural.js).
+// Deixe vazio pra esconder o formulário: enquanto o Worker não estiver no
+// ar, a página aparece normalmente, só sem jeito de postar ou ler nada.
+const URL_MURAL = '';
+
 const parede = document.getElementById('muralParede');
 const form = document.getElementById('muralForm');
 const status = document.getElementById('muralStatus');
+const adminToggle = document.getElementById('muralAdminToggle');
+const adminBtn = document.getElementById('muralAdminBtn');
+const adminForm = document.getElementById('muralAdminForm');
 
+const CHAVE_SENHA_ADMIN = 'muralAdminSenha';
 const CORES = ['cartinha--amarela', 'cartinha--rosa', 'cartinha--azul', 'cartinha--verde', 'cartinha--laranja'];
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await verificarSessaoAdmin();
-  await carregarMural();
+document.addEventListener('DOMContentLoaded', () => {
+  if (!URL_MURAL) {
+    desligarMural();
+    return;
+  }
+
+  atualizarModoAdmin();
+  carregarMural();
+  ligarFormularioAdmin();
 });
 
-// Mostra os botões de apagar só pra quem já passou pelo login do admin
-// (mesma sessão usada em admin.html). Quem não está logado nem vê o botão.
-async function verificarSessaoAdmin() {
-  try {
-    const res = await fetch('./sessao.php');
-    const dados = await res.json();
-    parede.classList.toggle('mural-admin', Boolean(dados.ok));
-  } catch (erro) {
-    parede.classList.remove('mural-admin');
-  }
+// O Worker ainda não tem URL configurada: nada quebra, só avisa e some
+// com os controles em vez de tentar postar/carregar e falhar.
+function desligarMural() {
+  parede.innerHTML = '';
+  mostrarVazio('Mural em preparação. Volte em breve!');
+  form.querySelector('.mural-btn-enviar').disabled = true;
+  definirStatus('O mural ainda está sendo configurado.', 'neutro');
+  adminToggle.hidden = true;
 }
 
+// ---------------- Modo admin ----------------
+// Sem sessão de servidor (o site é 100% estático no GitHub Pages): a senha
+// digitada fica só no sessionStorage do navegador e é reenviada a cada
+// apagar. O Worker confere ela em tempo constante antes de apagar algo.
+function atualizarModoAdmin() {
+  const senha = sessionStorage.getItem(CHAVE_SENHA_ADMIN);
+  parede.classList.toggle('mural-admin', Boolean(senha));
+  adminBtn.textContent = senha ? '🔓 Sair do modo admin' : '🔒 Modo admin';
+}
+
+function ligarFormularioAdmin() {
+  adminBtn.addEventListener('click', () => {
+    const jaLogado = Boolean(sessionStorage.getItem(CHAVE_SENHA_ADMIN));
+    if (jaLogado) {
+      sessionStorage.removeItem(CHAVE_SENHA_ADMIN);
+      atualizarModoAdmin();
+      return;
+    }
+    adminForm.hidden = !adminForm.hidden;
+  });
+
+  adminForm.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const campo = document.getElementById('muralAdminSenha');
+    if (!campo.value) return;
+    sessionStorage.setItem(CHAVE_SENHA_ADMIN, campo.value);
+    campo.value = '';
+    adminForm.hidden = true;
+    atualizarModoAdmin();
+  });
+}
+
+// ---------------- Carregar / renderizar ----------------
 async function carregarMural() {
   try {
-    const res = await fetch(`./data/mural.json?v=${Date.now()}`, { cache: 'no-store' });
+    const res = await fetch(`${URL_MURAL}/listar`, { cache: 'no-store' });
     if (!res.ok) throw new Error('não encontrado');
     const dados = await res.json();
     const mensagens = Array.isArray(dados.mensagens) ? dados.mensagens : [];
@@ -95,18 +141,26 @@ function formatarData(iso) {
   }
 }
 
+// ---------------- Apagar ----------------
 async function apagarCartinha(id, elemento) {
   if (!confirm('Apagar esta cartinha do mural?')) return;
 
+  const senha = sessionStorage.getItem(CHAVE_SENHA_ADMIN) || '';
+
   try {
-    const res = await fetch('./mural-deletar.php', {
+    const res = await fetch(`${URL_MURAL}/deletar`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id, senha }),
     });
     const dados = await res.json();
 
     if (!dados.ok) {
+      // Senha errada: sai do modo admin em vez de deixar tentando de novo.
+      if (res.status === 403) {
+        sessionStorage.removeItem(CHAVE_SENHA_ADMIN);
+        atualizarModoAdmin();
+      }
       alert(dados.erro || 'Não deu pra apagar agora.');
       return;
     }
@@ -121,6 +175,7 @@ async function apagarCartinha(id, elemento) {
   }
 }
 
+// ---------------- Postar ----------------
 form.addEventListener('submit', async (evento) => {
   evento.preventDefault();
   definirStatus('', '');
@@ -140,10 +195,10 @@ form.addEventListener('submit', async (evento) => {
   definirStatus('Colando sua cartinha...', 'neutro');
 
   try {
-    const res = await fetch('./mural-postar.php', {
+    const res = await fetch(`${URL_MURAL}/postar`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, idade, mensagem, jardim }),
+      body: JSON.stringify({ nome, idade: Number(idade), mensagem, jardim }),
     });
     const dados = await res.json();
 

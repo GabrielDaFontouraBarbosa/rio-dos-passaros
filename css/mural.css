@@ -293,6 +293,50 @@ body {
   to { opacity: 0; transform: rotate(calc(var(--rot) * 2)) translateY(calc(var(--desloc) - 24px)) scale(0.6); }
 }
 
+/* ---- Modo admin ---- */
+.mural-admin-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: -8px;
+}
+
+.mural-admin-link {
+  background: none;
+  border: none;
+  color: #7a5a3a;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px;
+}
+
+.mural-admin-form {
+  display: flex;
+  gap: 8px;
+}
+
+.mural-admin-form input {
+  font-family: 'Quicksand', sans-serif;
+  border: 2px solid #ffe2b8;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+.mural-admin-form button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  background: #6DB3E5;
+  color: #fff;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .mural-form-linha { flex-direction: column; }
   .mural-campo-idade { flex: 1; }

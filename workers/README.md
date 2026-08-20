@@ -104,3 +104,82 @@ O formulário tem campo-armadilha e validação, mas o caminho `/inscrever` mand
 e-mail — ou seja, um robô insistente queima sua cota. Se acontecer, o remédio é
 uma **Rate limiting rule** na Cloudflare (ex.: 5 requisições por IP a cada 10
 minutos) ou colocar o **Turnstile**, o captcha invisível deles.
+
+---
+
+# Mural — setup
+
+Mesmo motivo do Worker acima: o site está no GitHub Pages, que não roda PHP.
+As cartinhas do Mural (nome, idade, mensagem) ficam guardadas numa **KV
+Namespace** da Cloudflare — um banquinho de dados grátis — em vez de um
+arquivo no repositório.
+
+```
+[form no site]      → POST /postar  → grava a cartinha na KV
+[mural.html carrega] → GET  /listar  → devolve todas as cartinhas
+[botão × no admin]  → POST /deletar → apaga, se a senha bater
+```
+
+Não tem sessão de login de verdade (o site é 100% estático): quem clica em
+"Modo admin" no `mural.html` digita a senha, ela fica só no `sessionStorage`
+do navegador (some ao fechar a aba) e é reenviada a cada apagar. O Worker
+confere em tempo constante contra `MURAL_ADMIN_SENHA`.
+
+## Passo 1 — Criar a KV Namespace
+
+Na Cloudflare: **Workers & Pages → KV → Create a namespace**. Nome sugerido:
+`mural-riodospassaros`.
+
+## Passo 2 — Publicar o Worker
+
+**Workers & Pages → Create → Worker**. Cole o conteúdo de `mural.js` e
+publique.
+
+Em **Settings → Bindings**, adicione um **KV Namespace Binding**:
+
+| variável no código | KV Namespace |
+|---|---|
+| `MURAL_KV` | a que você criou no passo 1 |
+
+Em **Settings → Variables and Secrets**:
+
+| nome | tipo | valor |
+|---|---|---|
+| `MURAL_ADMIN_SENHA` | Secret | a senha que vai digitar em "Modo admin" |
+| `SITE_URL` | Text | `https://www.riodospassaros.com.br` |
+
+## Passo 3 — Ligar o site no Worker
+
+Copie a URL do Worker (`https://xxx.SEU-SUBDOMINIO.workers.dev`) e cole na
+primeira linha de `js/script-mural.js`:
+
+```js
+const URL_MURAL = 'https://xxx.SEU-SUBDOMINIO.workers.dev';
+```
+
+Enquanto estiver vazio, a página do Mural aparece normalmente com um aviso de
+"em preparação" e o formulário desabilitado — nada quebra.
+
+## Testar
+
+1. Abra `mural.html`, preencha nome/idade/mensagem e poste — a cartinha deve
+   aparecer coladinha no mural na hora.
+2. Clique em **🔒 Modo admin**, digite a senha do passo 2. Os botões **×**
+   devem aparecer nas cartinhas.
+3. Apague uma cartinha de teste e confirme que ela some (e continua fora ao
+   recarregar a página).
+
+## Limites
+
+- KV grátis da Cloudflare: **100 mil leituras/dia, 1.000 gravações/dia, 1 GB**
+  — bem folgado pra um mural de site pequeno (cada post/apagar é 1–2
+  gravações).
+- O limite de troca de mensagem entre navegadores é "eventual consistency" da
+  KV: uma cartinha pode levar alguns segundos pra aparecer pra todo mundo
+  depois de gravada. Não afeta quem acabou de postar (a própria página já
+  mostra a cartinha na hora, sem esperar o /listar).
+
+## Se aparecer abuso
+
+Mesmo remédio do Worker de cima: uma **Rate limiting rule** na Cloudflare por
+IP, ou o **Turnstile** na frente do formulário do Mural.
