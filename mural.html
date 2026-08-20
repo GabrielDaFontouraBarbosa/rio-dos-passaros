@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mural - Rio dos Pássaros</title>
+  <meta name="description" content="Deixe sua cartinha no Mural do Rio dos Pássaros! Conte seu nome, sua idade e o que você achou do projeto.">
+  <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/znd6tma.css">
+  <link rel="stylesheet" href="./css/mural.css?v=20260820">
+</head>
+<body>
+  <header class="mural-header">
+    <a href="./index.html" class="mural-voltar">← Início</a>
+    <h1>Mural do Rio dos Pássaros</h1>
+    <p>Deixe sua cartinha coladinha no mural! Conte seu nome, sua idade e uma mensagem pra gente.</p>
+  </header>
+
+  <main class="mural-container">
+    <form class="mural-form" id="muralForm" novalidate>
+      <div class="mural-form-linha">
+        <div class="mural-campo mural-campo-nome">
+          <label for="muralNome">Nome</label>
+          <input type="text" id="muralNome" name="nome" maxlength="40" required placeholder="Seu nome">
+        </div>
+        <div class="mural-campo mural-campo-idade">
+          <label for="muralIdade">Idade</label>
+          <input type="number" id="muralIdade" name="idade" min="1" max="120" required placeholder="Idade">
+        </div>
+      </div>
+      <div class="mural-campo">
+        <label for="muralMensagem">Mensagem</label>
+        <textarea id="muralMensagem" name="mensagem" maxlength="240" required placeholder="Escreva sua mensagem para o mural..."></textarea>
+      </div>
+      <!-- Campo-armadilha: invisível pra gente, irresistível pra robô. -->
+      <input type="text" name="jardim" id="muralJardim" tabindex="-1" autocomplete="off" aria-hidden="true" class="mural-jardim">
+      <button type="submit" class="mural-btn-enviar">Colar minha cartinha no mural</button>
+      <p class="mural-status" id="muralStatus" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="mural-parede-wrap">
+      <div class="mural-parede" id="muralParede">
+        <p class="mural-vazio">Carregando o mural...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="./js/script-mural.js?v=20260820"></script>
+</body>
+</html>

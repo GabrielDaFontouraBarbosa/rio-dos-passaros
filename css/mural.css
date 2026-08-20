@@ -1,0 +1,301 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, #fffef8 0%, #fff5dc 42%, #ffe2b8 100%);
+  color: #333;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ---- Header (mesmo padrão da Loja) ---- */
+.mural-header {
+  text-align: center;
+  padding: 32px 20px 16px;
+  position: relative;
+}
+
+.mural-voltar {
+  position: absolute;
+  left: 20px;
+  top: 32px;
+  text-decoration: none;
+  color: #284275;
+  font-weight: 700;
+  background: #fff;
+  border: 2px solid #ffde59;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.mural-header h1 {
+  font-family: 'chaloops', cursive;
+  color: #d94b59;
+  font-size: 2.4rem;
+  margin: 0 0 6px;
+  text-shadow: -1px -1px 0 #FFFEBF, 1px -1px 0 #FFFEBF, -1px 1px 0 #FFFEBF, 1px 1px 0 #FFFEBF;
+}
+
+.mural-header p {
+  color: #555;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+/* ---- Formulário ---- */
+.mural-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mural-form {
+  background: #fff;
+  border: 2px solid #ffde59;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mural-form-linha {
+  display: flex;
+  gap: 14px;
+}
+
+.mural-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.mural-campo-idade { flex: 0 0 110px; }
+
+.mural-campo label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #284275;
+}
+
+.mural-campo input,
+.mural-campo textarea {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  border: 2px solid #ffe2b8;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: #333;
+  background: #fffef8;
+}
+
+.mural-campo input:focus,
+.mural-campo textarea:focus {
+  outline: none;
+  border-color: #6DB3E5;
+}
+
+.mural-campo textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.mural-jardim {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.mural-btn-enviar {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #FE7A59, #FE3C50);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255, 62, 77, 0.25);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.mural-btn-enviar:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.mural-btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.mural-status { font-size: 0.85rem; margin: 0; line-height: 1.45; min-height: 1.2em; }
+.mural-status.neutro { color: #7a5a3a; }
+.mural-status.sucesso { color: #2e7d52; }
+.mural-status.erro { color: #d94b59; }
+
+/* ---- Mural (cortiça) ---- */
+.mural-parede-wrap {
+  border: 10px solid #b0754a;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), inset 0 0 0 4px #8f5c38;
+  overflow: hidden;
+}
+
+.mural-parede {
+  position: relative;
+  min-height: 420px;
+  padding: 36px 28px;
+  background-color: #d8ab72;
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.10) 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1.4px);
+  background-size: 9px 9px, 13px 13px;
+  background-position: 0 0, 4px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 18px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.mural-vazio {
+  margin: auto;
+  color: #5a3d20;
+  font-weight: 600;
+  text-align: center;
+  padding: 40px 16px;
+}
+
+/* ---- Cartinha ---- */
+.cartinha {
+  --rot: 0deg;
+  --desloc: 0px;
+  position: relative;
+  width: 190px;
+  min-height: 150px;
+  padding: 26px 16px 14px;
+  border-radius: 4px;
+  background: #fff9d6;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
+  transform: rotate(var(--rot)) translateY(var(--desloc));
+  transform-origin: center top;
+  animation: cartinha-entrar 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartinha:hover {
+  transform: rotate(0deg) translateY(calc(var(--desloc) - 4px)) scale(1.04);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
+  z-index: 5;
+}
+
+/* Percevejo no topo da cartinha */
+.cartinha::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff8a80, #d94b59 70%);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.cartinha--amarela { background: #fff3b0; }
+.cartinha--rosa { background: #ffd6e8; }
+.cartinha--azul { background: #cfe9ff; }
+.cartinha--verde { background: #d7f5d0; }
+.cartinha--laranja { background: #ffe0bf; }
+
+.cartinha-mensagem {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #333;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.cartinha-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.cartinha-nome {
+  font-family: 'chaloops', cursive;
+  color: #d94b59;
+  font-size: 1.05rem;
+}
+
+.cartinha-idade {
+  font-size: 0.78rem;
+  color: #6a6a6a;
+}
+
+.cartinha-data {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  color: #8a8a8a;
+}
+
+/* Botão de apagar: só aparece pra quem está logado no admin */
+.cartinha-deletar {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #d94b59;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cartinha-deletar:hover { background: #b8394a; }
+
+.mural-admin .cartinha-deletar { display: flex; }
+
+@keyframes cartinha-entrar {
+  from {
+    opacity: 0;
+    transform: rotate(calc(var(--rot) * 2.5)) translateY(calc(var(--desloc) - 18px)) scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--rot)) translateY(var(--desloc)) scale(1);
+  }
+}
+
+.cartinha--saindo {
+  animation: cartinha-sair 0.3s ease both;
+  pointer-events: none;
+}
+
+@keyframes cartinha-sair {
+  from { opacity: 1; transform: rotate(var(--rot)) translateY(var(--desloc)) scale(1); }
+  to { opacity: 0; transform: rotate(calc(var(--rot) * 2)) translateY(calc(var(--desloc) - 24px)) scale(0.6); }
+}
+
+@media (max-width: 600px) {
+  .mural-form-linha { flex-direction: column; }
+  .mural-campo-idade { flex: 1; }
+  .cartinha { width: 44vw; min-width: 150px; }
+  .mural-voltar { position: static; display: inline-block; margin-bottom: 12px; }
+}

@@ -38,12 +38,52 @@
 .navbar ul {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0;
+  padding: 0 44px;
   margin-bottom: 30px;
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+
+.navbar ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Setas pra revelar os itens que não cabem na faixa — sem elas, os botões
+   das pontas ficavam cortados pelo overflow:hidden do .navbar em telas
+   entre o breakpoint mobile e a largura total do menu (~1900px). */
+.navbar-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #4B0082;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.navbar-arrow--left { left: 6px; }
+.navbar-arrow--right { right: 6px; }
 
 .navbar li {
   padding: 15px;
@@ -117,6 +157,10 @@
   }
 
   .navbar::after {
+    display: none;
+  }
+
+  .navbar-arrow {
     display: none;
   }
 

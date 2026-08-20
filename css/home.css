@@ -505,6 +505,80 @@ body {
   }
 }
 
+/* ===== Bilíngue (Home): inglês em cima, português embaixo em cinza — igual ao quiz ===== */
+
+.pt-translation {
+  display: block;
+  color: #999;
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.lado-direito h1 .pt-translation {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  text-shadow: none;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.rodape-apresentacao p .pt-translation {
+  font-size: 0.85em;
+  color: #999;
+  text-shadow: none;
+  font-weight: 500;
+}
+
+.rodape-apresentacao p .pt-translation b {
+  color: #999;
+  font-weight: 700;
+}
+
+.rdp-quiz__title .pt-translation {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: clamp(0.9rem, .85rem + .5vw, 1.1rem);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.rdp-quiz__text .pt-translation {
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.rdp-quiz__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  white-space: normal;
+  text-align: center;
+}
+
+.rdp-quiz__btn .pt-translation {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0;
+}
+
+.passaro-do-dia-carregando .pt-translation {
+  font-size: 0.85em;
+}
+
+.titulo-magico .pt-translation {
+  display: block;
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  color: #666;
+  text-shadow: none;
+  letter-spacing: normal;
+  animation: none;
+  margin-top: 0.3rem;
+}
+
 .joao-objeto {
   position: absolute;
   top: 1024px;

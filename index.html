@@ -156,7 +156,8 @@
     </div>
   </div>
   
-    <nav class="navbar"> 
+    <nav class="navbar">
+        <button type="button" class="navbar-arrow navbar-arrow--left" id="navbarArrowLeft" aria-label="Ver itens anteriores do menu">&#10094;</button>
         <ul>
           <li><a id="btnHome" href="#">Início</a></li>
           <li><a id="btnSobreNos" href="#">Sobre Nós</a></li>
@@ -165,8 +166,10 @@
           <li><a id="btnVideo" href="#">Vídeo</a></li>
           <li><a id="btnMapa" href="#">Mapa</a></li>
           <li><a id="btnLoja" href="./loja.html">Loja</a></li>
+          <li><a id="btnMural" href="./mural.html">Mural</a></li>
           <li><a id="btnListaPassaros" href="./passaros-lista.html"><span>Todos os Pássaros</span></a></li>
         </ul>
+        <button type="button" class="navbar-arrow navbar-arrow--right" id="navbarArrowRight" aria-label="Ver mais itens do menu">&#10095;</button>
     </nav>
 
     <section id="home">
@@ -185,10 +188,10 @@
       
       <!-- Lado direito com texto -->
       <div class="lado-direito">
-        <h1>Bem-vindo ao Rio dos Pássaros!</h1>
-        <p>Seja bem-vindo ao Rio dos Pássaros, um universo encantado onde a natureza e a educação se encontram!</p>
-        <p>Criado em 2010 por George Pretyman, nosso projeto nasceu com a missão de aproximar crianças da biodiversidade brasileira, despertando a curiosidade e o respeito pelos pássaros.</p>
-        <p>Acreditamos que conhecer é o primeiro passo para proteger: quando as crianças aprendem sobre os pássaros, elas desenvolvem um olhar mais consciente e amoroso pelo meio ambiente.</p>
+        <h1>Welcome to Rio dos Pássaros!<span class="pt-translation">Bem-vindo ao Rio dos Pássaros!</span></h1>
+        <p>Welcome to Rio dos Pássaros, an enchanted universe where nature and education meet!<span class="pt-translation">Seja bem-vindo ao Rio dos Pássaros, um universo encantado onde a natureza e a educação se encontram!</span></p>
+        <p>Founded in 2010 by George Pretyman, our project was born with the mission of bringing children closer to Brazilian biodiversity, awakening curiosity and respect for birds.<span class="pt-translation">Criado em 2010 por George Pretyman, nosso projeto nasceu com a missão de aproximar crianças da biodiversidade brasileira, despertando a curiosidade e o respeito pelos pássaros.</span></p>
+        <p>We believe that knowing is the first step toward protecting: when children learn about birds, they develop a more conscious and loving view of the environment.<span class="pt-translation">Acreditamos que conhecer é o primeiro passo para proteger: quando as crianças aprendem sobre os pássaros, elas desenvolvem um olhar mais consciente e amoroso pelo meio ambiente.</span></p>
       </div>
     </div>
 
@@ -197,8 +200,12 @@
       <img src="./images/livros1.png" style="padding: 10px; padding-top: 20px; padding-left: 20px; float: right; height: 100px;">
       <img src="./images/globo.png" style="padding: 10px; padding-right: 20px; float: left; height: 110px;">
       <p>
-        Nosso trabalho vai além das telas! Levamos música, aprendizado e diversão para escolas do Rio de Janeiro, criando momentos inesquecíveis entre crianças, pais e professores. 
-        <b>Quer levar essa experiência para sua escola?</b> Entre em contato e embarque nessa jornada conosco!
+        Our work goes beyond screens! We bring music, learning and fun to schools across Rio de Janeiro, creating unforgettable moments for children, parents and teachers.
+        <b>Want to bring this experience to your school?</b> Get in touch and join us on this journey!
+        <span class="pt-translation">
+          Nosso trabalho vai além das telas! Levamos música, aprendizado e diversão para escolas do Rio de Janeiro, criando momentos inesquecíveis entre crianças, pais e professores.
+          <b>Quer levar essa experiência para sua escola?</b> Entre em contato e embarque nessa jornada conosco!
+        </span>
       </p>
     </div>
   </div>
@@ -213,12 +220,12 @@
     <div class="rdp-quiz__icon" aria-hidden="true">🐦</div>
 
     <div class="rdp-quiz__info">
-      <h2 class="rdp-quiz__title">Quiz do Rio dos Pássaros</h2>
-      <p class="rdp-quiz__text">Topa testar seus conhecimentos sobre nossas aves?</p>
+      <h2 class="rdp-quiz__title">Rio dos Pássaros Quiz<span class="pt-translation">Quiz do Rio dos Pássaros</span></h2>
+      <p class="rdp-quiz__text">Ready to test your knowledge about our birds?<span class="pt-translation">Topa testar seus conhecimentos sobre nossas aves?</span></p>
     </div>
 
     <div class="rdp-quiz__actions">
-      <a class="rdp-quiz__btn" href="./quiz/index.html">Ir para o Quiz</a>
+      <a class="rdp-quiz__btn" href="./quiz/index.html">Go to the Quiz<span class="pt-translation">Ir para o Quiz</span></a>
     </div>
   </div>
 </section>
@@ -226,7 +233,7 @@
   <!-- PÁSSARO DO DIA -->
   <div class="passaro-do-dia-wrap" id="passaroDoDiaWrap">
     <div class="passaro-do-dia-card" id="passaroDoDiaCard">
-      <p class="passaro-do-dia-carregando">Carregando o pássaro do dia...</p>
+      <p class="passaro-do-dia-carregando">Loading the bird of the day...<span class="pt-translation">Carregando o pássaro do dia...</span></p>
     </div>
   </div>
 
@@ -242,7 +249,8 @@
     <div class="titulo-infantil">
    
       <h1 class="titulo-magico">
-        Vídeos<br><span class="destaque-divertido">Divertidos!</span>
+        Fun<br><span class="destaque-divertido">Videos!</span>
+        <span class="pt-translation">Vídeos Divertidos!</span>
       </h1>
     </div>
   
@@ -860,7 +868,8 @@ imagemExpandida.addEventListener('click', () => {
     </div>
     
 
-       <script src="js/bg-color.js?v=20260731" defer></script>
+       <script src="js/script-navbar.js?v=20260820" defer></script>
+    <script src="js/bg-color.js?v=20260731" defer></script>
     <script src="js/script-game.js?v=20260731" defer></script>
     <script src="js/main.js?v=20260731" defer></script>
     <script src="./js/script-aviao.js?v=20260731" defer></script>
