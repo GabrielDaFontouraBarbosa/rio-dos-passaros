@@ -1,7 +1,7 @@
 // URL do Worker que guarda as cartinhas do Mural (ver workers/mural.js).
 // Deixe vazio pra esconder o formulário: enquanto o Worker não estiver no
 // ar, a página aparece normalmente, só sem jeito de postar ou ler nada.
-const URL_MURAL = '';
+const URL_MURAL = 'https://mural-riodospassaros.cmbfontinho.workers.dev';
 
 const parede = document.getElementById('muralParede');
 const form = document.getElementById('muralForm');

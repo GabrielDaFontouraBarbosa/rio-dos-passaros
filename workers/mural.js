@@ -20,7 +20,9 @@ const CHAVE_KV = 'mensagens';
 const MAX_MENSAGENS_GUARDADAS = 300;
 const MAX_NOME = 40;
 const MAX_MENSAGEM = 240;
-const INTERVALO_MINIMO_SEGUNDOS = 15;
+// A KV da Cloudflare exige TTL mínimo de 60s pra chaves com expirationTtl —
+// não dá pra usar um valor menor aqui, senão o put() lança exceção.
+const INTERVALO_MINIMO_SEGUNDOS = 60;
 
 export default {
   async fetch(request, env) {
@@ -116,7 +118,7 @@ async function postar(request, env) {
   const chaveLimite = `rl:${ip}`;
   const jaPostouRecente = await env.MURAL_KV.get(chaveLimite);
   if (jaPostouRecente) {
-    return json(env, { ok: false, erro: 'Calma aí! Espere alguns segundos antes de postar de novo.' }, 429);
+    return json(env, { ok: false, erro: 'Calma aí! Espere um minuto antes de postar de novo.' }, 429);
   }
 
   const nome = String(corpo.nome || '').trim();
