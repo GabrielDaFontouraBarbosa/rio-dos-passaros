@@ -16,13 +16,28 @@
   z-index: 1;
 }
 
-.logo-nuvem {
+.logo-group {
   position: absolute;
-  top: 12%;
+  top: 8%;
   left: 50%;
-  transform: translateX(-44%);
-  z-index: 2;
-  width: clamp(200px, 26vw, 500px);
+  transform: translateX(-50%);
+  z-index: 7; /* acima de criancas/george (3), passaros-atras (4) e passaros-frente (6) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2px, 1vh, 10px);
+}
+
+.logo-river {
+  display: block;
+  width: clamp(320px, 44vw, 760px);
+  height: auto;
+}
+
+.logo-nuvem {
+  display: block;
+  width: clamp(180px, 22vw, 420px);
+  height: auto;
 }
 
 .criancas-banner {
@@ -63,11 +78,16 @@
 }
 
 @media (min-width: 769px) and (max-width: 1400px) {
+  .logo-group {
+    top: 14%;
+  }
+
+  .logo-river {
+    width: clamp(300px, 42vw, 600px);
+  }
+
   .logo-nuvem {
-    top: 20%;
-    left: 20%;
-    transform: translateX(0);
-    width: clamp(250px, 30vw, 400px);
+    width: clamp(160px, 20vw, 320px);
   }
 
   .george-banner {
@@ -95,7 +115,15 @@
     height: 180px;
   }
 
+  .logo-group {
+    top: 4%;
+  }
+
+  .logo-river {
+    width: clamp(260px, 64vw, 460px);
+  }
+
   .logo-nuvem {
-    top: 10%;
+    width: clamp(140px, 34vw, 260px);
   }
 }
