@@ -30,7 +30,7 @@
 
 .logo-river {
   display: block;
-  width: clamp(320px, 44vw, 760px);
+  width: clamp(160px, 44vw, 320px);
   height: auto;
 }
 
@@ -83,7 +83,7 @@
   }
 
   .logo-river {
-    width: clamp(300px, 42vw, 600px);
+    width: clamp(150px, 42vw, 300px);
   }
 
   .logo-nuvem {
